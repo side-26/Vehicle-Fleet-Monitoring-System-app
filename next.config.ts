@@ -4,8 +4,8 @@ const nextConfig: NextConfig = {
   /* config options here */
   experimental: {
     // agentFeedback: true,
-    cssChunking: true,
-    optimizeCss: true,
+    // cssChunking: true,
+    // optimizeCss: true,
   },
   cacheComponents: true,
   partialPrefetching: true,
@@ -17,6 +17,14 @@ const nextConfig: NextConfig = {
       "*.css": {
         loaders: ["@tailwindcss/turbopack"],
         as: "*.css",
+        condition: {
+          not: {
+            path: /\.module\.css$/,
+          },
+        },
+      },
+      "*.module.css": {
+        loaders: ["@tailwindcss/turbopack"],
       },
     },
   },

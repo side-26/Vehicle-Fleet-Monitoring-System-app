@@ -24,9 +24,21 @@ export default defineConfig({
           name: "unit",
           environment: "node",
 
-          include: ["src/**/*.unit.test.{ts,tsx}"],
+          include: ["src/**/*.unit.test.ts"],
 
           setupFiles: ["./tests/setup/unit.setup.ts"],
+        },
+      },
+      {
+        extends: true,
+
+        test: {
+          name: "component",
+          environment: "jsdom",
+
+          include: ["src/**/*.unit.test.tsx"],
+
+          setupFiles: ["./tests/setup/component.setup.ts"],
         },
       },
       {
@@ -41,6 +53,7 @@ export default defineConfig({
           setupFiles: ["./tests/setup/integration.setup.ts"],
         },
       },
+      "./vitest.storybook.config.ts",
     ],
 
     coverage: {

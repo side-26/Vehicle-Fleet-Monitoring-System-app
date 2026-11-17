@@ -1,6 +1,8 @@
 import type { StorybookConfig } from "@storybook/nextjs-vite";
 
-const config: StorybookConfig = {
+import tailwindcss from "@tailwindcss/vite";
+import { mergeConfig } from "vite";
+const storybookConfig: StorybookConfig = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
   addons: [
     "@chromatic-com/storybook",
@@ -8,8 +10,14 @@ const config: StorybookConfig = {
     "@storybook/addon-a11y",
     "@storybook/addon-docs",
     "@storybook/addon-mcp",
+    "storybook-dark-mode",
   ],
   framework: "@storybook/nextjs-vite",
   staticDirs: ["../public"],
+  viteFinal: async (viteConfig) => {
+    return mergeConfig(viteConfig, {
+      plugins: [tailwindcss()],
+    });
+  },
 };
-export default config;
+export default storybookConfig;

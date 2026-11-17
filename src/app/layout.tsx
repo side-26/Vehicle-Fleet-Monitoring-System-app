@@ -33,10 +33,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         manrope.variable,
       )}
     >
-      <body className="tw:min-block-lvh">
-        <main className="tw:flex tw:flex-1 tw:flex-col tw:text-primary tw:sm:text-sm tw:md:text-md tw:lg:text-lg tw:p-5">
-          {children}
-        </main>
+      <body className="tw:min-block-lvh tw:inline-full">
+        <main>{children}</main>
       </body>
     </html>
   );

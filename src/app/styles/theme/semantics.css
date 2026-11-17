@@ -1,0 +1,169 @@
+:root {
+  color-scheme: light;
+
+  /* Base */
+
+  --background: var(--palette-slate-50);
+  --foreground: var(--palette-slate-950);
+
+  /* Surfaces */
+
+  --card: var(--palette-white);
+  --card-foreground: var(--foreground);
+
+  --popover: var(--palette-white);
+  --popover-foreground: var(--foreground);
+
+  /* Actions */
+
+  --primary: var(--palette-petrol-700);
+  --primary-foreground: var(--palette-white);
+
+  --secondary: var(--palette-slate-700);
+  --secondary-foreground: var(--palette-white);
+
+  --destructive: var(--palette-red-700);
+  --destructive-foreground: var(--palette-white);
+
+  /* Feedback */
+
+  --success: var(--palette-green-700);
+  --success-foreground: var(--palette-white);
+
+  --error: var(--palette-red-600);
+  --error-foreground: var(--palette-white);
+
+  --warning: var(--palette-amber-600);
+  --warning-foreground: var(--palette-white);
+
+  --info: var(--palette-blue-700);
+  --info-foreground: var(--palette-white);
+
+  /* Supporting colors */
+
+  --muted: var(--palette-slate-100);
+  --muted-foreground: var(--palette-slate-600);
+
+  --accent: var(--palette-petrol-100);
+  --accent-foreground: var(--palette-petrol-900);
+
+  /* Controls */
+
+  --border: var(--palette-slate-200);
+  --input: var(--palette-slate-300);
+  --ring: var(--palette-petrol-500);
+
+  /* Glass material */
+
+  --glass-surface: var(--palette-white);
+  --glass-highlight: var(--palette-white);
+  --glass-shadow: var(--palette-black);
+  --glass-border: var(--palette-slate-300);
+
+  /* Sidebar */
+
+  --sidebar: var(--palette-slate-50);
+  --sidebar-foreground: var(--foreground);
+
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+
+  --sidebar-accent: var(--accent);
+  --sidebar-accent-foreground: var(--accent-foreground);
+
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+
+  /* Charts */
+
+  --chart-1: var(--palette-petrol-500);
+  --chart-2: var(--palette-green-500);
+  --chart-3: var(--palette-blue-500);
+  --chart-4: var(--palette-amber-500);
+  --chart-5: var(--palette-red-500);
+}
+
+.dark {
+  color-scheme: dark;
+
+  /* Base */
+
+  --background: var(--palette-slate-950);
+  --foreground: var(--palette-slate-50);
+
+  /* Surfaces */
+
+  --card: var(--palette-slate-900);
+  --card-foreground: var(--foreground);
+
+  --popover: var(--palette-slate-900);
+  --popover-foreground: var(--foreground);
+
+  /* Actions */
+
+  --primary: var(--palette-petrol-400);
+  --primary-foreground: var(--palette-petrol-950);
+
+  --secondary: var(--palette-slate-300);
+  --secondary-foreground: var(--palette-slate-950);
+
+  --destructive: var(--palette-red-400);
+  --destructive-foreground: var(--palette-red-950);
+
+  /* Feedback */
+
+  --success: var(--palette-green-400);
+  --success-foreground: var(--palette-green-950);
+
+  --error: var(--palette-red-300);
+  --error-foreground: var(--palette-red-950);
+
+  --warning: var(--palette-amber-400);
+  --warning-foreground: var(--palette-amber-950);
+
+  --info: var(--palette-blue-400);
+  --info-foreground: var(--palette-blue-950);
+
+  /* Supporting colors */
+
+  --muted: var(--palette-slate-800);
+  --muted-foreground: var(--palette-slate-400);
+
+  --accent: var(--palette-petrol-900);
+  --accent-foreground: var(--palette-petrol-100);
+
+  /* Controls */
+
+  --border: var(--palette-slate-800);
+  --input: var(--palette-slate-700);
+  --ring: var(--palette-petrol-400);
+
+  /* Glass material */
+
+  --glass-surface: var(--palette-slate-900);
+  --glass-highlight: var(--palette-white);
+  --glass-shadow: var(--palette-black);
+  --glass-border: var(--palette-slate-600);
+
+  /* Sidebar */
+
+  --sidebar: var(--palette-slate-900);
+  --sidebar-foreground: var(--foreground);
+
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+
+  --sidebar-accent: var(--accent);
+  --sidebar-accent-foreground: var(--accent-foreground);
+
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+
+  /* Charts */
+
+  --chart-1: var(--palette-petrol-400);
+  --chart-2: var(--palette-green-400);
+  --chart-3: var(--palette-blue-400);
+  --chart-4: var(--palette-amber-400);
+  --chart-5: var(--palette-red-400);
+}
