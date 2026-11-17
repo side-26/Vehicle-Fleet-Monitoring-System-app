@@ -110,7 +110,7 @@ npx shadcn@latest add https://api.npoint.io/abc123 --dry-run
 npx shadcn@latest add owner/repo/item --dry-run
 
 # CSS diffs.
-npx shadcn@latest add button --diff globals.css
+npx shadcn@latest add button --diff src/app/styles/globals.css
 ```
 
 **When to use dry-run:**
@@ -118,7 +118,7 @@ npx shadcn@latest add button --diff globals.css
 - When the user asks "what files will this add?" or "what will this change?" — use `--dry-run`.
 - Before overwriting existing components — use `--diff` to preview the changes first.
 - When the user wants to inspect component source code without installing — use `--view`.
-- When checking what CSS changes would be made to `globals.css` — use `--diff globals.css`.
+- When checking what CSS changes would be made to `src/app/styles/globals.css` — use `--diff src/app/styles/globals.css`.
 - When the user asks to review or audit third-party registry code before installing — use `--view` to inspect the source.
 
 > **`npx shadcn@latest add --dry-run` vs `npx shadcn@latest view`:** Prefer `npx shadcn@latest add --dry-run/--diff/--view` over `npx shadcn@latest view` when the user wants to preview changes to their project. `npx shadcn@latest view` only shows raw registry metadata. `npx shadcn@latest add --dry-run` shows exactly what would happen in the user's project: resolved file paths, diffs against existing files, and CSS updates. Use `npx shadcn@latest view` only when the user wants to browse registry info without a project context.
@@ -138,14 +138,14 @@ Supports namespaces (`@acme`), public GitHub registry sources (`owner/repo`),
 and registry catalog URLs. Without `-q`, lists all items. When no registries are
 passed, searches every registry configured in `components.json`.
 
-| Flag                | Short | Description                                       | Default |
-| ------------------- | ----- | ------------------------------------------------- | ------- |
-| `--query <query>`   | `-q`  | Search query                                      | —       |
+| Flag                | Short | Description                                                       | Default |
+| ------------------- | ----- | ----------------------------------------------------------------- | ------- |
+| `--query <query>`   | `-q`  | Search query                                                      | —       |
 | `--type <type>`     | `-t`  | Filter by item type (e.g. `ui`, `block`, `hook`); comma-separated | —       |
-| `--limit <number>`  | `-l`  | Max items to display                              | `100`   |
-| `--offset <number>` | `-o`  | Items to skip                                     | `0`     |
-| `--json`            |       | Output as JSON                                    | `false` |
-| `--cwd <cwd>`       | `-c`  | Working directory                                 | current |
+| `--limit <number>`  | `-l`  | Max items to display                                              | `100`   |
+| `--offset <number>` | `-o`  | Items to skip                                                     | `0`     |
+| `--json`            |       | Output as JSON                                                    | `false` |
+| `--cwd <cwd>`       | `-c`  | Working directory                                                 | current |
 
 ### `view` — View item details
 

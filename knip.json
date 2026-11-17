@@ -1,0 +1,5 @@
+{
+  "$schema": "./node_modules/knip/schema.json",
+  "next": true,
+  "ignore": ["next-env.d.ts", ".next/**", "coverage/**", "out/**", ".agents/**"]
+}

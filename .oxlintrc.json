@@ -1,0 +1,78 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": [
+    "eslint",
+    "typescript",
+    "react",
+    "react-perf",
+    "nextjs",
+    "jsx-a11y",
+    "unicorn",
+    "oxc",
+    "import",
+    "promise",
+    "node"
+  ],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn",
+    "perf": "warn"
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "es2022": true
+  },
+  "rules": {
+    "typescript/no-explicit-any": "error",
+    "typescript/consistent-type-imports": "error",
+
+    "eslint/no-debugger": "error",
+    "eslint/no-console": "warn",
+    "eslint/eqeqeq": "error",
+    "eslint/no-var": "error",
+    "eslint/prefer-const": "error",
+
+    "react/rules-of-hooks": "error",
+    "react/exhaustive-deps": "error",
+    "react/jsx-key": "error",
+    "react/no-direct-mutation-state": "error",
+    "react/react-in-jsx-scope": "off",
+
+    "import/no-cycle": "error",
+    "import/no-duplicates": "error",
+    "import/no-self-import": "error",
+
+    "eslint/no-restricted-imports": [
+      "error",
+      {
+        "patterns": [
+          {
+            "regex": "^\\.\\.(?:/|$)",
+            "message": "Use the @/ alias instead of parent-relative imports."
+          },
+          {
+            "regex": "^(\\./|\\.\\./|@/).*\\.(js|jsx|mjs|cjs)$",
+            "message": "Use TypeScript or extensionless internal imports."
+          }
+        ]
+      }
+    ],
+    "import/no-unassigned-import": [
+      "error",
+      {
+        "allow": ["**/*.css", "**/*.scss", "**/*.sass", "**/*.less"]
+      }
+    ]
+  },
+  "ignorePatterns": [
+    ".next/",
+    "out/",
+    "dist/",
+    "coverage/",
+    "node_modules/",
+    "next-env.d.ts",
+    ".agents/skills",
+    ".claude/skills"
+  ]
+}

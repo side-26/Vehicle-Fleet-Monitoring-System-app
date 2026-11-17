@@ -1,0 +1,22 @@
+import * as matchers from "@testing-library/jest-dom/matchers";
+import { cleanup } from "@testing-library/react";
+import { afterAll, afterEach, beforeAll, expect } from "vitest";
+
+import { server } from "@tests/mocks/server";
+
+expect.extend(matchers);
+
+beforeAll(() => {
+  server.listen({
+    onUnhandledFrame: "error",
+  });
+});
+
+afterEach(() => {
+  cleanup();
+  server.resetHandlers();
+});
+
+afterAll(() => {
+  server.close();
+});

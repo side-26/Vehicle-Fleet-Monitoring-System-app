@@ -52,11 +52,11 @@ Colors use OKLCH: `--primary: oklch(0.205 0 0)` where values are lightness (0–
 Class-based toggle via `.dark` on the root element. In Next.js, use `next-themes`:
 
 ```tsx
-import { ThemeProvider } from "next-themes"
+import { ThemeProvider } from "next-themes";
 
 <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
   {children}
-</ThemeProvider>
+</ThemeProvider>;
 ```
 
 ---
@@ -80,13 +80,13 @@ npx shadcn@latest init --preset nova --force --no-reinstall
 npx shadcn@latest apply --preset "https://ui.shadcn.com/init?base=radix&style=nova&theme=blue&..."
 ```
 
-Or edit CSS variables directly in `globals.css`.
+Or edit CSS variables directly in `src/app/styles/globals.css`.
 
 ---
 
 ## Adding Custom Colors
 
-Add variables to the file at `tailwindCssFile` from `npx shadcn@latest info` (typically `globals.css`). Never create a new CSS file for this.
+Add variables to the file at `tailwindCssFile` from `npx shadcn@latest info` (typically `src/app/styles/globals.css`). Never create a new CSS file for this.
 
 ```css
 /* 1. Define in the global CSS file. */
@@ -117,12 +117,11 @@ module.exports = {
     extend: {
       colors: {
         warning: "oklch(var(--warning) / <alpha-value>)",
-        "warning-foreground":
-          "oklch(var(--warning-foreground) / <alpha-value>)",
+        "warning-foreground": "oklch(var(--warning-foreground) / <alpha-value>)",
       },
     },
   },
-}
+};
 ```
 
 ```tsx
@@ -189,7 +188,7 @@ export function ConfirmDialog({ title, description, onConfirm, children }) {
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
-  )
+  );
 }
 ```
 

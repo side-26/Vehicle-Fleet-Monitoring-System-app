@@ -1,0 +1,30 @@
+{
+  "threshold": 3,
+  "minLines": 8,
+  "minTokens": 50,
+  "mode": "mild",
+  "format": ["typescript", "tsx", "javascript", "jsx"],
+  "reporters": ["console"],
+  "ignore": [
+    "**/node_modules/**",
+    "**/.next/**",
+    "**/.agents/**",
+    "**/.storybook/**",
+    "**/storybook-static/**",
+    "**/coverage/**",
+    "**/playwright-report/**",
+    "**/test-results/**",
+    "**/out/**",
+    "**/dist/**",
+    "**/components/ui/**",
+    "**/*.stories.ts",
+    "**/*.stories.tsx",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/*.spec.ts",
+    "**/*.spec.tsx",
+    "**/*.d.ts"
+  ],
+  "absolute": false,
+  "gitignore": true
+}
