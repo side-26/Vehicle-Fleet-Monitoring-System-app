@@ -48,11 +48,15 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-async function expectOpen(canvasElement: HTMLElement, triggerName = "Open drawer") {
+async function expectOpen(
+  canvasElement: HTMLElement,
+  triggerName = "Open drawer",
+  description = "Choose vehicles to display.",
+) {
   await userEvent.click(within(canvasElement).getByRole("button", { name: triggerName }));
   const dialog = await within(document.body).findByRole("dialog", { name: "Fleet filters" });
   await expect(dialog).toBeVisible();
-  await expect(within(dialog).getByText("Choose vehicles to display.")).toBeVisible();
+  await expect(dialog).toHaveAccessibleDescription(description);
   return dialog;
 }
 
@@ -106,7 +110,7 @@ export const Directions: Story = {
     </div>
   ),
   play: async ({ canvasElement }) => {
-    const dialog = await expectOpen(canvasElement, "Open down");
+    const dialog = await expectOpen(canvasElement, "Open down", "down drawer");
     await expect(dialog).toHaveAttribute("data-swipe-direction", "down");
     await userEvent.click(within(dialog).getByRole("button", { name: "Close drawer" }));
     await waitFor(() =>

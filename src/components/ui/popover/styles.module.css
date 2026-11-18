@@ -1,0 +1,30 @@
+@reference "../../../app/styles/globals.css";
+
+@layer popover {
+  .positioner {
+    @apply tw:isolate tw:z-50;
+  }
+  .content {
+    @apply tw:z-50 tw:flex tw:flex-col tw:gap-2 tw:rounded-lg tw:bg-popover tw:p-3 tw:text-sm tw:text-popover-foreground tw:shadow-md tw:ring-1 tw:ring-foreground/10 tw:outline-none;
+    inline-size: 18rem;
+    max-inline-size: calc(100vw - 2rem);
+    transform-origin: var(--transform-origin);
+    transition:
+      opacity 150ms ease,
+      scale 150ms ease;
+  }
+  .content[data-starting-style],
+  .content[data-ending-style] {
+    opacity: 0;
+    scale: 0.95;
+  }
+  .header {
+    @apply tw:flex tw:flex-col tw:gap-1;
+  }
+  .title {
+    @apply tw:font-medium tw:text-popover-foreground;
+  }
+  .description {
+    @apply tw:text-muted-foreground;
+  }
+}
