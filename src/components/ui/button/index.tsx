@@ -12,16 +12,25 @@ export function Button({
   color = "primary",
   size = "md",
   className,
+  loading = false,
+  loadingText,
+  children,
+  disabled,
   ...props
 }: ButtonProps) {
   return (
     <ButtonPrimitive
       {...props}
+      aria-busy={loading || undefined}
       data-slot="button"
       data-variant={variant}
       data-color={color}
       data-size={size}
+      data-loading={loading || undefined}
+      disabled={disabled || loading}
       className={cn(styles.button, className)}
-    />
+    >
+      {loading ? loadingText : children}
+    </ButtonPrimitive>
   );
 }

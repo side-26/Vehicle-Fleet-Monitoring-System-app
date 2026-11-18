@@ -9,7 +9,13 @@ function handleButtonClick() {
 export default function Home() {
   return (
     <RouteContainer className="tw:text-red-500 tw:flex tw:justify-center tw:items-center tw:h-screen">
-      <Button variant="filled" color="primary" size="xl" onClick={handleButtonClick}>
+      <Button
+        aria-label="Click me"
+        variant="filled"
+        color="primary"
+        size="xl"
+        onClick={handleButtonClick}
+      >
         Click me
       </Button>
     </RouteContainer>

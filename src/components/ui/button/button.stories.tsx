@@ -44,6 +44,7 @@ const meta = {
   },
 
   args: {
+    "aria-label": "Button",
     variant: "filled",
     color: "primary",
     size: "md",
@@ -95,11 +96,20 @@ export const Disabled: Story = {
   },
 };
 
+export const Loading: Story = {
+  args: {
+    "aria-label": "Saving changes",
+    children: "Save changes",
+    loading: true,
+    loadingText: "Saving changes…",
+  },
+};
+
 export const AllVariants: Story = {
   render: (args) => (
     <div className="tw:flex tw:flex-wrap tw:items-center tw:gap-4">
       {BUTTON_VARIANTS.map((variant) => (
-        <Button {...args} key={variant} variant={variant}>
+        <Button {...args} key={variant} aria-label={variant} variant={variant}>
           {variant}
         </Button>
       ))}
@@ -111,7 +121,7 @@ export const AllColors: Story = {
   render: (args) => (
     <div className="tw:flex tw:flex-wrap tw:items-center tw:gap-4">
       {BUTTON_COLORS.map((color) => (
-        <Button {...args} key={color} color={color}>
+        <Button {...args} key={color} aria-label={color} color={color}>
           {color}
         </Button>
       ))}
@@ -123,7 +133,7 @@ export const AllSizes: Story = {
   render: (args) => (
     <div className="tw:flex tw:flex-wrap tw:items-center tw:gap-4">
       {BUTTON_SIZES.map((size) => (
-        <Button {...args} key={size} size={size}>
+        <Button {...args} key={size} aria-label={size} size={size}>
           {size.toUpperCase()}
         </Button>
       ))}
@@ -141,7 +151,13 @@ export const VariantMatrix: Story = {
       {BUTTON_COLORS.map((color) => (
         <div key={color} className="tw:flex tw:items-center tw:gap-4">
           {BUTTON_VARIANTS.map((variant) => (
-            <Button {...args} key={variant} color={color} variant={variant}>
+            <Button
+              {...args}
+              key={variant}
+              aria-label={`${color} ${variant}`}
+              color={color}
+              variant={variant}
+            >
               {variant}
             </Button>
           ))}
