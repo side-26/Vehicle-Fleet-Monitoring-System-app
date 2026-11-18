@@ -1,6 +1,5 @@
-import { test as base, expect } from "@playwright/test";
-
 import { DEFAULT_NETWORK, NETWORK_PROFILES } from "@playwright/performance/config/network";
+import { test as base, expect } from "@playwright/test";
 
 export const test = base.extend({
   page: async ({ page, context }, runTest) => {

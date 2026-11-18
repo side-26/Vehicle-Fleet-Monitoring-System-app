@@ -1,9 +1,9 @@
-import { describe, it, expect, afterEach, assert } from "vitest";
-import { render, screen, cleanup } from "@testing-library/react";
 import * as jestDomMatchers from "@testing-library/jest-dom/vitest";
+import { render, screen, cleanup } from "@testing-library/react";
+import { describe, it, expect, afterEach, assert } from "vitest";
 
-import Container from "./index";
 import styles from "./container.module.css";
+import Container from "./index";
 
 const containerClass = styles.container;
 void jestDomMatchers;

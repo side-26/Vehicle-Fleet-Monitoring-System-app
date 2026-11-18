@@ -1,5 +1,5 @@
-import path from "node:path";
 import { mkdir, writeFile } from "node:fs/promises";
+import path from "node:path";
 
 import type { collectMetrics } from "./collect-metrics";
 

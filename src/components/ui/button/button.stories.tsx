@@ -1,14 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-
 import { fn } from "storybook/test";
-
-import { Button } from "./index";
 
 import {
   buttonVariants as BUTTON_VARIANTS,
   buttonSizes as BUTTON_SIZES,
   buttonColor as BUTTON_COLORS,
 } from "./button.types";
+import { Button } from "./index";
 
 const meta = {
   title: "Shared/UI/Button",

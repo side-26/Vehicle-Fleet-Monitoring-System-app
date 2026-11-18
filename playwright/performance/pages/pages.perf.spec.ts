@@ -1,13 +1,8 @@
-import { test, expect } from "@playwright/performance/fixtures/performance.fixture";
-
-import { PERFORMANCE_ROUTES } from "@playwright/performance/config/routes";
-
 import { PERFORMANCE_BUDGETS } from "@playwright/performance/config/budgets";
-
 import { DEFAULT_NETWORK } from "@playwright/performance/config/network";
-
+import { PERFORMANCE_ROUTES } from "@playwright/performance/config/routes";
+import { test, expect } from "@playwright/performance/fixtures/performance.fixture";
 import { initializeMetrics, collectMetrics } from "@playwright/performance/utils/collect-metrics";
-
 import { savePerformanceReport } from "@playwright/performance/utils/save-report";
 
 for (const route of PERFORMANCE_ROUTES) {

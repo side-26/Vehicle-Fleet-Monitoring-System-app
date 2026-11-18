@@ -1,5 +1,4 @@
 import type { StorybookConfig } from "@storybook/nextjs-vite";
-
 import tailwindcss from "@tailwindcss/vite";
 import { mergeConfig } from "vite";
 const storybookConfig: StorybookConfig = {

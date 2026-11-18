@@ -11,6 +11,38 @@
   "bracketSameLine": false,
   "arrowParens": "always",
   "endOfLine": "lf",
+  "sortImports": {
+    "customGroups": [
+      {
+        "elementNamePattern": ["react", "react/**", "next", "next/**"],
+        "groupName": "react_next",
+        "selector": "external"
+      },
+      {
+        "elementNamePattern": ["@/shared", "@/shared/**"],
+        "groupName": "shared",
+        "selector": "internal"
+      },
+      {
+        "elementNamePattern": ["@/domains", "@/domains/**"],
+        "groupName": "domains",
+        "selector": "internal"
+      }
+    ],
+    "groups": [
+      ["value-builtin", "type-builtin"],
+      "react_next",
+      ["value-external", "type-external", "value-subpath", "type-subpath"],
+      "shared",
+      "domains",
+      ["value-internal", "type-internal"],
+      ["value-parent", "type-parent", "value-sibling", "type-sibling", "value-index", "type-index"],
+      "side_effect_style",
+      "unknown"
+    ],
+    "newlinesBetween": true,
+    "sortSideEffects": false
+  },
   "ignorePatterns": [
     "**/node_modules/**",
     ".next/**",

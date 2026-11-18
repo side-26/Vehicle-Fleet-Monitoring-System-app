@@ -1,8 +1,9 @@
-import { defineConfig } from "vitest/config";
-import { storybookTest } from "@storybook/addon-vitest/vitest-plugin";
-import { playwright } from "@vitest/browser-playwright";
-import tailwindcss from "@tailwindcss/vite";
 import { fileURLToPath } from "node:url";
+
+import { storybookTest } from "@storybook/addon-vitest/vitest-plugin";
+import tailwindcss from "@tailwindcss/vite";
+import { playwright } from "@vitest/browser-playwright";
+import { defineConfig } from "vitest/config";
 
 export default defineConfig({
   resolve: {
