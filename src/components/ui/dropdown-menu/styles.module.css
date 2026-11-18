@@ -1,0 +1,53 @@
+@reference "../../../app/styles/globals.css";
+
+@layer dropdown-menu {
+  .positioner {
+    @apply tw:z-50 tw:outline-none;
+  }
+  .content {
+    @apply tw:z-50 tw:min-w-32 tw:overflow-y-auto tw:rounded-lg tw:bg-popover tw:p-1 tw:text-popover-foreground tw:shadow-md tw:ring-1 tw:ring-foreground/10 tw:outline-none;
+    max-block-size: var(--available-height);
+  }
+  .label {
+    @apply tw:px-2 tw:py-1 tw:text-xs tw:font-medium tw:text-muted-foreground;
+  }
+  .item {
+    @apply tw:relative tw:flex tw:cursor-default tw:items-center tw:gap-2 tw:rounded-md tw:px-2 tw:py-1 tw:text-sm tw:outline-none tw:select-none;
+  }
+  .item[data-highlighted] {
+    @apply tw:bg-accent tw:text-accent-foreground;
+  }
+  .item[data-disabled] {
+    @apply tw:pointer-events-none tw:opacity-50;
+  }
+  .item[data-variant="destructive"] {
+    @apply tw:text-destructive;
+  }
+  .item[data-inset],
+  .label[data-inset] {
+    padding-inline-start: 1.75em;
+  }
+  .subTrigger {
+    @apply tw:justify-between;
+  }
+  .subTrigger svg {
+    @apply tw:size-4;
+  }
+  .checkable {
+    padding-inline-start: 2em;
+  }
+  .indicator {
+    @apply tw:absolute tw:inline-flex tw:items-center;
+    inset-inline-start: 0.5em;
+  }
+  .indicator svg {
+    @apply tw:size-4;
+  }
+  .separator {
+    @apply tw:my-1 tw:bg-border;
+    block-size: 1px;
+  }
+  .shortcut {
+    @apply tw:ms-auto tw:text-xs tw:tracking-widest tw:text-muted-foreground;
+  }
+}
