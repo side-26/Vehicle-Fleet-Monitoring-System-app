@@ -1,0 +1,19 @@
+@reference "../../../app/styles/globals.css";
+
+@layer spinner {
+  .spinner {
+    @apply tw:size-4 tw:shrink-0 tw:animate-spin;
+  }
+  .small {
+    @apply tw:size-3;
+  }
+  .large {
+    @apply tw:size-6;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .spinner {
+      animation: none;
+    }
+  }
+}
