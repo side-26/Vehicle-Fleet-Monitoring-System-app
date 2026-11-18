@@ -9,6 +9,13 @@ const preview = {
   parameters: {
     layout: "centered",
 
+    darkMode: {
+      classTarget: "html",
+      darkClass: "dark",
+      lightClass: "light",
+      stylePreview: true,
+    },
+
     nextjs: {
       appDirectory: true,
     },

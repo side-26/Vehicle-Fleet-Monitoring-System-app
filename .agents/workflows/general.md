@@ -86,6 +86,10 @@ For compound components, keep all related parts in the same folder, document and
 
 Add Storybook stories that demonstrate the default appearance and every public state or variant, including applicable colors, sizes, disabled states, and compound arrangements. Add Vitest coverage for the component's public props and states, interactions, and accessibility behavior. Keep component-specific types and constants in the component folder rather than scattering them into shared modules.
 
+### Storybook checks
+
+Document each public control with an explicit type and description. Show every color, size, variant, and their relevant combinations in named stories. Add browser story tests that assert accessible roles, heading levels, names, and visible content for each rendered state. Configure the Storybook accessibility addon with `a11y.test: "error"` so its axe audit fails the Storybook test on violations, including color contrast. Include labels that help QA identify each state under inspection.
+
 Do not style UI components with Tailwind classes in JSX. Use CSS Modules and native CSS inside a named component layer, for example `@layer button { .button { ... } }`. If using Tailwind utilities through `@apply` in a component CSS Module is needed, ask the user for approval first; after approval, keep those utilities in the CSS Module. This approval requirement applies to future component work.
 
 For glassmorphism, reuse the existing `glass-interactive` utility from `src/app/styles/glassmorphism-styles.css` through the component's CSS Module instead of duplicating its declarations.

@@ -1,0 +1,100 @@
+@reference "../../../app/styles/globals.css";
+
+@layer components {
+  .card {
+    @apply tw:glass-interactive tw:flex tw:flex-col tw:gap-[var(--card-spacing)];
+    @apply tw:overflow-hidden tw:rounded-xl tw:border tw:border-foreground/10;
+    @apply tw:py-[var(--card-spacing)] tw:text-sm tw:text-foreground;
+
+    --card-color: var(--muted);
+    --card-spacing: 1em;
+
+    &[data-color="primary"] {
+      --card-color: var(--primary);
+      --card-foreground: var(--primary-foreground);
+    }
+
+    &[data-color="secondary"] {
+      --card-color: var(--secondary);
+      --card-foreground: var(--secondary-foreground);
+    }
+
+    &[data-color="neutral"] {
+      --card-color: var(--muted);
+      --card-foreground: var(--foreground);
+      @apply tw:text-foreground;
+    }
+
+    &[data-size="xs"] {
+      --card-spacing: 0.5em;
+      @apply tw:text-xs;
+    }
+
+    &[data-size="sm"] {
+      --card-spacing: 0.75em;
+      @apply tw:text-[0.8125rem];
+    }
+
+    &[data-size="md"] {
+      --card-spacing: 1em;
+      @apply tw:text-sm;
+    }
+
+    &[data-size="lg"] {
+      --card-spacing: 1.25em;
+      @apply tw:text-base;
+    }
+
+    &[data-variant="fill"] {
+      @apply tw:bg-[var(--card-color)];
+
+      &[data-color="primary"] {
+        @apply tw:text-primary-foreground;
+      }
+
+      &[data-color="secondary"] {
+        @apply tw:text-secondary-foreground;
+      }
+    }
+
+    &[data-variant="tonal"] {
+      @apply tw:bg-[color-mix(in_oklch,var(--card-color)_18%,transparent)];
+    }
+
+    &[data-variant="ghost"] {
+      @apply tw:bg-transparent tw:shadow-none tw:backdrop-filter-none;
+    }
+
+    &[data-size="xs"],
+    &[data-size="sm"] {
+      & [data-slot="card-footer"] {
+        margin-block-end: calc(-1 * var(--card-spacing));
+      }
+    }
+  }
+
+  .header {
+    @apply tw:grid tw:grid-cols-[1fr_auto] tw:gap-x-4 tw:gap-y-1 tw:items-start tw:px-[var(--card-spacing)];
+  }
+
+  .title {
+    @apply tw:col-start-1 tw:row-start-1 tw:m-0 tw:text-lg tw:font-semibold tw:leading-snug;
+  }
+
+  .description {
+    @apply tw:col-start-1 tw:row-start-2 tw:m-0;
+  }
+
+  .action {
+    @apply tw:col-start-2 tw:row-span-2 tw:row-start-1 tw:justify-self-end;
+  }
+
+  .content {
+    @apply tw:px-[var(--card-spacing)];
+  }
+
+  .footer {
+    @apply tw:flex tw:items-center tw:gap-2 tw:border-t tw:border-foreground/10;
+    @apply tw:p-[var(--card-spacing)] tw:mb-[calc(var(--card-spacing)*-1)];
+  }
+}
