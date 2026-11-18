@@ -48,7 +48,7 @@ describe("DropdownMenu", () => {
     );
     expect(onOpenChange).toHaveBeenCalledWith(false, expect.anything());
   });
-  it("stays open when scrolling inside the popup", () => {
+  it("stays open when scrolling inside the popup", async () => {
     render(<TestMenu />);
     fireEvent.scroll(screen.getByRole("menu"));
     expect(screen.getByRole("menuitem", { name: "View vehicles" })).toBeInTheDocument();

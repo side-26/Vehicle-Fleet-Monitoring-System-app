@@ -30,7 +30,7 @@ type Story = StoryObj<typeof meta>;
 export const Loaded: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    await expect(canvas.getByRole("img", { name: "Fleet operator portrait" })).toBeVisible();
+    await expect(await canvas.findByRole("img", { name: "Fleet operator portrait" })).toBeVisible();
   },
 };
 

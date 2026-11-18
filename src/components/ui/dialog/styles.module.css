@@ -1,0 +1,45 @@
+@reference "../../../app/styles/globals.css";
+
+@layer dialog {
+  .overlay {
+    @apply tw:fixed tw:inset-0 tw:z-50 tw:bg-black/40 tw:backdrop-blur-xs;
+  }
+  .content {
+    @apply tw:fixed tw:top-1/2 tw:z-50 tw:grid tw:gap-4 tw:rounded-xl tw:bg-popover tw:p-4 tw:text-popover-foreground tw:shadow-lg tw:ring-1 tw:ring-foreground/10 tw:outline-none;
+    inset-inline-start: 50%;
+    translate: -50% -50%;
+    inline-size: min(calc(100% - 2rem), var(--dialog-max-inline-size));
+    --dialog-max-inline-size: 28rem;
+  }
+  .content[data-size="sm"] {
+    --dialog-max-inline-size: 22rem;
+  }
+  .content[data-size="md"] {
+    --dialog-max-inline-size: 28rem;
+  }
+  .content[data-size="lg"] {
+    --dialog-max-inline-size: 36rem;
+  }
+  .content[data-size="xl"] {
+    --dialog-max-inline-size: 48rem;
+  }
+  .content[data-glassy] {
+    @apply tw:glass-interactive tw:bg-[color-mix(in_oklch,var(--popover)_85%,transparent)];
+  }
+  .closeButton {
+    @apply tw:absolute tw:top-2;
+    inset-inline-end: 0.5rem;
+  }
+  .header {
+    @apply tw:flex tw:flex-col tw:gap-2;
+  }
+  .footer {
+    @apply tw:flex tw:flex-col-reverse tw:gap-2 tw:border-t tw:border-border tw:pt-4 tw:sm:flex-row tw:sm:justify-end;
+  }
+  .title {
+    @apply tw:text-base tw:font-medium tw:leading-snug;
+  }
+  .description {
+    @apply tw:text-sm tw:text-muted-foreground;
+  }
+}

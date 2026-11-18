@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { expect, userEvent, within } from "storybook/test";
+import { expect, userEvent, waitFor, within } from "storybook/test";
 
 import {
   DropdownMenu,
@@ -50,7 +50,7 @@ export const Default: Story = {
     const canvas = within(canvasElement);
     await userEvent.click(canvas.getByRole("button", { name: "Open menu" }));
     await expect(
-      within(document.body).getByRole("menuitem", { name: /View vehicles/ }),
+      await within(document.body).findByRole("menuitem", { name: /View vehicles/ }),
     ).toBeVisible();
   },
 };
@@ -74,9 +74,11 @@ export const CheckboxAndRadio: Story = {
   play: async ({ canvasElement }) => {
     await userEvent.click(within(canvasElement).getByRole("button", { name: "Preferences" }));
     await expect(
-      within(document.body).getByRole("menuitemcheckbox", { name: "Show map" }),
+      await within(document.body).findByRole("menuitemcheckbox", { name: "Show map" }),
     ).toBeVisible();
-    await expect(within(document.body).getByRole("menuitemradio", { name: "List" })).toBeVisible();
+    await expect(
+      await within(document.body).findByRole("menuitemradio", { name: "List" }),
+    ).toBeVisible();
   },
 };
 export const Submenu: Story = {
@@ -97,7 +99,9 @@ export const Submenu: Story = {
   ),
   play: async ({ canvasElement }) => {
     await userEvent.click(within(canvasElement).getByRole("button", { name: "More actions" }));
-    await expect(within(document.body).getByRole("menuitem", { name: "Share" })).toBeVisible();
+    await expect(
+      await within(document.body).findByRole("menuitem", { name: "Share" }),
+    ).toBeVisible();
   },
 };
 export const ClosesOnOutsideScroll: Story = {
@@ -120,11 +124,13 @@ export const ClosesOnOutsideScroll: Story = {
     const canvas = within(canvasElement);
     await userEvent.click(canvas.getByRole("button", { name: "Scroll test menu" }));
     await expect(
-      within(document.body).getByRole("menuitem", { name: "View vehicles" }),
+      await within(document.body).findByRole("menuitem", { name: "View vehicles" }),
     ).toBeVisible();
     canvas.getByTestId("outside-scroll").dispatchEvent(new Event("scroll", { bubbles: false }));
-    await expect(
-      within(document.body).queryByRole("menuitem", { name: "View vehicles" }),
-    ).not.toBeInTheDocument();
+    await waitFor(() =>
+      expect(
+        within(document.body).queryByRole("menuitem", { name: "View vehicles" }),
+      ).not.toBeInTheDocument(),
+    );
   },
 };

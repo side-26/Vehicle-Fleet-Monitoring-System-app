@@ -32,8 +32,14 @@ export function DropdownMenu({ open, defaultOpen, onOpenChange, ...props }: Drop
 
   useEffect(() => {
     if (!isOpen) return;
+    const openedAt = performance.now();
     const handleScroll = (event: Event) => {
       const target = event.target;
+      if (
+        (target === document || target === document.documentElement) &&
+        performance.now() - openedAt < 100
+      )
+        return;
       if (
         target instanceof Node &&
         target instanceof Element &&
@@ -46,7 +52,9 @@ export function DropdownMenu({ open, defaultOpen, onOpenChange, ...props }: Drop
       >[1]);
     };
     document.addEventListener("scroll", handleScroll, true);
-    return () => document.removeEventListener("scroll", handleScroll, true);
+    return () => {
+      document.removeEventListener("scroll", handleScroll, true);
+    };
   }, [isOpen, onOpenChange]);
 
   return (
