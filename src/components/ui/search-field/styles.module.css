@@ -1,0 +1,5 @@
+@layer search-field {
+  :where(.input)::-webkit-search-cancel-button {
+    appearance: none;
+  }
+}
