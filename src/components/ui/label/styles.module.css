@@ -1,0 +1,13 @@
+@reference "../../../app/styles/globals.css";
+
+@layer label {
+  :where(.label) {
+    @apply tw:flex tw:items-center tw:gap-[0.5em] tw:text-sm tw:leading-none tw:font-medium tw:select-none;
+  }
+  :where([data-disabled="true"] .label) {
+    @apply tw:pointer-events-none tw:opacity-50;
+  }
+  :where(:disabled ~ .label) {
+    @apply tw:cursor-not-allowed tw:opacity-50;
+  }
+}
