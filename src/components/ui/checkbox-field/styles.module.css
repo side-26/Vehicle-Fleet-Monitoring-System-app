@@ -24,6 +24,12 @@
   :where(.root [data-slot="field-label"], .root [data-slot="field-description"]) {
     @apply tw:text-foreground;
   }
+  :where(
+    .root:has([aria-invalid="true"]:not([data-disabled])) [data-slot="field-label"],
+    .root:has([aria-invalid="true"]:not([data-disabled])) [data-slot="field-description"]
+  ) {
+    @apply tw:text-error;
+  }
   :where(.checkbox) {
     color: var(--field-color);
     @apply tw:relative tw:flex tw:size-[1em] tw:mt-[0.25em] tw:shrink-0 tw:items-center tw:justify-center tw:rounded-[0.25em] tw:border tw:border-current tw:bg-transparent tw:text-[1em] tw:outline-none tw:transition-colors;

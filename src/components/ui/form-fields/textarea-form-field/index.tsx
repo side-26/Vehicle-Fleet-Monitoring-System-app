@@ -1,9 +1,9 @@
 "use client";
 
-import { useController, useFormContext } from "react-hook-form";
 import type { FieldValues } from "react-hook-form";
 
 import { TextareaField } from "@/components/ui/textarea-field";
+import { useFormField } from "@/hooks/use-form-field";
 
 import type { TextareaFormFieldProps } from "./textarea-form-field.types";
 
@@ -17,19 +17,13 @@ export function TextareaFormField<TFields extends FieldValues>({
   message = "",
   ...props
 }: TextareaFormFieldProps<TFields>) {
-  const { control } = useFormContext<TFields>();
-  const requiredRule = rules?.required;
-  const isRequired =
-    required ?? Boolean(typeof requiredRule === "object" ? requiredRule.value : requiredRule);
-  const { field, fieldState, formState } = useController({
+  const { field, fieldState, isRequired, validated } = useFormField<TFields>({
     name,
-    control,
-    disabled,
+    rules,
     shouldUnregister,
-    rules: { ...rules, required: requiredRule ?? (isRequired ? "This field is required." : false) },
+    required,
+    disabled,
   });
-  const validated =
-    formState.isSubmitted || (formState.isValid && (fieldState.isTouched || fieldState.isDirty));
   return (
     <TextareaField
       {...props}

@@ -1,0 +1,3 @@
+# Checkbox form field
+
+Boolean React Hook Form adapter composing CheckboxField inside the existing Form provider. Uses useController and typed boolean field paths, binds checked/onCheckedChange instead of value/onChange, and forwards blur, disabled state and focus ref. Defaults belong in Form. Required rules and explicit required props set UI requiredness. Errors replace helper messages; aria-invalid and data-validated drive base field CSS colors. Label and description retain foreground color except during validation errors, when they use error color. Tests cover defaults, disabled state, validation, focus, corrected boolean submission and helper restoration.
