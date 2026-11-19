@@ -1,0 +1,63 @@
+@import "../../../app/styles/animations.css";
+@reference "../../../app/styles/globals.css";
+
+@layer textarea-field {
+  :where(.input[data-auto-resize="false"]) {
+    @apply tw:field-sizing-fixed!;
+  }
+  :where(.input[data-auto-resize="true"]) {
+    @apply tw:field-sizing-content!;
+  }
+
+  :where(.message) {
+    @apply tw:min-block-lh tw:m-0;
+  }
+  :where(.message > span) {
+    @apply tw:block;
+  }
+  :where(.root) {
+    --field-color: var(--foreground);
+    color: var(--field-color);
+  }
+  :where(.root[data-color="primary"]) {
+    --field-color: var(--primary);
+  }
+  :where(.root[data-color="secondary"]) {
+    --field-color: var(--secondary);
+  }
+  :where(.root[data-color="success"]) {
+    --field-color: var(--success);
+  }
+  :where(.root[data-color="error"]) {
+    --field-color: var(--error);
+  }
+  :where(.root:has(.input[data-validated="true"]:not([aria-invalid="true"]):not(:disabled))) {
+    --field-color: var(--success);
+  }
+  :where(.root:has(.input[aria-invalid="true"]:not(:disabled))) {
+    --field-color: var(--error);
+  }
+  :where(.root [data-slot="field-label"], .root [data-slot="field-description"]) {
+    @apply tw:text-inherit;
+  }
+  :where(.group) {
+    @apply tw:border-current tw:outline-2 tw:outline-transparent tw:outline-offset-0 tw:transition-[border-color,outline-color,background-color,color] tw:duration-200 tw:ease-out tw:motion-reduce:transition-none;
+  }
+  :where(.input) {
+    @apply tw:text-[1em];
+  }
+  :where(.group:has([data-slot="input-group-control"]:focus-visible)) {
+    @apply tw:border-transparent;
+    @apply tw:outline-(--field-color);
+  }
+  :where(.root[data-variant="fill"] .group) {
+    background: var(--field-color);
+    color: var(--background);
+  }
+  :where(.root[data-variant="tonal"] .group) {
+    background: color-mix(in oklch, var(--field-color) 12%, transparent);
+  }
+  :where(.root[data-variant="ghost"] .group) {
+    @apply tw:border-transparent;
+  }
+}
