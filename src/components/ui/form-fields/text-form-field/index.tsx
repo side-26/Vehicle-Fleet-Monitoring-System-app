@@ -36,7 +36,8 @@ export function TextFormField<TFields extends FieldValues>({
       {...field}
       value={field.value ?? ""}
       required={isRequired}
-      color={fieldState.invalid ? "error" : validated ? "success" : color}
+      color={color}
+      data-validated={validated || undefined}
       message={fieldState.error?.message ?? message}
       aria-invalid={fieldState.invalid || undefined}
     />
