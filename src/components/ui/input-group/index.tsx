@@ -4,7 +4,6 @@
 import { Input as InputPrimitive } from "@base-ui/react/input";
 
 import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 
 import type {
@@ -85,7 +84,7 @@ export function InputGroupInput({ className, ...props }: InputGroupInputProps) {
 }
 export function InputGroupTextarea({ className, ...props }: InputGroupTextareaProps) {
   return (
-    <Textarea
+    <textarea
       {...props}
       data-slot="input-group-control"
       className={cn(styles.control, styles.textarea, className)}
@@ -96,4 +95,15 @@ export function InputGroupTextarea({ className, ...props }: InputGroupTextareaPr
 /** Standalone Base UI input; grouped controls use InputGroupInput. */
 export function Input({ className, ...props }: InputGroupInputProps) {
   return <InputPrimitive {...props} data-slot="input" className={cn(styles.input, className)} />;
+}
+
+/** Standalone textarea; grouped controls use InputGroupTextarea. */
+export function Textarea({ className, ...props }: InputGroupTextareaProps) {
+  return (
+    <textarea
+      {...props}
+      data-slot="textarea"
+      className={cn(styles.standaloneTextarea, className)}
+    />
+  );
 }

@@ -1,7 +1,6 @@
 import type { ComponentProps } from "react";
 
 import type { Button } from "@/components/ui/button";
-import type { Textarea } from "@/components/ui/textarea";
 
 export const inputGroupAlignments = [
   "inline-start",
@@ -21,4 +20,4 @@ type WithGroupSize<T> = T extends unknown
 export type InputGroupButtonProps = WithGroupSize<ComponentProps<typeof Button>>;
 export type InputGroupTextProps = Readonly<ComponentProps<"span">>;
 export type InputGroupInputProps = Readonly<ComponentProps<"input">>;
-export type InputGroupTextareaProps = Readonly<ComponentProps<typeof Textarea>>;
+export type InputGroupTextareaProps = Readonly<ComponentProps<"textarea">>;

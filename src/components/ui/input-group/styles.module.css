@@ -1,6 +1,22 @@
 @reference "../../../app/styles/globals.css";
 
 @layer input-group {
+  :where(.standaloneTextarea) {
+    @apply tw:flex tw:field-sizing-content tw:min-block-[4em] tw:inline-full tw:rounded-[0.5em] tw:border tw:border-input tw:bg-transparent tw:px-[0.625em] tw:py-[0.5em] tw:text-base tw:transition-colors tw:outline-none tw:md:text-sm tw:dark:bg-input/30;
+  }
+  :where(.standaloneTextarea)::placeholder {
+    @apply tw:text-muted-foreground;
+  }
+  :where(.standaloneTextarea:focus-visible) {
+    @apply tw:border-ring tw:ring-3 tw:ring-ring/50;
+  }
+  :where(.standaloneTextarea:disabled) {
+    @apply tw:cursor-not-allowed tw:bg-input/50 tw:opacity-50 tw:dark:bg-input/80;
+  }
+  :where(.standaloneTextarea[aria-invalid="true"]) {
+    @apply tw:border-destructive tw:ring-3 tw:ring-destructive/20 tw:dark:border-destructive/50 tw:dark:ring-destructive/40;
+  }
+
   :where(.input) {
     @apply tw:block-[2em] tw:inline-full tw:min-inline-0 tw:rounded-[0.5em] tw:border tw:border-input tw:bg-transparent tw:px-[0.625em] tw:py-[0.25em] tw:text-base tw:transition-colors tw:outline-none tw:md:text-sm tw:dark:bg-input/30;
   }
@@ -55,8 +71,7 @@
   }
   :where(.textarea) {
     @apply tw:min-block-[5em] tw:resize-none;
-    /* Override the standalone control utilities: the group owns its surface and focus ring. */
-    @apply tw:border-0! tw:bg-transparent! tw:p-[0.625em]! tw:text-inherit! tw:ring-0! tw:shadow-none! tw:opacity-100!;
+    @apply tw:field-sizing-content;
   }
   :where(.button) {
     @apply tw:shadow-none;
