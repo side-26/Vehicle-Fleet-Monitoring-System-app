@@ -1,0 +1,145 @@
+@reference "../../../app/styles/globals.css";
+
+@layer field {
+  :where(.fieldSet) {
+    @apply tw:flex tw:flex-col;
+  }
+  :where(.fieldLegend) {
+    @apply tw:font-medium;
+  }
+  :where(.fieldGroup) {
+    @apply tw:flex tw:flex-col;
+    @apply tw:[container:field-group/inline-size];
+    @apply tw:inline-full;
+  }
+  :where(.field) {
+    @apply tw:[font-size:var(--vfm-font-md)];
+    @apply tw:gap-[0.5em];
+    @apply tw:flex;
+    @apply tw:inline-full;
+  }
+  :where(.field[data-size="xs"]) {
+    @apply tw:[font-size:var(--vfm-font-xs)];
+  }
+  :where(.field[data-size="sm"]) {
+    @apply tw:[font-size:var(--vfm-font-sm)];
+  }
+  :where(.field[data-size="lg"]) {
+    @apply tw:[font-size:var(--vfm-font-lg)];
+  }
+  :where(.field[data-size="xl"]) {
+    @apply tw:[font-size:var(--vfm-font-xl)];
+  }
+  :where(.fieldLabel, .fieldTitle, .fieldLegend) {
+    @apply tw:text-[calc(1em*var(--vfm-field-label-sacle))];
+    @apply tw:gap-[0.5em];
+  }
+  :where(.fieldContent) {
+    @apply tw:text-[calc(1em*var(--vfm-field-content-scale))];
+    @apply tw:gap-[0.125em];
+  }
+  :where(.fieldDescription) {
+    @apply tw:text-[calc(1em*var(--vfm-field-description-scale))];
+  }
+  :where(.fieldSet) {
+    @apply tw:gap-[1em];
+  }
+  :where(.fieldGroup) {
+    @apply tw:gap-[1.25em];
+  }
+  :where(.fieldLegend) {
+    @apply tw:mbe-[0.375em];
+  }
+  :where(.fieldError, .fieldSeparator) {
+    @apply tw:[font-size:inherit];
+  }
+  :where(.errorList) {
+    @apply tw:gap-[0.25em];
+  }
+  :where(.fieldDescription > a) {
+    @apply tw:underline-offset-[0.25em];
+  }
+  :where(.field[data-invalid="true"]) {
+    @apply tw:text-destructive;
+  }
+  :where(.vertical, .responsive) {
+    @apply tw:flex-col;
+  }
+  :where(.vertical, .responsive) > :where(*) {
+    @apply tw:inline-full;
+  }
+  :where(.horizontal) {
+    @apply tw:flex-row tw:items-center;
+  }
+  :where(.horizontal:has(> [data-slot="field-content"])) {
+    @apply tw:items-start;
+  }
+  :where(.horizontal > [data-slot="field-label"]) {
+    @apply tw:flex-auto;
+  }
+  :where(.fieldContent) {
+    @apply tw:flex tw:flex-1 tw:flex-col tw:leading-snug;
+  }
+  :where(.fieldLabel, .fieldTitle) {
+    @apply tw:flex tw:leading-snug tw:font-medium;
+    @apply tw:inline-fit;
+  }
+  :where(.field[data-disabled="true"]) :where(.fieldLabel, .fieldTitle) {
+    @apply tw:opacity-50;
+  }
+  :where(.fieldLabel:has(> [data-slot="field"])) {
+    @apply tw:flex-col tw:rounded-lg tw:border;
+    @apply tw:inline-full;
+  }
+  :where(.fieldLabel > [data-slot="field"]) {
+    @apply tw:p-[0.625em];
+  }
+  :where(.fieldDescription) {
+    @apply tw:leading-normal tw:font-normal tw:text-muted-foreground;
+    @apply tw:text-start;
+  }
+  :where(.fieldDescription > a) {
+    @apply tw:underline;
+  }
+  :where(.fieldDescription > a:hover) {
+    @apply tw:text-primary;
+  }
+  :where(.fieldSeparator) {
+    @apply tw:relative;
+    @apply tw:my-[-0.5em];
+    @apply tw:block-[1.25em];
+  }
+  :where(.separatorLine) {
+    @apply tw:absolute;
+    @apply tw:inset-x-0;
+    @apply tw:inset-bs-[50%];
+  }
+  :where(.fieldSeparatorContent) {
+    @apply tw:relative tw:block tw:bg-background tw:text-muted-foreground;
+    @apply tw:mx-auto;
+    @apply tw:inline-fit;
+    @apply tw:px-[0.5em];
+  }
+  :where(.fieldError) {
+    @apply tw:font-normal tw:text-destructive;
+  }
+  :where(.errorList) {
+    @apply tw:flex tw:list-disc tw:flex-col;
+    @apply tw:ms-[1em];
+  }
+  @container field-group (min-width: 28rem) {
+    :where(.responsive) {
+      @apply tw:flex-row;
+      @apply tw:items-center;
+    }
+    :where(.responsive) > :where(*) {
+      @apply tw:inline-auto;
+    }
+    :where(.responsive:has(> [data-slot="field-content"])) {
+      @apply tw:items-start;
+    }
+    :where(.responsive > [data-slot="field-label"]) {
+      @apply tw:flex-auto;
+    }
+  }
+}

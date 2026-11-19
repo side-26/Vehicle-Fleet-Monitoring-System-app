@@ -1,6 +1,20 @@
 :root {
   color-scheme: light;
 
+  /* Typography */
+
+  --vfm-font-xs: 0.625rem;
+  --vfm-font-sm: var(--text-xs);
+  --vfm-font-md: var(--text-xs);
+  --vfm-font-lg: var(--text-base);
+  --vfm-font-xl: var(--text-lg);
+
+  /* Field typography */
+
+  --vfm-field-label-sacle: var(--scale-1125);
+  --vfm-field-content-scale: var(--scale-100);
+  --vfm-field-description-scale: var(--scale-0875);
+
   /* Base */
 
   --background: var(--palette-slate-50);

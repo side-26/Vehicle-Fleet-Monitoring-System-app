@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "prepare": "husky",
-    "lint": "oxlint --deny-warnings",
+    "lint": "oxlint --deny-warnings && pnpm lint:tailwind",
     "lint:fix": "oxlint --fix",
     "format": "oxfmt --write .",
     "format:check": "oxfmt --check .",
@@ -46,7 +46,8 @@
     "test:playwright": "pnpm test:e2e && pnpm test:performance",
     "test:all": "pnpm test:vitest && pnpm test:playwright",
     "test:storybook:watch": "vitest --config vitest.storybook.config.ts",
-    "storybook": "storybook dev -p 6006"
+    "storybook": "storybook dev -p 6006",
+    "lint:tailwind": "node scripts/check-tailwind-classes.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.9.0",
