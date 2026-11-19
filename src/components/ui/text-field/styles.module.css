@@ -24,6 +24,12 @@
   :where(.root[data-color="error"]) {
     --field-color: var(--error);
   }
+  :where(.root:has(.input[data-validated="true"]:not([aria-invalid="true"]):not(:disabled))) {
+    --field-color: var(--success);
+  }
+  :where(.root:has(.input[aria-invalid="true"]:not(:disabled))) {
+    --field-color: var(--error);
+  }
   :where(.root [data-slot="field-label"], .root [data-slot="field-description"]) {
     @apply tw:text-inherit;
   }

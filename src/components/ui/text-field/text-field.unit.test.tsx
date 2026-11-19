@@ -19,7 +19,9 @@ describe("TextField", () => {
     expect(screen.getByRole("textbox").hasAttribute("aria-describedby")).toBe(false);
     rerender(<TextField label="Vehicle" message="Required" />);
     expect(container.querySelector('[data-slot="field-description"]')).toBe(description);
-    expect(screen.getByText("Required").classList.contains(styles["slide-y"])).toBe(true);
+    expect(screen.getByText("Required").classList.contains(styles["slide-y"] ?? "slide-y")).toBe(
+      true,
+    );
     expect(screen.getByRole("textbox").getAttribute("aria-describedby")).toBe(description?.id);
   });
   it("omits the description and its reference when haveMessage is false", () => {
