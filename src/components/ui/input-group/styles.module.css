@@ -1,0 +1,51 @@
+@reference "../../../app/styles/globals.css";
+
+@layer input-group {
+  :where(.group) {
+    @apply tw:relative tw:flex tw:inline-full tw:min-inline-0 tw:items-center tw:rounded-[0.5em] tw:border tw:border-input tw:bg-transparent tw:transition-colors;
+  }
+  :where(.group:has(:disabled)) {
+    @apply tw:opacity-50;
+  }
+  :where(.group:not([data-focus-style="outline"]):has(.control:focus-visible)) {
+    @apply tw:border-ring tw:ring-2 tw:ring-ring/50;
+  }
+  :where(.group:not([data-focus-style="outline"]):has([aria-invalid="true"])) {
+    @apply tw:border-destructive tw:ring-2 tw:ring-destructive/20;
+  }
+  :where(.group:has(> [data-align="block-start"], > [data-align="block-end"])) {
+    @apply tw:flex-col tw:items-stretch;
+  }
+  :where(.addon) {
+    @apply tw:flex tw:items-center tw:gap-[0.5em] tw:p-[0.375em] tw:text-muted-foreground;
+  }
+  :where(.addon[data-align="inline-start"], .addon[data-align="block-start"]) {
+    @apply tw:order-first;
+  }
+  :where(.addon[data-align="inline-end"], .addon[data-align="block-end"]) {
+    @apply tw:order-last;
+  }
+  :where(.addon[data-align="block-start"], .addon[data-align="block-end"]) {
+    @apply tw:inline-full;
+  }
+  :where(.text) {
+    @apply tw:flex tw:items-center tw:gap-[0.5em] tw:text-muted-foreground;
+  }
+  :where(.control) {
+    @apply tw:inline-full tw:min-inline-0 tw:flex-1 tw:rounded-[0.5em] tw:border-0 tw:bg-transparent tw:p-[0.625em] tw:text-inherit tw:outline-none tw:disabled:cursor-not-allowed;
+  }
+  :where(.textarea) {
+    @apply tw:min-block-[5em] tw:resize-none;
+    /* Override the standalone control utilities: the group owns its surface and focus ring. */
+    @apply tw:border-0! tw:bg-transparent! tw:p-[0.625em]! tw:text-inherit! tw:ring-0! tw:shadow-none! tw:opacity-100!;
+  }
+  :where(.button) {
+    @apply tw:shadow-none;
+  }
+  :where(.button[data-group-size="icon-xs"], .button[data-group-size="icon-sm"]) {
+    @apply tw:aspect-square tw:p-[0.375em];
+  }
+  :where(.addon svg, .text svg) {
+    @apply tw:size-[1em];
+  }
+}

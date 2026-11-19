@@ -31,7 +31,7 @@
     @apply tw:[font-size:var(--vfm-font-xl)];
   }
   :where(.fieldLabel, .fieldTitle, .fieldLegend) {
-    @apply tw:text-[calc(1em*var(--vfm-field-label-sacle))];
+    @apply tw:text-[calc(1em*var(--vfm-field-label-scale))];
     @apply tw:gap-[0.5em];
   }
   :where(.fieldContent) {

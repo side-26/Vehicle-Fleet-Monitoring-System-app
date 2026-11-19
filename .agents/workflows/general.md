@@ -96,6 +96,44 @@ For glassmorphism, reuse the existing `glass-interactive` utility from `src/app/
 
 For component size variants, scale `font-size`, padding, and `border-radius` with `em` where appropriate. Do not use `inline-size` or `block-size` just to make a component appear larger or smaller; retain logical sizing properties for genuine layout dimensions.
 
+## UI field component workflow
+
+Follow all preceding TypeScript, CSS, UI component, Storybook, and documentation rules. Apply the Common component workflow's composition, accessibility, and testing requirements too; use the UI field paths below for these components.
+
+### Base fields
+
+Place each reusable base field in `src/components/ui/<field-name>/`. Base fields must work without React Hook Form or a form provider.
+
+Keep `index.tsx`, `<field-name>.types.ts`, `<field-name>.stories.tsx`, `<field-name>.unit.test.tsx`, `styles.module.css`, and `AGENTS.md` together. Add `<field-name>.integration.test.tsx` when the field has a multi-step or cross-component flow. Use `.tsx` for stories and tests that render JSX; use `.ts` only when they do not render JSX.
+
+Expose these public variants, with allowed values defined as `as const` arrays and types derived from them:
+
+- `size`: `xs`, `sm`, `md`, `lg`, `xl`.
+- `color`: `primary`, `secondary`, `neutral`, `success`, `error`.
+- `variant`: `fill`, `tonal`, `outline`, `ghost`.
+
+Document defaults explicitly in types and Storybook. Compose each base field from the existing `Field` compound component and its input control as content. `Field` owns sizing through `--vfm-font-xs` through `--vfm-font-xl`; labels, content, and descriptions use their semantic Field scale tokens. The input inherits its font size, and input font sizing, margins, padding, and other spacing use `em` so they scale with Field. Avoid introducing a second independent size system on the input.
+
+Keep styles in a named CSS Module layer, use `:where()` selectors, and use canonical Tailwind utilities through `@apply`. This workflow authorizes `@apply` for UI fields without an additional approval request. Preserve logical sizing and direction utilities. Use semantic colors, and apply the selected color consistently to the input, label, and description.
+
+In addition to `size`, `variant`, and `color`, forward the relevant native input props, events, and input ref. Omit conflicting native props from the inherited type before defining custom props, especially the native numeric `size` prop. Preserve controlled and uncontrolled input behavior.
+
+Expose optional string props `label` and `message`, each defaulting to `""`. Render `FieldLabel` only when `label` has a value, and `FieldDescription` only when `message` has a value. Connect the label to the input with `htmlFor` and a stable input ID. Connect the description through `aria-describedby`, merging caller-provided description IDs. An unlabeled field must receive an accessible name through native accessibility props.
+
+For required fields with a visible label, prepend `*` to the label text. Hide the decorative marker from assistive technology and expose the required state on the input with `required` or `aria-required` as appropriate.
+
+### Form fields
+
+Place React Hook Form adapters in `src/components/ui/form-fields/<field-name>/`, with the same file structure and documentation requirements as base fields. Compose the matching base field and reuse its props and styles; keep validation and form binding in the adapter.
+
+Require a `name` typed with React Hook Form's `FieldPath<TFields>` and obtain form methods from the existing Form wrapper's `FormProvider` using `useFormContext`. Use `useController` or `Controller` to connect value, changes, blur, disabled state, and the input ref. Do not register the same control twice. Preserve appropriate value types for each control, and keep default values in the Form wrapper's React Hook Form configuration.
+
+Allow typed validation rules and respect the Form wrapper's validation mode and resolver. An invalid field uses `color="error"` and displays its validation error message through the base field's `message` prop, replacing the helper message while the error is present. A field confirmed valid by validation uses `color="success"`. Untouched fields that have not been validated retain their configured base color; absence of an error alone does not establish successful validation. Apply the resulting color to the input, label, and description, and set `aria-invalid` for invalid inputs.
+
+Derive the required label marker and input accessibility state from the adapter's required configuration. When a resolver defines requiredness, expose a required prop for the UI rather than trying to infer it from an arbitrary schema. Keep UI requiredness consistent with validation rules.
+
+Cover base sizes, colors, variants, conditional labels and messages, required markers, native props, and accessibility in stories and unit tests. Add adapter integration tests using the existing Form wrapper for validation errors, successful validation, helper message restoration, input updates, submission, and focusing invalid fields through the forwarded ref. Configure Storybook accessibility checks as required above.
+
 ## Common component workflow
 
 Common components are reusable components used by application layouts or across many areas, such as confirmation dialogs and toast notifications. Give each common component its own kebab-case directory under `src/components/common/<component-name>/`.

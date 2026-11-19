@@ -4,16 +4,16 @@
   /* Typography */
 
   --vfm-font-xs: 0.625rem;
-  --vfm-font-sm: var(--text-xs);
-  --vfm-font-md: var(--text-xs);
-  --vfm-font-lg: var(--text-base);
-  --vfm-font-xl: var(--text-lg);
+  --vfm-font-sm: var(--tw-text-xs);
+  --vfm-font-md: var(--tw-text-sm);
+  --vfm-font-lg: var(--tw-text-base);
+  --vfm-font-xl: var(--tw-text-lg);
 
   /* Field typography */
 
-  --vfm-field-label-sacle: var(--scale-1125);
+  --vfm-field-label-scale: var(--scale-1125);
   --vfm-field-content-scale: var(--scale-100);
-  --vfm-field-description-scale: var(--scale-0875);
+  --vfm-field-description-scale: var(--scale-0625);
 
   /* Base */
 

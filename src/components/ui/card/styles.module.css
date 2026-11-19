@@ -2,9 +2,9 @@
 
 @layer components {
   .card {
-    @apply tw:glass-interactive tw:flex tw:flex-col tw:gap-[var(--card-spacing)];
+    @apply tw:glass-interactive tw:flex tw:flex-col tw:gap-(--card-spacing);
     @apply tw:overflow-hidden tw:rounded-xl tw:border tw:border-foreground/10;
-    @apply tw:py-[var(--card-spacing)] tw:text-sm tw:text-foreground;
+    @apply tw:py-(--card-spacing) tw:text-sm tw:text-foreground;
 
     --card-color: var(--muted);
     --card-spacing: 1em;
@@ -46,7 +46,7 @@
     }
 
     &[data-variant="fill"] {
-      @apply tw:bg-[var(--card-color)];
+      @apply tw:bg-(--card-color);
 
       &[data-color="primary"] {
         @apply tw:text-primary-foreground;
@@ -74,7 +74,7 @@
   }
 
   .header {
-    @apply tw:grid tw:grid-cols-[1fr_auto] tw:gap-x-4 tw:gap-y-1 tw:items-start tw:px-[var(--card-spacing)];
+    @apply tw:grid tw:grid-cols-[1fr_auto] tw:gap-x-4 tw:gap-y-1 tw:items-start tw:px-(--card-spacing);
   }
 
   .title {
@@ -90,11 +90,11 @@
   }
 
   .content {
-    @apply tw:px-[var(--card-spacing)];
+    @apply tw:px-(--card-spacing);
   }
 
   .footer {
     @apply tw:flex tw:items-center tw:gap-2 tw:border-t tw:border-foreground/10;
-    @apply tw:p-[var(--card-spacing)] tw:mb-[calc(var(--card-spacing)*-1)];
+    @apply tw:p-(--card-spacing) tw:-mb-(--card-spacing);
   }
 }

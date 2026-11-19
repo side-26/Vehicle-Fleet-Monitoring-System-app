@@ -1,0 +1,27 @@
+@layer animations {
+  @keyframes slide-y {
+    from {
+      opacity: 0;
+      translate: 0 var(--slide-y-distance, 0.75em);
+    }
+    to {
+      opacity: 1;
+      translate: 0 0;
+    }
+  }
+
+  :where(.slide-y) {
+    animation: slide-y var(--slide-y-duration, 200ms)
+      var(--slide-y-easing, cubic-bezier(0.22, 1, 0.36, 1)) both;
+  }
+
+  :where(.slide-y[data-ending-style]) {
+    animation-direction: reverse;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :where(.slide-y) {
+      animation: none;
+    }
+  }
+}
