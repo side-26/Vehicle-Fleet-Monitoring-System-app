@@ -1,0 +1,55 @@
+@import "../../../app/styles/animations.css";
+@reference "../../../app/styles/globals.css";
+
+@layer checkbox-field {
+  :where(.root) {
+    --field-color: var(--primary);
+    @apply tw:text-foreground;
+  }
+  :where(.root[data-color="secondary"]) {
+    --field-color: var(--secondary);
+  }
+  :where(.root[data-color="error"]) {
+    --field-color: var(--error);
+  }
+  :where(.root[data-color="success"]) {
+    --field-color: var(--success);
+  }
+  :where(.root:has([data-validated="true"]:not([aria-invalid="true"]):not([data-disabled]))) {
+    --field-color: var(--success);
+  }
+  :where(.root:has([aria-invalid="true"]:not([data-disabled]))) {
+    --field-color: var(--error);
+  }
+  :where(.root [data-slot="field-label"], .root [data-slot="field-description"]) {
+    @apply tw:text-foreground;
+  }
+  :where(.checkbox) {
+    color: var(--field-color);
+    @apply tw:relative tw:flex tw:size-[1em] tw:mt-[0.25em] tw:shrink-0 tw:items-center tw:justify-center tw:rounded-[0.25em] tw:border tw:border-current tw:bg-transparent tw:text-[1em] tw:outline-none tw:transition-colors;
+  }
+  :where(.checkbox[data-checked], .checkbox[data-indeterminate]) {
+    background: var(--field-color);
+    border-color: var(--field-color);
+    color: var(--background);
+  }
+  :where(.checkbox:focus-visible) {
+    @apply tw:outline-2 tw:outline-offset-2;
+    outline-color: var(--field-color);
+  }
+  :where(.checkbox[data-disabled]) {
+    @apply tw:cursor-not-allowed;
+  }
+  :where(.indicator) {
+    @apply tw:flex tw:items-center tw:justify-center;
+  }
+  :where(.indicator svg) {
+    @apply tw:size-[0.875em];
+  }
+  :where(.message) {
+    @apply tw:min-block-lh tw:m-0;
+  }
+  :where(.message > span) {
+    @apply tw:block;
+  }
+}
