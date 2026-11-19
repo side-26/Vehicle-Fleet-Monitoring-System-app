@@ -1,7 +1,7 @@
 /* oxlint-disable jsx-a11y/prefer-tag-over-role, jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions, react-perf/jsx-no-new-function-as-prop -- Addons provide pointer focus convenience; controls remain the keyboard focus targets. */
 "use client";
 
-import { Input } from "@base-ui/react/input";
+import { Input as InputPrimitive } from "@base-ui/react/input";
 
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -76,7 +76,11 @@ export function InputGroupText({ className, ...props }: InputGroupTextProps) {
 }
 export function InputGroupInput({ className, ...props }: InputGroupInputProps) {
   return (
-    <Input {...props} data-slot="input-group-control" className={cn(styles.control, className)} />
+    <InputPrimitive
+      {...props}
+      data-slot="input-group-control"
+      className={cn(styles.control, className)}
+    />
   );
 }
 export function InputGroupTextarea({ className, ...props }: InputGroupTextareaProps) {
@@ -87,4 +91,9 @@ export function InputGroupTextarea({ className, ...props }: InputGroupTextareaPr
       className={cn(styles.control, styles.textarea, className)}
     />
   );
+}
+
+/** Standalone Base UI input; grouped controls use InputGroupInput. */
+export function Input({ className, ...props }: InputGroupInputProps) {
+  return <InputPrimitive {...props} data-slot="input" className={cn(styles.input, className)} />;
 }
