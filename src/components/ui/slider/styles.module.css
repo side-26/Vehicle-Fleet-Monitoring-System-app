@@ -1,0 +1,48 @@
+@reference "../../../app/styles/globals.css";
+
+@layer slider {
+  :where(.root) {
+    @apply tw:inline-full tw:text-base;
+    --slider-color: var(--primary);
+  }
+  :where(.root[data-color="neutral"]) {
+    --slider-color: var(--foreground);
+  }
+  :where(.root[data-orientation="vertical"]) {
+    @apply tw:inline-[1.5em] tw:block-[12em];
+  }
+  :where(.control) {
+    @apply tw:relative tw:flex tw:inline-full tw:block-[1.5em] tw:touch-none tw:items-center tw:select-none tw:cursor-pointer;
+  }
+  :where(.control[data-orientation="vertical"]) {
+    @apply tw:block-full tw:flex-col;
+  }
+  :where(.control[data-disabled]) {
+    @apply tw:cursor-not-allowed tw:opacity-50;
+  }
+  :where(.track) {
+    @apply tw:relative tw:inline-full tw:block-[0.25em] tw:overflow-hidden tw:rounded-full tw:bg-muted;
+  }
+  :where(.track[data-orientation="vertical"]) {
+    @apply tw:inline-[0.25em] tw:block-full;
+  }
+  :where(.indicator) {
+    @apply tw:block-full tw:bg-(--slider-color);
+  }
+  :where(.indicator[data-orientation="vertical"]) {
+    @apply tw:inline-full;
+  }
+  :where(.thumb) {
+    @apply tw:block tw:size-[1em] tw:shrink-0 tw:rounded-full tw:border tw:border-solid tw:border-(--slider-color) tw:bg-background tw:shadow-sm tw:outline-none;
+  }
+  :where(.thumb)::after {
+    @apply tw:absolute tw:inset-[-0.25em] tw:rounded-full;
+    content: "";
+  }
+  :where(.thumb:hover, .thumb:has(:focus-visible)) {
+    @apply tw:ring-2 tw:ring-(--slider-color) tw:ring-offset-2 tw:ring-offset-background;
+  }
+  :where(.thumb[data-disabled]) {
+    @apply tw:pointer-events-none;
+  }
+}
