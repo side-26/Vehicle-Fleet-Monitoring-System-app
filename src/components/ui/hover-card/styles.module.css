@@ -1,0 +1,41 @@
+@reference "../../../app/styles/globals.css";
+@layer hover-card {
+  :where(.positioner) {
+    @apply tw:isolate;
+  }
+  :where(.content) {
+    @apply tw:inline-64 tw:max-inline-[calc(100vi-2rem)] tw:origin-(--transform-origin) tw:rounded-lg tw:bg-popover tw:text-popover-foreground tw:text-sm tw:shadow-md tw:ring-1 tw:ring-foreground/10 tw:outline-none tw:transition-opacity tw:duration-100 tw:p-[0.75em];
+  }
+  :where(.content[data-color="primary"]) {
+    @apply tw:bg-primary tw:text-primary-foreground;
+  }
+  :where(.content[data-color="secondary"]) {
+    @apply tw:bg-secondary tw:text-secondary-foreground;
+  }
+  :where(.content[data-color="success"]) {
+    @apply tw:bg-success tw:text-success-foreground;
+  }
+  :where(.content[data-color="error"]) {
+    @apply tw:bg-error tw:text-error-foreground;
+  }
+  :where(.content[data-gutter="xs"]) {
+    @apply tw:p-[0.25em];
+  }
+  :where(.content[data-gutter="sm"]) {
+    @apply tw:p-[0.5em];
+  }
+  :where(.content[data-gutter="lg"]) {
+    @apply tw:p-[1em];
+  }
+  :where(.content[data-gutter="xl"]) {
+    @apply tw:p-[1.5em];
+  }
+  :where(.content[data-starting-style], .content[data-ending-style]) {
+    @apply tw:opacity-0;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    :where(.content) {
+      @apply tw:transition-none;
+    }
+  }
+}

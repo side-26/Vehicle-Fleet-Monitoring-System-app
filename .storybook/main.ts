@@ -42,6 +42,7 @@ const storybookConfig: StorybookConfig = {
           "@base-ui/react/radio",
           "@base-ui/react/switch",
           "@base-ui/react/tooltip",
+          "@base-ui/react/preview-card",
           "@base-ui/react/slider",
           "@base-ui/react/toast",
           "react-hook-form",
