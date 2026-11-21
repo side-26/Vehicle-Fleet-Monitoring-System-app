@@ -1,0 +1,3 @@
+# Switch form field
+
+Boolean React Hook Form adapter for SwitchField. Requires the existing Form provider and a FieldPathByValue<TFields, boolean> name. Uses useFormField/useController for checked changes, blur, disabled state, required rules and invalid-field focusing. Preserve distinct true/false color props and all base sizes/variants; validation overrides the displayed state color with error or confirmed success without changing the configured pair. Error messages replace helper text and restore it after correction. Base SwitchField owns all visual styles; this adapter does not need a CSS Module. Tests cover binding and the submit/error/focus/correct/submit flow.

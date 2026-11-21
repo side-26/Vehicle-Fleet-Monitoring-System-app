@@ -44,6 +44,17 @@
     --switch-color: var(--switch-true);
     --switch-ink: var(--switch-true-ink);
   }
+
+  :where(
+    .field:has(.control[data-validated="true"]:not([aria-invalid="true"]):not([data-disabled]))
+  ) {
+    --switch-color: var(--success);
+    --switch-ink: var(--success-foreground);
+  }
+  :where(.field:has(.control[aria-invalid="true"]:not([data-disabled]))) {
+    --switch-color: var(--error);
+    --switch-ink: var(--error-foreground);
+  }
   :where(.field [data-slot="field-label"], .field [data-slot="field-description"]) {
     @apply tw:text-(--switch-color);
   }
