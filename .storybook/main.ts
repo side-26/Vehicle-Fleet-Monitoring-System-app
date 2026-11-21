@@ -45,6 +45,9 @@ const storybookConfig: StorybookConfig = {
           "@base-ui/react/slider",
           "@base-ui/react/toast",
           "react-hook-form",
+          "react-dom",
+          "react-leaflet",
+          "leaflet",
         ],
       },
     });

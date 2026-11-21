@@ -1,0 +1,3 @@
+# Widget provider
+
+Placement slot for custom React map widgets, rendered beneath LeafletMap. Uses a native Leaflet Control and React portal so children retain React context and participate in map control corner stacking. align accepts top-left, bottom-left, top-right (default), bottom-right and updates without remounting children. Stop native map click/drag/scroll propagation without disabling interactions inside widgets. Clean up the native control and listeners on unmount. Do not replace the map provider or add application widget logic here. Keep browser-only imports behind the dynamic client boundary.

@@ -1,0 +1,4 @@
+@reference "../../../../../app/styles/globals.css";
+@layer map-tile {
+  /* Native Leaflet owns this layer’s presentation. */
+}

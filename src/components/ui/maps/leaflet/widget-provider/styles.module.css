@@ -1,0 +1,9 @@
+@reference "../../../../../app/styles/globals.css";
+@layer widget-provider {
+  :where(.widgets) {
+    @apply tw:flex tw:flex-col tw:gap-[0.5em] tw:items-start;
+  }
+  :where(.widgets[data-align="top-right"], .widgets[data-align="bottom-right"]) {
+    @apply tw:items-end;
+  }
+}
