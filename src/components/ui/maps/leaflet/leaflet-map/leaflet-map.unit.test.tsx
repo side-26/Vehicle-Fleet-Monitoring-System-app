@@ -26,6 +26,7 @@ it("creates a map with native options, ref and children, then cleans up", async 
   expect(ref.current?.getZoom()).toBe(9);
   expect(ref.current?.getCenter().lat).toBeCloseTo(35.7);
   expect(whenReady).toHaveBeenCalled();
+  expect(ref.current?.attributionControl.options.prefix).toBe(false);
   expect(document.getElementById("fleet-map")).toHaveClass("leaflet-container");
   expect(screen.queryByRole("button", { name: "Zoom in" })).not.toBeInTheDocument();
   unmount();

@@ -1,0 +1,12 @@
+@reference "../../../../../app/styles/globals.css";
+@layer pointer-icon {
+  :where(.marker) {
+    @apply tw:border-0 tw:bg-transparent;
+  }
+  :where(.content) {
+    @apply tw:flex tw:size-full tw:items-center tw:justify-center tw:text-primary tw:text-2xl;
+  }
+  :where(.content svg) {
+    @apply tw:size-[1em];
+  }
+}

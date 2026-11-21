@@ -1,5 +1,8 @@
 "use client";
 import dynamic from "next/dynamic";
+import { useCallback } from "react";
+
+import type { Map } from "leaflet";
 
 import { cn } from "@/lib/utils";
 
@@ -11,8 +14,15 @@ const Primitive = dynamic<LeafletMapClientProps>(
   () =>
     import("react-leaflet").then((module) => {
       const Native = module.MapContainer;
-      return function ClientPrimitive({ instanceRef, ...props }: LeafletMapClientProps) {
-        return <Native {...props} ref={instanceRef} />;
+      return function ClientPrimitive({ instanceRef, whenReady, ...props }: LeafletMapClientProps) {
+        const ready = useCallback(
+          function (this: Map) {
+            this.attributionControl?.setPrefix(false);
+            whenReady?.();
+          },
+          [whenReady],
+        );
+        return <Native {...props} whenReady={ready} ref={instanceRef} />;
       };
     }),
   { ssr: false },
