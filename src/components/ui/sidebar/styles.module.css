@@ -119,17 +119,13 @@
   }
   .menuButton {
     @apply tw:flex tw:items-center tw:gap-2 tw:rounded-md tw:text-sm tw:bg-transparent tw:text-sidebar-foreground tw:hover:bg-sidebar-accent tw:hover:text-sidebar-accent-foreground tw:focus-visible:ring-2 tw:ring-sidebar-ring tw:disabled:opacity-50;
-    inline-size: 100%;
-    padding: 0.5em;
-    text-align: start;
+    @apply tw:inline-full tw:p-[0.5em] tw:text-start;
   }
   .menuButton[data-active] {
     @apply tw:bg-sidebar-accent tw:text-sidebar-accent-foreground tw:font-medium;
   }
   .menuButton svg {
-    inline-size: 1em;
-    block-size: 1em;
-    flex-shrink: 0;
+    @apply tw:size-[1em] tw:shrink-0;
   }
   .default {
     @apply tw:text-sm;
@@ -148,13 +144,10 @@
   }
   .mobile {
     @apply tw:fixed tw:inset-y-0 tw:bg-sidebar tw:text-sidebar-foreground tw:flex tw:flex-col;
-    inline-size: min(18rem, 90vi);
-    inset-inline-start: 0;
-    padding: 0.5em;
+    @apply tw:inline-[min(18rem,90vi)] tw:inset-s-0 tw:p-[0.5em];
   }
   .mobile[data-side="right"] {
-    inset-inline-start: auto;
-    inset-inline-end: 0;
+    @apply tw:inset-s-auto tw:inset-e-0;
   }
   .srOnly {
     @apply tw:sr-only;
@@ -173,10 +166,10 @@
     @apply tw:bg-muted tw:rounded-md;
   }
   .skeletonText {
-    display: block;
+    @apply tw:block;
   }
   :global(.group)[data-collapsible="icon"] .menuButton {
-    overflow: hidden;
+    @apply tw:overflow-hidden;
   }
 }
 
