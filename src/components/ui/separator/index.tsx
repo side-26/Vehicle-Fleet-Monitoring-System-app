@@ -6,22 +6,22 @@ import { Separator as SeparatorPrimitive } from "@base-ui/react/separator";
 
 import { cn } from "@/lib/utils";
 
-import type { SperatorProps } from "./sperator.types";
+import type { SeparatorProps } from "./separator.types";
 import styles from "./styles.module.css";
 
-export type { SperatorProps } from "./sperator.types";
+export type { SeparatorProps } from "./separator.types";
 
-export function Sperator({ className, orientation = "horizontal", ...props }: SperatorProps) {
+export function Separator({ className, orientation = "horizontal", ...props }: SeparatorProps) {
   const resolveClassName = useCallback(
     (state: SeparatorPrimitive.State) =>
-      cn(styles.sperator, typeof className === "function" ? className(state) : className),
+      cn(styles.separator, typeof className === "function" ? className(state) : className),
     [className],
   );
 
   return (
     <SeparatorPrimitive
       {...props}
-      data-slot="sperator"
+      data-slot="separator"
       orientation={orientation}
       className={resolveClassName}
     />

@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { expect, within } from "storybook/test";
 
-import { Sperator } from "./index";
-import { speratorOrientations } from "./sperator.types";
+import { Separator } from "./index";
+import { separatorOrientations } from "./separator.types";
 
 const horizontalLayout = {
   inlineSize: "20rem",
@@ -13,15 +13,15 @@ const horizontalLayout = {
 const verticalLayout = { ...horizontalLayout, flexDirection: "row" } as const;
 
 const meta = {
-  title: "Shared/UI/Sperator",
-  component: Sperator,
+  title: "Shared/UI/Separator",
+  component: Separator,
   tags: ["autodocs"],
   parameters: { a11y: { test: "error" } },
   args: { orientation: "horizontal", "aria-label": "Fleet sections" },
   argTypes: {
     orientation: {
       control: "select",
-      options: speratorOrientations,
+      options: separatorOrientations,
       type: "string",
       description: "Direction of the separator. Defaults to horizontal.",
       table: { defaultValue: { summary: "horizontal" } },
@@ -49,7 +49,7 @@ const meta = {
       style={args.orientation === "vertical" ? verticalLayout : horizontalLayout}
     >
       <p>Active vehicles</p>
-      <Sperator {...args} />
+      <Separator {...args} />
       <p>Maintenance</p>
     </section>
   ),
@@ -67,7 +67,7 @@ const meta = {
       );
     }
   },
-} satisfies Meta<typeof Sperator>;
+} satisfies Meta<typeof Separator>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

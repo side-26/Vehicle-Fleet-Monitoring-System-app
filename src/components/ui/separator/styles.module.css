@@ -1,15 +1,15 @@
 @reference "../../../app/styles/globals.css";
 
-@layer sperator {
-  :where(.sperator) {
+@layer separator {
+  :where(.separator) {
     @apply tw:shrink-0 tw:bg-border;
   }
 
-  :where(.sperator[data-orientation="horizontal"]) {
+  :where(.separator[data-orientation="horizontal"]) {
     @apply tw:inline-full tw:block-px;
   }
 
-  :where(.sperator[data-orientation="vertical"]) {
+  :where(.separator[data-orientation="vertical"]) {
     @apply tw:inline-px tw:self-stretch;
   }
 }
