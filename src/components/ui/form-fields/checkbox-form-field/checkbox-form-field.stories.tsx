@@ -8,7 +8,7 @@ import { CheckboxFormField } from "./index";
 const options = { defaultValues: { vehicle: false } };
 const rules = { required: "Enter a vehicle" };
 const submit = () => undefined;
-function expectColor(input: HTMLElement, token: string) {
+async function expectColor(input: HTMLElement, token: string) {
   const root = input.closest('[data-slot="field"]');
   if (!(root instanceof HTMLElement)) throw new Error("Missing field");
   // Resolve both colors through the browser so CSS :has() behavior is tested.
@@ -16,8 +16,11 @@ function expectColor(input: HTMLElement, token: string) {
   probe.style.color = `var(${token})`;
   root.append(probe);
   const expected = getComputedStyle(probe).color;
-  probe.remove();
-  expect(getComputedStyle(input).backgroundColor).toBe(expected);
+  try {
+    await waitFor(() => expect(getComputedStyle(input).backgroundColor).toBe(expected));
+  } finally {
+    probe.remove();
+  }
 }
 const meta = {
   title: "Shared/UI/FormFields/CheckboxFormField",
@@ -59,7 +62,7 @@ export const Validation: Story = {
     await userEvent.click(canvas.getByRole("button", { name: "Save" }));
     await waitFor(() => expect(canvas.getByRole("checkbox")).not.toHaveAttribute("aria-invalid"));
     await expect(canvas.getByRole("checkbox")).toHaveAccessibleDescription("Fleet identifier");
-    expectColor(canvas.getByRole("checkbox"), "--success");
+    await expectColor(canvas.getByRole("checkbox"), "--success");
   },
 };
 export const Disabled: Story = { args: { disabled: true } };
