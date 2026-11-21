@@ -1,0 +1,67 @@
+@reference "../../../app/styles/globals.css";
+
+@layer tooltip {
+  :where(.positioner) {
+    @apply tw:isolate;
+  }
+
+  :where(.content) {
+    --tooltip-surface: var(--foreground);
+    --tooltip-ink: var(--background);
+    @apply tw:rounded-[0.5em] tw:px-[0.75em] tw:py-[0.5em] tw:leading-normal tw:wrap-break-word tw:shadow-md;
+    @apply tw:bg-(--tooltip-surface) tw:text-(--tooltip-ink);
+    @apply tw:max-inline-[min(24em,var(--available-width))] tw:origin-(--transform-origin);
+    @apply tw:transition-opacity tw:duration-150 tw:ease-[ease];
+  }
+
+  :where(.content[data-color="primary"]) {
+    --tooltip-surface: var(--primary);
+    --tooltip-ink: var(--primary-foreground);
+  }
+  :where(.content[data-color="secondary"]) {
+    --tooltip-surface: var(--secondary);
+    --tooltip-ink: var(--secondary-foreground);
+  }
+  :where(.content[data-color="success"]) {
+    --tooltip-surface: var(--success);
+    --tooltip-ink: var(--success-foreground);
+  }
+  :where(.content[data-color="error"]) {
+    --tooltip-surface: var(--error);
+    --tooltip-ink: var(--error-foreground);
+  }
+
+  :where(.content[data-size="xs"]) {
+    @apply tw:text-(length:--vfm-font-xs);
+  }
+  :where(.content[data-size="sm"]) {
+    @apply tw:text-(length:--vfm-font-sm);
+  }
+  :where(.content[data-size="md"]) {
+    @apply tw:text-(length:--vfm-font-md);
+  }
+  :where(.content[data-size="lg"]) {
+    @apply tw:text-(length:--vfm-font-lg);
+  }
+  :where(.content[data-size="xl"]) {
+    @apply tw:text-(length:--vfm-font-xl);
+  }
+
+  :where(.content[data-glassy="true"]) {
+    @apply tw:glass-interactive tw:bg-(--tooltip-surface)/95;
+    /* The shared material includes button interactions; tooltip text stays still. */
+    @apply tw:cursor-default;
+  }
+  :where(.content[data-glassy="true"]):is(:hover, :active):not(:disabled, [data-disabled]) {
+    @apply tw:scale-none tw:filter-none tw:cursor-default;
+  }
+
+  :where(.content[data-starting-style], .content[data-ending-style]) {
+    @apply tw:opacity-0;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    :where(.content) {
+      @apply tw:transition-none;
+    }
+  }
+}
