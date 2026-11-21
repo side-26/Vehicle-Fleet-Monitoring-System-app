@@ -1,0 +1,93 @@
+@reference "../../../app/styles/globals.css";
+@layer switch-field {
+  .field:where([data-orientation="horizontal"]) {
+    @apply tw:items-baseline;
+  }
+  :where(.field) {
+    --switch-color: var(--switch-false);
+    --switch-ink: var(--switch-false-ink);
+    @apply tw:text-(--switch-color);
+  }
+  :where(.field[data-true-color="primary"]) {
+    --switch-true: var(--primary);
+    --switch-true-ink: var(--primary-foreground);
+  }
+  :where(.field[data-true-color="error"]) {
+    --switch-true: var(--error);
+    --switch-true-ink: var(--error-foreground);
+  }
+  :where(.field[data-true-color="success"]) {
+    --switch-true: var(--success);
+    --switch-true-ink: var(--success-foreground);
+  }
+  :where(.field[data-true-color="neutral"]) {
+    --switch-true: var(--foreground);
+    --switch-true-ink: var(--background);
+  }
+  :where(.field[data-false-color="primary"]) {
+    --switch-false: var(--primary);
+    --switch-false-ink: var(--primary-foreground);
+  }
+  :where(.field[data-false-color="error"]) {
+    --switch-false: var(--error);
+    --switch-false-ink: var(--error-foreground);
+  }
+  :where(.field[data-false-color="success"]) {
+    --switch-false: var(--success);
+    --switch-false-ink: var(--success-foreground);
+  }
+  :where(.field[data-false-color="neutral"]) {
+    --switch-false: var(--foreground);
+    --switch-false-ink: var(--background);
+  }
+  :where(.field:has(.control[data-checked])) {
+    --switch-color: var(--switch-true);
+    --switch-ink: var(--switch-true-ink);
+  }
+  :where(.field [data-slot="field-label"], .field [data-slot="field-description"]) {
+    @apply tw:text-(--switch-color);
+  }
+  :where(.control) {
+    @apply tw:relative tw:inline-flex tw:shrink-0 tw:items-center tw:rounded-full tw:border tw:border-current tw:bg-transparent tw:text-(--switch-color) tw:text-[1em] tw:outline-none tw:transition-colors tw:cursor-pointer tw:p-[0.125em];
+    @apply tw:inline-[2.5em] tw:block-[1.5em];
+  }
+  :where(.control[data-checked]) {
+    @apply tw:bg-(--switch-color) tw:text-(--switch-ink);
+  }
+  :where(.thumb) {
+    @apply tw:block tw:size-[1em] tw:rounded-full tw:bg-current tw:transition-transform;
+  }
+  :where(.thumb[data-checked]) {
+    @apply tw:translate-x-[1em];
+  }
+  :where(.thumb[data-checked]):dir(rtl) {
+    @apply tw:translate-x-[-1em];
+  }
+  :where(.control:focus-visible) {
+    @apply tw:outline-2 tw:outline-offset-2 tw:outline-(--switch-color);
+  }
+  :where(.control[data-disabled]) {
+    @apply tw:cursor-not-allowed tw:opacity-50;
+  }
+  :where(.field[data-variant="tonal"] .control) {
+    @apply tw:bg-(--switch-color)/15;
+  }
+  :where(
+    .field[data-variant="tonal"] .control[data-checked],
+    .field[data-variant="outline"] .control[data-checked],
+    .field[data-variant="ghost"] .control[data-checked]
+  ) {
+    @apply tw:text-(--switch-color);
+  }
+  :where(.field[data-variant="outline"] .control) {
+    @apply tw:bg-transparent;
+  }
+  :where(.field[data-variant="ghost"] .control) {
+    @apply tw:border-transparent tw:bg-(--switch-color)/10;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    :where(.control, .thumb) {
+      @apply tw:transition-none;
+    }
+  }
+}
