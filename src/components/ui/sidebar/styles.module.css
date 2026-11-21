@@ -4,7 +4,7 @@
     @apply tw:hidden tw:text-sidebar-foreground tw:md:block;
   }
   .inner {
-    @apply tw:flex tw:size-full tw:flex-col tw:bg-sidebar tw:group-data-[variant=floating]:rounded-lg tw:group-data-[variant=floating]:shadow-sm tw:group-data-[variant=floating]:ring-1 tw:group-data-[variant=floating]:ring-sidebar-border;
+    @apply tw:flex tw:size-full tw:flex-col tw:bg-sidebar tw:group-data-[variant=floating]:shadow-sm tw:group-data-[variant=floating]:ring-1 tw:group-data-[variant=floating]:ring-sidebar-border;
   }
   .triggerLabel {
     @apply tw:sr-only;
@@ -200,5 +200,14 @@
   }
   .surface:where([data-glassy="true"]):is(:hover, :active):not(:disabled, [data-disabled]) {
     @apply tw:scale-none tw:filter-none tw:cursor-default;
+  }
+}
+
+@layer sidebar {
+  .surface:where([data-side="left"]) {
+    @apply tw:rounded-s-none tw:rounded-e-xl;
+  }
+  .surface:where([data-side="right"]) {
+    @apply tw:rounded-s-xl tw:rounded-e-none;
   }
 }

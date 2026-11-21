@@ -56,6 +56,17 @@ const meta = {
       description: "Collapse behavior; defaults to offcanvas.",
     },
   },
+  play: async ({ canvasElement, args }) => {
+    const surface = canvasElement.querySelector<HTMLElement>("[data-color][data-side]");
+    if (!surface) throw new Error("Missing sidebar surface");
+    const style = getComputedStyle(surface);
+    const exposedRadius =
+      args.side === "right" ? style.borderStartStartRadius : style.borderStartEndRadius;
+    const attachedRadius =
+      args.side === "right" ? style.borderStartEndRadius : style.borderStartStartRadius;
+    await expect(parseFloat(exposedRadius)).toBeGreaterThan(0);
+    await expect(parseFloat(attachedRadius)).toBe(0);
+  },
   render: (args) => (
     <SidebarProvider>
       <Sidebar {...args}>

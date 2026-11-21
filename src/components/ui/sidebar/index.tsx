@@ -167,6 +167,7 @@ function Sidebar({
     return (
       <div
         dir={dir}
+        data-side={side}
         data-color={color}
         data-glassy={glassy}
         data-slot="sidebar"
@@ -240,6 +241,7 @@ function Sidebar({
         <div
           data-sidebar="sidebar"
           data-slot="sidebar-inner"
+          data-side={side}
           data-color={color}
           data-glassy={glassy}
           className={cn(styles.inner, styles.surface)}
