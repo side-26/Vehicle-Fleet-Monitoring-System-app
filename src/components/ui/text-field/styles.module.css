@@ -3,7 +3,7 @@
 
 @layer text-field {
   :where(.message) {
-    @apply tw:min-block-[1lh] tw:m-0;
+    @apply tw:min-block-lh tw:m-0;
   }
   :where(.message > span) {
     @apply tw:block;
