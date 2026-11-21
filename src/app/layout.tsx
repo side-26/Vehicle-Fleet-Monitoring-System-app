@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Manrope } from "next/font/google";
 
 import { cn } from "@/lib/utils";
+import { ToastProvider } from "@/providers/toast-provider";
 
 import "@/app/styles/globals.css";
 
@@ -36,7 +37,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       )}
     >
       <body className="tw:min-block-lvh tw:inline-full">
-        <main>{children}</main>
+        <ToastProvider>
+          <main>{children}</main>
+        </ToastProvider>
       </body>
     </html>
   );

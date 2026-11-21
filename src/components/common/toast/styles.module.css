@@ -1,0 +1,104 @@
+@reference "../../../app/styles/globals.css";
+
+@layer toast {
+  :where(.viewport) {
+    @apply tw:pointer-events-none tw:fixed tw:inset-0 tw:outline-none;
+  }
+  :where(.group) {
+    @apply tw:pointer-events-none tw:absolute tw:flex tw:flex-col tw:gap-[0.75em] tw:text-sm;
+    @apply tw:inline-[min(24em,calc(100%-2em))] tw:max-block-[calc(50dvh-2em)] tw:overflow-y-auto;
+  }
+  :where(.group[data-align^="top-"]) {
+    @apply tw:inset-bs-[1em];
+  }
+  :where(.group[data-align^="bottom-"]) {
+    @apply tw:inset-be-[1em] tw:flex-col-reverse;
+  }
+  :where(.group[data-align$="-start"]) {
+    @apply tw:inset-s-[1em];
+  }
+  :where(.group[data-align$="-end"]) {
+    @apply tw:inset-e-[1em];
+  }
+  :where(.group[data-align$="-center"]) {
+    @apply tw:inset-x-0 tw:mx-auto;
+  }
+  :where(.toast) {
+    @apply tw:pointer-events-auto tw:relative tw:shrink-0 tw:inline-full tw:rounded-[0.75em] tw:border tw:border-(--toast-surface)/50 tw:bg-(--toast-surface)/95 tw:text-(--toast-ink) tw:outline-none;
+    @apply tw:glass-interactive tw:cursor-default tw:transition-opacity tw:duration-150;
+    --toast-surface: var(--primary);
+    --toast-ink: var(--primary-foreground);
+  }
+  :where(.toast[data-color="info"]) {
+    --toast-surface: var(--info);
+    --toast-ink: var(--info-foreground);
+  }
+  :where(.toast[data-color="success"]) {
+    --toast-surface: var(--success);
+    --toast-ink: var(--success-foreground);
+  }
+  :where(.toast[data-color="warning"]) {
+    --toast-surface: var(--warning);
+    --toast-ink: var(--warning-foreground);
+  }
+  :where(.toast[data-color="error"]) {
+    --toast-surface: var(--error);
+    --toast-ink: var(--error-foreground);
+  }
+  :where(.toast):is(:hover, :active):not(:disabled, [data-disabled]) {
+    @apply tw:scale-none tw:filter-none tw:cursor-default;
+  }
+  :where(.toast:focus-visible) {
+    @apply tw:ring-2 tw:ring-current;
+  }
+  :where(.toast[data-starting-style], .toast[data-ending-style]) {
+    @apply tw:opacity-0;
+  }
+  :where(.toast[data-limited]) {
+    @apply tw:hidden;
+  }
+  :where(.content) {
+    @apply tw:flex tw:items-center tw:gap-[0.75em] tw:p-[1em];
+  }
+  :where(.message) {
+    @apply tw:flex tw:min-inline-0 tw:flex-1 tw:flex-col tw:gap-[0.25em];
+  }
+  :where(.title) {
+    @apply tw:font-medium tw:wrap-break-word;
+  }
+  :where(.description) {
+    @apply tw:text-inherit tw:wrap-break-word;
+  }
+  :where(.action, .close) {
+    @apply tw:shrink-0 tw:rounded-[0.25em] tw:p-[0.25em] tw:cursor-pointer;
+  }
+  :where(.action) {
+    @apply tw:border tw:border-current/40;
+  }
+  :where(.close) {
+    @apply tw:text-inherit;
+  }
+  :where(.close:hover) {
+    @apply tw:text-inherit;
+  }
+  :where(.action:focus-visible, .close:focus-visible) {
+    @apply tw:outline-2 tw:outline-current;
+  }
+  :where(.icon, .close) svg {
+    @apply tw:size-[1em];
+  }
+  :where(.icon) {
+    @apply tw:shrink-0;
+  }
+  :where(.icon[data-type="loading"]) {
+    @apply tw:animate-spin;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    :where(.toast) {
+      @apply tw:transition-none;
+    }
+    :where(.icon) {
+      @apply tw:animate-none;
+    }
+  }
+}
