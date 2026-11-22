@@ -95,6 +95,12 @@
   --chart-3: var(--palette-blue-500);
   --chart-4: var(--palette-amber-500);
   --chart-5: var(--palette-red-500);
+  /* spacing */
+  --spacing-container-gutter-xs: 0.625rem;
+  --spacing-container-gutter-sm: 0.825rem;
+  --spacing-container-gutter-md: 1rem;
+  --spacing-container-gutter-lg: 1.125rem;
+  --spacing-container-gutter-xl: 1.25rem;
 }
 
 .dark {

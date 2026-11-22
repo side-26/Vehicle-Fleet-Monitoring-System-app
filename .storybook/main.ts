@@ -1,9 +1,6 @@
-import { createRequire } from "node:module";
-
 import type { StorybookConfig } from "@storybook/nextjs-vite";
 import tailwindcss from "@tailwindcss/vite";
 import { mergeConfig } from "vite";
-const require = createRequire(import.meta.url);
 
 const storybookConfig: StorybookConfig = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
@@ -22,16 +19,6 @@ const storybookConfig: StorybookConfig = {
       plugins: [tailwindcss()],
       resolve: {
         dedupe: ["react", "react-dom"],
-        alias: [
-          { find: /^react$/, replacement: require.resolve("react") },
-          { find: /^react\/jsx-runtime$/, replacement: require.resolve("react/jsx-runtime") },
-          {
-            find: /^react\/jsx-dev-runtime$/,
-            replacement: require.resolve("react/jsx-dev-runtime"),
-          },
-          { find: /^react-dom$/, replacement: require.resolve("react-dom") },
-          { find: /^react-dom\/client$/, replacement: require.resolve("react-dom/client") },
-        ],
       },
       optimizeDeps: {
         include: [
@@ -45,6 +32,8 @@ const storybookConfig: StorybookConfig = {
           "@base-ui/react/preview-card",
           "@base-ui/react/slider",
           "@base-ui/react/toast",
+          "next-themes",
+          "next/link",
           "react-hook-form",
           "react-dom",
           "react-leaflet",

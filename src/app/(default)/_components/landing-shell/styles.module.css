@@ -8,9 +8,18 @@
   }
 
   .header {
-    @apply tw:flex tw:items-center tw:justify-between tw:gap-4 tw:border-b tw:border-border;
-    padding: max(1rem, env(safe-area-inset-top)) max(1rem, env(safe-area-inset-right)) 1rem
-      max(1rem, env(safe-area-inset-left));
+    @apply tw:bg-background tw:border-b tw:border-border;
+    padding-block: max(1rem, env(safe-area-inset-top)) 1rem;
+  }
+
+  .headerContent {
+    @apply tw:flex tw:items-center tw:justify-between tw:gap-4;
+  }
+
+  .desktopNavigation,
+  .desktopFooter,
+  .account {
+    @apply tw:hidden;
   }
 
   .actions {
@@ -60,7 +69,72 @@
       @apply tw:pbe-0;
     }
     .header {
-      padding-inline: max(2rem, calc((100vi - 80rem) / 2));
+      @apply tw:py-3;
+    }
+
+    .desktopNavigation {
+      @apply tw:flex tw:items-center tw:gap-7 tw:text-sm tw:font-medium;
+    }
+
+    .desktopNavigation a {
+      @apply tw:no-underline tw:text-foreground;
+    }
+
+    .desktopNavigation a:hover {
+      @apply tw:text-primary;
+    }
+
+    .faq {
+      @apply tw:hidden;
+    }
+
+    .account {
+      @apply tw:glass-interactive tw:inline-flex tw:items-center tw:justify-center tw:gap-2 tw:rounded-lg tw:border tw:border-primary tw:bg-primary/85 tw:text-primary-foreground tw:font-medium tw:no-underline tw:px-[1em] tw:py-[0.65em];
+    }
+
+    .account svg {
+      @apply tw:size-5;
+    }
+
+    .desktopFooter {
+      @apply tw:block tw:text-white;
+      background: linear-gradient(110deg, var(--palette-petrol-950), var(--palette-petrol-800));
+    }
+
+    .footerContent {
+      @apply tw:grid tw:grid-cols-[2fr_1fr_1fr_1fr_1.5fr] tw:gap-8 tw:py-10;
+    }
+
+    .footerBrand > a {
+      @apply tw:inline-flex tw:items-center tw:gap-2 tw:text-xl tw:font-bold tw:no-underline;
+    }
+
+    .footerBrand p,
+    .footerGroup p {
+      @apply tw:text-sm tw:leading-relaxed tw:mt-3;
+      max-inline-size: 20rem;
+    }
+
+    .footerGroup {
+      @apply tw:flex tw:flex-col tw:items-start tw:gap-2 tw:text-sm;
+    }
+
+    .footerGroup h2 {
+      @apply tw:text-base tw:font-semibold tw:mb-1;
+    }
+
+    .desktopFooter a {
+      @apply tw:text-inherit tw:no-underline;
+    }
+
+    .footerGroup a:hover {
+      @apply tw:underline tw:underline-offset-4;
+    }
+
+    .desktopNavigation a:focus-visible,
+    .desktopFooter a:focus-visible,
+    .account:focus-visible {
+      @apply tw:outline-2 tw:outline-solid tw:outline-ring tw:outline-offset-4;
     }
   }
 }
