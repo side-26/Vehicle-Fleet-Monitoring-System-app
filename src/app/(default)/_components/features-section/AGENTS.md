@@ -1,0 +1,3 @@
+# Features section
+
+Owns the landing #features target, section heading and six descriptive fleet capabilities from the reference. Feature copy and Lucide icons live in features-section.types.ts. Uses Container, FadeIn for the heading, and StaggeredListAnimation for the grid. Grid is one column on mobile, two from 48rem, and three above 1024px. Each feature is an article with an h3 under the section h2, composing existing Card parts. Cards are informational, without pointer cursors or button scaling. CSS stays in styles.module.css using Tailwind @apply in a named layer. Tests verify all six capabilities, heading hierarchy, anchor and responsive layout.
