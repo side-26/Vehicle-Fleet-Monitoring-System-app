@@ -1,0 +1,3 @@
+# How it works section
+
+Owns the #how-it-works landing section: the three numbered account, vehicle/driver and fleet management steps from the reference. Copy/icons live in how-it-works-section.types.ts. Section owns its tinted semantic background; common Container owns content alignment. Reuse FadeIn for the heading and StaggeredListAnimation (threshold 0.4) for the steps. Mobile stacks steps; tablet/desktop use three columns with decorative connector lines. Keep connector positioning logical and hidden on mobile, h2/h3 hierarchy, accessible step numbers and reduced-motion behavior. All styles use Tailwind @apply in styles.module.css. Stories cover mobile/tablet/desktop; unit tests cover the section anchor, step order, copy and semantics.

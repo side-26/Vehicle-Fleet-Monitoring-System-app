@@ -1,0 +1,58 @@
+@reference "../../../styles/globals.css";
+
+@layer how-it-works-section {
+  .section {
+    @apply tw:bg-[color-mix(in_oklch,var(--primary)_6%,var(--background))] tw:py-12 tw:scroll-mt-6;
+  }
+
+  .heading {
+    @apply tw:text-center tw:mb-10;
+  }
+  .eyebrow {
+    @apply tw:text-primary tw:text-xs tw:font-bold tw:uppercase tw:tracking-wider tw:mb-2;
+  }
+  .title {
+    @apply tw:text-foreground tw:text-[clamp(1.75rem,3vi,2.5rem)] tw:font-bold tw:leading-tight tw:tracking-tight tw:text-balance;
+  }
+  .steps {
+    @apply tw:grid tw:grid-cols-1 tw:gap-10;
+  }
+  .steps > div {
+    @apply tw:relative tw:min-inline-0;
+  }
+  .step {
+    @apply tw:flex tw:flex-col tw:items-center tw:text-center tw:gap-3;
+  }
+  .icon {
+    @apply tw:inline-flex tw:items-center tw:justify-center tw:size-16 tw:shrink-0 tw:rounded-full tw:bg-primary/10 tw:text-primary;
+  }
+  .icon svg {
+    @apply tw:size-8;
+  }
+  .srOnly {
+    @apply tw:sr-only;
+  }
+
+  .stepTitle {
+    @apply tw:flex tw:items-center tw:justify-center tw:gap-2 tw:text-base tw:text-foreground tw:font-bold tw:leading-snug;
+  }
+  .number {
+    @apply tw:inline-flex tw:items-center tw:justify-center tw:shrink-0 tw:size-[1.5em] tw:rounded-full tw:bg-primary tw:text-primary-foreground tw:text-xs tw:font-semibold;
+  }
+  .description {
+    @apply tw:text-sm tw:text-foreground tw:leading-relaxed tw:max-inline-64 tw:mx-auto;
+  }
+
+  @media (min-width: 48rem) {
+    .section {
+      @apply tw:py-16;
+    }
+    .steps {
+      @apply tw:grid-cols-3 tw:gap-8;
+    }
+    .steps > div:not(:last-child)::after {
+      content: "";
+      @apply tw:absolute tw:pointer-events-none tw:border-t tw:border-primary/25 tw:inset-bs-8 tw:inset-s-[calc(50%+3rem)] tw:inset-e-[calc(-50%-2rem+3rem)];
+    }
+  }
+}
