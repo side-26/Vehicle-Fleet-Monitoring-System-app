@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Manrope } from "next/font/google";
 
 import { cn } from "@/lib/utils";
+import { ThemeProvider } from "@/providers/theme-provider";
 import { ToastProvider } from "@/providers/toast-provider";
 
 import "@/app/styles/globals.css";
@@ -27,6 +28,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={cn(
         "tw:h-full",
         "tw:antialiased",
@@ -37,9 +39,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       )}
     >
       <body className="tw:min-block-lvh tw:inline-full">
-        <ToastProvider>
-          <main>{children}</main>
-        </ToastProvider>
+        <ThemeProvider>
+          <ToastProvider>
+            <main>{children}</main>
+          </ToastProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
