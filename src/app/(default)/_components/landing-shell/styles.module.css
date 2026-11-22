@@ -1,0 +1,66 @@
+@reference "../../../styles/globals.css";
+
+@layer landing-shell {
+  .shell {
+    @apply tw:min-block-dvh;
+    @apply tw:flex;
+    @apply tw:flex-col;
+  }
+
+  .header {
+    @apply tw:flex tw:items-center tw:justify-between tw:gap-4 tw:border-b tw:border-border;
+    padding: max(1rem, env(safe-area-inset-top)) max(1rem, env(safe-area-inset-right)) 1rem
+      max(1rem, env(safe-area-inset-left));
+  }
+
+  .actions {
+    @apply tw:flex tw:items-center tw:gap-2;
+  }
+
+  .faq {
+    @apply tw:inline-flex tw:items-center tw:justify-center tw:min-inline-11 tw:min-block-11 tw:rounded-lg tw:text-primary;
+  }
+
+  .faq svg {
+    @apply tw:size-5;
+  }
+
+  .faq:focus-visible {
+    @apply tw:outline-2 tw:outline-solid tw:outline-ring tw:outline-offset-2;
+  }
+
+  .brand {
+    @apply tw:inline-flex tw:rounded-lg;
+    @apply tw:py-[0.35em] tw:px-[0.5em];
+  }
+
+  .brand img {
+    @apply tw:inline-12;
+    @apply tw:block-auto;
+  }
+
+  @media (min-width: 48rem) {
+    .brand img {
+      inline-size: clamp(8rem, 22vi, 12rem);
+    }
+  }
+
+  .content {
+    @apply tw:flex-1;
+    padding-block-end: calc(7rem + env(safe-area-inset-bottom));
+  }
+
+  .brand:focus-visible {
+    @apply tw:outline-2 tw:outline-solid tw:outline-ring;
+    @apply tw:outline-offset-2;
+  }
+
+  @media (min-width: 64rem) {
+    .content {
+      @apply tw:pbe-0;
+    }
+    .header {
+      padding-inline: max(2rem, calc((100vi - 80rem) / 2));
+    }
+  }
+}
