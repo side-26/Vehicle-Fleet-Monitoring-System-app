@@ -1,0 +1,99 @@
+@reference "../../../styles/globals.css";
+
+@layer hero-section {
+  .hero {
+    @apply tw:relative tw:overflow-hidden tw:flex tw:items-center tw:py-8;
+    min-block-size: calc(100svb - 14rem);
+    background:
+      radial-gradient(
+        ellipse at 85% 40%,
+        color-mix(in oklch, var(--primary) 12%, transparent),
+        transparent 65%
+      ),
+      var(--background);
+  }
+
+  .container {
+    @apply tw:grid tw:gap-8 tw:items-center;
+  }
+
+  .copy {
+    @apply tw:flex tw:flex-col tw:gap-5;
+  }
+
+  .eyebrow {
+    @apply tw:text-primary tw:text-xs tw:font-bold tw:uppercase tw:tracking-wider;
+  }
+
+  .heading {
+    @apply tw:font-bold tw:text-foreground tw:leading-[1.08] tw:tracking-tight;
+    font-size: clamp(2.25rem, 5vi, 4.75rem);
+    text-wrap: balance;
+  }
+
+  .description {
+    @apply tw:text-muted-foreground tw:text-base tw:leading-relaxed tw:max-inline-xl;
+  }
+
+  .actions {
+    @apply tw:flex tw:flex-col tw:gap-3;
+  }
+
+  .benefits {
+    @apply tw:grid tw:grid-cols-3 tw:gap-3 tw:list-none tw:p-0 tw:m-0;
+  }
+
+  .benefits li {
+    @apply tw:flex tw:flex-col tw:items-start tw:gap-2 tw:text-xs tw:font-medium tw:text-foreground;
+  }
+
+  .benefits svg {
+    @apply tw:size-9 tw:shrink-0 tw:p-2 tw:rounded-full tw:bg-primary/10 tw:text-primary;
+  }
+
+  .visual {
+    @apply tw:min-inline-0;
+  }
+
+  .picture {
+    @apply tw:block tw:overflow-hidden tw:rounded-3xl;
+    box-shadow: 0 1.5rem 4rem color-mix(in oklch, var(--primary) 12%, transparent);
+  }
+
+  .image {
+    @apply tw:block tw:inline-full tw:block-auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+
+  @media (min-width: 48rem) {
+    .hero {
+      @apply tw:py-12;
+    }
+    .actions {
+      @apply tw:flex-row;
+    }
+    .benefits {
+      @apply tw:max-inline-xl;
+    }
+    .benefits li {
+      @apply tw:flex-row tw:items-center;
+    }
+  }
+
+  @media (width > 1024px) {
+    .hero {
+      min-block-size: calc(100svb - 5rem);
+      @apply tw:py-16;
+    }
+    .container {
+      @apply tw:grid-cols-[0.95fr_1.05fr] tw:gap-12;
+    }
+    .description {
+      @apply tw:text-lg;
+    }
+    .benefits {
+      @apply tw:mt-4;
+    }
+  }
+}
