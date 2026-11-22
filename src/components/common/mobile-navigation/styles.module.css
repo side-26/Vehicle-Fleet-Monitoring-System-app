@@ -1,7 +1,7 @@
 @reference "../../../app/styles/globals.css";
 @layer mobile-navigation {
   .footer {
-    @apply tw:fixed;
+    @apply tw:fixed tw:block;
     inset-block-end: 0;
     inset-inline: 0;
     @apply tw:z-20;
@@ -11,7 +11,7 @@
   }
 
   .navigationCard[data-slot="card"] {
-    @apply tw:max-inline-3xl;
+    @apply tw:inline-full tw:max-inline-3xl;
     @apply tw:mx-auto;
     @apply tw:p-[0.4em];
     @apply tw:bg-card/85;
@@ -56,7 +56,7 @@
     @apply tw:outline-2 tw:outline-solid tw:outline-ring;
     @apply tw:outline-offset-2;
   }
-  @media (min-width: 64rem) {
+  @media (width > 1024px) {
     .footer {
       @apply tw:hidden;
     }

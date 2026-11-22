@@ -55,7 +55,7 @@
     @apply tw:outline-offset-2;
   }
 
-  @media (min-width: 64rem) {
+  @media (width > 1024px) {
     .content {
       @apply tw:pbe-0;
     }
