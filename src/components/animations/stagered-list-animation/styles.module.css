@@ -1,0 +1,22 @@
+@reference "../../../app/styles/globals.css";
+@import "../../../app/styles/animations.css";
+
+@layer staggered-list-animation {
+  :where(.item) {
+    @apply tw:opacity-0;
+  }
+
+  :where(.list[data-visible="true"]) > :where(.item) {
+    animation: slide-y var(--stagger-duration, 400ms) cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: calc(
+      var(--stagger-delay, 0ms) + var(--stagger-index, 0) * var(--stagger-interval, 60ms)
+    );
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :where(.item),
+    :where(.list[data-visible="true"]) > :where(.item) {
+      @apply tw:animate-none tw:opacity-100;
+    }
+  }
+}
