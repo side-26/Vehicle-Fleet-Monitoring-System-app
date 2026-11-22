@@ -1,0 +1,7 @@
+@reference "../../../app/styles/globals.css";
+
+@layer viewport-suspense {
+  :where(.wrapper) {
+    @apply tw:min-block-1;
+  }
+}
