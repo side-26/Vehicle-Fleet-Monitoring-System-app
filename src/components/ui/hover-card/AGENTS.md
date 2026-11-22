@@ -1,3 +1,5 @@
 # Hover card
 
 Base UI PreviewCard compound wrapper: HoverCard root, HoverCardTrigger, HoverCardContent. Preserve native controlled/uncontrolled state, trigger link semantics, refs, events and positioning. Content accepts primary/secondary/success/error/neutral (default neutral), and gutter xs/sm/md/lg/xl (default md). Gutter controls internal em padding; sideOffset controls trigger distance. Keep styles in named CSS Module layer using canonical Tailwind @apply. Preview cards provide supplemental sighted information, so essential content must remain accessible outside the card. Tests cover hover opening and closing, state variants and forwarding.
+
+All HoverCard surfaces reuse glass-interactive with 85% semantic background opacity, matching filled buttons. Preserve the shared inset highlights and glass shadow; do not override them with generic shadow or ring utilities. Override the shared button-style hover/active scaling, brightness and pointer cursor so preview content remains steady and readable.

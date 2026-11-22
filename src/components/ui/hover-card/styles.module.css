@@ -4,19 +4,23 @@
     @apply tw:isolate;
   }
   :where(.content) {
-    @apply tw:inline-64 tw:max-inline-[calc(100vi-2rem)] tw:origin-(--transform-origin) tw:rounded-lg tw:bg-popover tw:text-popover-foreground tw:text-sm tw:shadow-md tw:ring-1 tw:ring-foreground/10 tw:outline-none tw:transition-opacity tw:duration-100 tw:p-[0.75em];
+    @apply tw:glass-interactive tw:cursor-default;
+    @apply tw:inline-64 tw:max-inline-[calc(100vi-2rem)] tw:origin-(--transform-origin) tw:rounded-lg tw:bg-popover/85 tw:text-popover-foreground tw:text-sm tw:border tw:border-solid tw:border-transparent tw:outline-none tw:transition-opacity tw:duration-100 tw:p-[0.75em];
+  }
+  :where(.content):is(:hover, :active):not(:disabled, [data-disabled]) {
+    @apply tw:scale-none tw:filter-none tw:cursor-default;
   }
   :where(.content[data-color="primary"]) {
-    @apply tw:bg-primary tw:text-primary-foreground;
+    @apply tw:bg-primary/85 tw:text-primary-foreground;
   }
   :where(.content[data-color="secondary"]) {
-    @apply tw:bg-secondary tw:text-secondary-foreground;
+    @apply tw:bg-secondary/85 tw:text-secondary-foreground;
   }
   :where(.content[data-color="success"]) {
-    @apply tw:bg-success tw:text-success-foreground;
+    @apply tw:bg-success/85 tw:text-success-foreground;
   }
   :where(.content[data-color="error"]) {
-    @apply tw:bg-error tw:text-error-foreground;
+    @apply tw:bg-error/85 tw:text-error-foreground;
   }
   :where(.content[data-gutter="xs"]) {
     @apply tw:p-[0.25em];
