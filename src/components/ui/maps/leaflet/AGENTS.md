@@ -5,3 +5,5 @@ First-layer React Leaflet adapters: LeafletMap owns the map context and viewport
 WidgetProvider places custom widget children in native map-control corners and isolates widget pointer/scroll interactions from the map.
 
 Map stories use fullscreen layout so percentage-width map viewports cannot collapse in Storybook’s centered flex wrapper. Show the default OpenStreetMap tiles in visual examples, including widget examples. Browser tests assert nonzero map dimensions after client initialization.
+
+LeafletMapCluster lives under leaflet-map/leaflet-map-cluster and owns the react-leaflet-cluster boundary, vendor CSS and browser-only cluster initialization.
