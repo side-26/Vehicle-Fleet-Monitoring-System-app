@@ -3,14 +3,8 @@
 @layer hero-section {
   .hero {
     @apply tw:relative tw:overflow-hidden tw:flex tw:items-center tw:py-8;
-    min-block-size: calc(100svb - 14rem);
-    background:
-      radial-gradient(
-        ellipse at 85% 40%,
-        color-mix(in oklch, var(--primary) 12%, transparent),
-        transparent 65%
-      ),
-      var(--background);
+    @apply tw:min-block-[calc(100svb-14rem)] tw:bg-background;
+    @apply tw:bg-[radial-gradient(ellipse_at_85%_40%,color-mix(in_oklch,var(--primary)_12%,transparent),transparent_65%)];
   }
 
   .container {
@@ -27,8 +21,7 @@
 
   .heading {
     @apply tw:font-bold tw:text-foreground tw:leading-[1.08] tw:tracking-tight;
-    font-size: clamp(2.25rem, 5vi, 4.75rem);
-    text-wrap: balance;
+    @apply tw:text-[clamp(2.25rem,5vi,4.75rem)] tw:text-balance;
   }
 
   .description {
@@ -57,13 +50,12 @@
 
   .picture {
     @apply tw:block tw:overflow-hidden tw:rounded-3xl;
-    box-shadow: 0 1.5rem 4rem color-mix(in oklch, var(--primary) 12%, transparent);
+    @apply tw:shadow-[0_1.5rem_4rem_color-mix(in_oklch,var(--primary)_12%,transparent)];
   }
 
   .image {
     @apply tw:block tw:inline-full tw:block-auto;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
+    @apply tw:aspect-4/3 tw:object-cover;
   }
 
   @media (min-width: 48rem) {
@@ -83,7 +75,7 @@
 
   @media (width > 1024px) {
     .hero {
-      min-block-size: calc(100svb - 5rem);
+      @apply tw:min-block-[calc(100svb-5rem)];
       @apply tw:py-16;
     }
     .container {
