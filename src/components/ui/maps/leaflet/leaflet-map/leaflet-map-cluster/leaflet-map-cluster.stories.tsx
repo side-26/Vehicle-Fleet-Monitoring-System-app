@@ -59,7 +59,7 @@ const meta = {
   },
   render: (args) => (
     <LeafletMap center={center} zoom={10} maxZoom={18}>
-      <MapTile />
+      <MapTile lightUrl="https://tile.openstreetmap.org/{z}/{x}/{y}.png" />
       <LeafletMapCluster {...args}>
         {vehicles.map(({ name, position }) => (
           <MapPointer key={name} position={position} alt={name} />

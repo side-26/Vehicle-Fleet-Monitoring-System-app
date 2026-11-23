@@ -22,7 +22,7 @@ const meta = {
   },
   render: (args) => (
     <LeafletMap {...args}>
-      <MapTile />
+      <MapTile lightUrl="https://tile.openstreetmap.org/{z}/{x}/{y}.png" />
       <MapPointer position={center} alt="Fleet vehicle" />
     </LeafletMap>
   ),

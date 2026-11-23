@@ -2,6 +2,6 @@
 
 @layer viewport-suspense {
   :where(.wrapper) {
-    @apply tw:min-block-1;
+    @apply tw:min-block-1 tw:block-full;
   }
 }

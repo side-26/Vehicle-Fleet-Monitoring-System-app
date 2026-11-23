@@ -10,9 +10,19 @@ const meta = {
   component: MapTile,
   tags: ["autodocs"],
   parameters: { layout: "fullscreen", a11y: { test: "error" } },
-  args: {},
+  args: { lightUrl: "https://tile.openstreetmap.org/{z}/{x}/{y}.png" },
   argTypes: {
-    url: { control: "text", description: "Native tile URL template.", type: "string" },
+    lightUrl: {
+      control: "text",
+      description: "Required light-theme tile URL template.",
+      type: "string",
+    },
+    darkUrl: {
+      control: "text",
+      description: "Optional dark-theme tile URL template.",
+      type: "string",
+    },
+    apiKey: { control: "text", description: "Optional provider API key.", type: "string" },
     opacity: { control: "number", description: "Tile opacity from 0 to 1.", type: "number" },
   },
   render: (args) => (

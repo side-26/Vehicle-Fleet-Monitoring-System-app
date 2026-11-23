@@ -1,5 +1,5 @@
-import React from "react";
+import type { ReactNode } from "react";
 
-export default function AdminLayout() {
-  return <article>layout</article>;
+export default function AdminLayout({ children }: { readonly children: ReactNode }) {
+  return <article>{children}</article>;
 }

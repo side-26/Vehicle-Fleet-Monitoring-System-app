@@ -9,8 +9,12 @@ export const DEFAULT_MAP_TILE_ATTRIBUTION =
 /** All native React Leaflet TileLayer props, including its instance ref. */
 export type MapTileProps = Readonly<
   Omit<ComponentProps<typeof TileLayer>, "url"> & {
-    /** Tile URL template. Defaults to OpenStreetMap standard tiles. */
-    url?: string;
+    /** Required light-theme tile URL template. */
+    lightUrl: string;
+    /** Dark-theme template; falls back to lightUrl when omitted. */
+    darkUrl?: string;
+    /** Optional provider key appended as an encoded apiKey query parameter. */
+    apiKey?: string;
   }
 >;
 

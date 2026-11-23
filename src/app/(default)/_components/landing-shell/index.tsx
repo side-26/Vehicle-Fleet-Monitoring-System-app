@@ -18,7 +18,13 @@ export function LandingShell({ children }: { readonly children: ReactNode }) {
           <Link href="/" aria-label="FleetOS home" className={styles.brand}>
             <picture>
               <source media="(width < 48rem)" srcSet="/icons/mini-favicon.svg" />
-              <Image src="/icons/fleetos-logo.svg" alt="FleetOS" width={220} height={54} />
+              <Image
+                src="/icons/fleetos-logo.svg"
+                alt="FleetOS"
+                width={220}
+                height={54}
+                loading="eager"
+              />
             </picture>
           </Link>
           <nav aria-label="Desktop landing page" className={styles.desktopNavigation}>
