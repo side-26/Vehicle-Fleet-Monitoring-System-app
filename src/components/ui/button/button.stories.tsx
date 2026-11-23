@@ -27,6 +27,8 @@ const meta = {
     color: {
       control: "select",
       options: BUTTON_COLORS,
+      description: "Semantic button color. Neutral reverses dark/light colors with the theme.",
+      type: "string",
     },
 
     size: {
@@ -59,6 +61,23 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
+
+export const Neutral: Story = {
+  args: { color: "neutral", children: "Neutral", "aria-label": "Neutral" },
+};
+
+export const NeutralVariants: Story = {
+  args: { color: "neutral" },
+  render: (args) => (
+    <div className="tw:flex tw:flex-wrap tw:items-center tw:gap-4">
+      {BUTTON_VARIANTS.map((variant) => (
+        <Button {...args} key={variant} aria-label={`Neutral ${variant}`} variant={variant}>
+          {variant}
+        </Button>
+      ))}
+    </div>
+  ),
+};
 
 export const Filled: Story = {
   args: {

@@ -1,0 +1,42 @@
+export const pricingPlans = [
+  {
+    id: "starter",
+    name: "Starter",
+    description: "A great fit for small teams.",
+    price: "$29",
+    capacity: "Up to 5 vehicles",
+    featured: false,
+    features: ["Vehicle & driver management", "Trip history", "Basic reports"],
+    action: "Get Started",
+  },
+  {
+    id: "professional",
+    name: "Professional",
+    description: "For growing fleets with more control.",
+    price: "$79",
+    capacity: "Up to 25 vehicles",
+    featured: true,
+    features: [
+      "Everything in Starter",
+      "Maintenance scheduling",
+      "Alerts & notifications",
+      "Advanced reports & analytics",
+    ],
+    action: "Get Started",
+  },
+  {
+    id: "enterprise",
+    name: "Enterprise",
+    description: "Built for larger and complex fleets.",
+    price: "Custom pricing",
+    capacity: "",
+    featured: false,
+    features: [
+      "Everything in Professional",
+      "Higher vehicle limits",
+      "Role-based access",
+      "Priority support",
+    ],
+    action: "Contact Sales",
+  },
+] as const;

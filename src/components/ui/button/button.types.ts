@@ -6,7 +6,14 @@ export const buttonVariants = ["filled", "outlined", "tonal", "ghost", "link"] a
 
 export const buttonSizes = ["xs", "sm", "md", "lg", "xl"] as const;
 
-export const buttonColor = ["primary", "secondary", "destructive", "success", "error"] as const;
+export const buttonColor = [
+  "primary",
+  "secondary",
+  "neutral",
+  "destructive",
+  "success",
+  "error",
+] as const;
 
 export type ButtonVariant = (typeof buttonVariants)[number];
 

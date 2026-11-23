@@ -9,3 +9,5 @@ how-it-works-section owns the #how-it-works anchor and three numbered onboarding
 fleet-map-section provides the primary-color landing demo preview and lazily loads the route-owned clustered fleet map when visible.
 
 fleet-map owns the landing demo map, synthetic dataset, traffic locations, legend, styles and data tests.
+
+pricing-section owns the #pricing plan comparison with responsive pricing rows, a highlighted Professional plan and staggered card entry on mobile.
