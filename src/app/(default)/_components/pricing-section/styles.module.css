@@ -51,7 +51,7 @@
     @apply tw:size-4 tw:shrink-0 tw:mt-0.5 tw:text-primary;
   }
   .plan[data-featured="true"] .features svg {
-    color: inherit;
+    @apply tw:text-inherit;
   }
   .action {
     @apply tw:inline-full;
@@ -61,8 +61,7 @@
       @apply tw:py-16;
     }
     .plan {
-      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.95fr) minmax(0, 1.8fr) 7.5rem;
-      @apply tw:items-center tw:gap-4 tw:px-5 tw:py-6;
+      @apply tw:grid-cols-[minmax(0,1.15fr)_minmax(0,0.95fr)_minmax(0,1.8fr)_7.5rem] tw:items-center tw:gap-4 tw:px-5 tw:py-6;
     }
     .summary {
       @apply tw:min-inline-0;
@@ -84,9 +83,14 @@
     }
   }
   @media (min-width: 64rem) {
+    .plans {
+      @apply tw:grid tw:grid-cols-3;
+    }
+    .plans > * {
+      @apply tw:grid tw:min-inline-0;
+    }
     .plan {
-      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.95fr) minmax(0, 1.8fr) 9rem;
-      @apply tw:gap-8 tw:p-7;
+      @apply tw:grid-cols-1 tw:grid-rows-[auto_auto_1fr_auto] tw:items-start tw:gap-6 tw:p-7;
     }
     .planTitle {
       @apply tw:text-lg;
@@ -96,7 +100,7 @@
       @apply tw:text-sm;
     }
     .priceBlock {
-      @apply tw:pe-5;
+      @apply tw:border-e-0 tw:pe-0;
     }
   }
 }
