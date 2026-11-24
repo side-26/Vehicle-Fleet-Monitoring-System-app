@@ -15,6 +15,11 @@
 
     /* Colors */
 
+    &[data-color="neutral"] {
+      --button-color: var(--foreground);
+      --button-foreground: var(--background);
+    }
+
     &[data-color="secondary"] {
       --button-color: var(--secondary);
       --button-foreground: var(--secondary-foreground);

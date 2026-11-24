@@ -9,6 +9,20 @@
   --vfm-font-lg: var(--tw-text-base);
   --vfm-font-xl: var(--tw-text-lg);
 
+  /* Accordion geometry and motion */
+
+  --accordion-padding: 0.85em;
+  --accordion-radius: 0.6em;
+  --accordion-font-sm: 0.8125rem;
+  --accordion-focus-width: 0.15em;
+  --accordion-focus-offset: 0.15em;
+  --accordion-motion-duration: 180ms;
+  --accordion-motion-ease: ease;
+  --accordion-content-leading: 1.6;
+  --accordion-link-offset: 0.2em;
+  --accordion-inherit-fill: color-mix(in oklch, currentColor 12%, transparent);
+  --accordion-inherit-tonal: color-mix(in oklch, currentColor 10%, transparent);
+
   /* Field typography */
 
   --vfm-field-label-scale: var(--scale-1125);
@@ -95,6 +109,12 @@
   --chart-3: var(--palette-blue-500);
   --chart-4: var(--palette-amber-500);
   --chart-5: var(--palette-red-500);
+  /* spacing */
+  --spacing-container-gutter-xs: 0.625rem;
+  --spacing-container-gutter-sm: 0.825rem;
+  --spacing-container-gutter-md: 1rem;
+  --spacing-container-gutter-lg: 1.125rem;
+  --spacing-container-gutter-xl: 1.25rem;
 }
 
 .dark {

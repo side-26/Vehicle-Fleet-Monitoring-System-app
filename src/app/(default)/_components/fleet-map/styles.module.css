@@ -1,0 +1,70 @@
+@reference "../../../styles/globals.css";
+
+@layer fleet-map {
+  .map {
+    @apply tw:inline-full tw:flex-1 tw:min-block-0 tw:rounded-2xl;
+  }
+  .vehicle {
+    @apply tw:inline-8 tw:aspect-square tw:relative;
+  }
+}
+
+@layer fleet-map {
+  :where(.legend) {
+    @apply tw:flex tw:flex-wrap tw:items-center tw:gap-x-6 tw:gap-y-2 tw:list-none tw:p-0 tw:m-0 tw:text-sm;
+  }
+  .legend > li {
+    @apply tw:flex tw:items-center tw:gap-2;
+  }
+  .legend > li + li::before {
+    content: "";
+    block-size: 1em;
+    border-inline-start: thin solid currentColor;
+    @apply tw:opacity-40 tw:me-4;
+  }
+  .legend--icon {
+    @apply tw:inline-8 tw:aspect-1/3 tw:shrink-0 tw:relative;
+  }
+  .legend--icon img {
+    @apply tw:object-contain;
+  }
+}
+
+@layer fleet-map {
+  @media (max-width: 64rem) {
+    .map :global(.leaflet-control-zoom) {
+      @apply tw:hidden;
+    }
+    .legend {
+      @apply tw:gap-x-3 tw:gap-y-1 tw:text-xs;
+    }
+    .legend > li {
+      @apply tw:gap-1;
+    }
+    .legend > li + li::before {
+      @apply tw:me-2;
+    }
+    .legend--icon {
+      @apply tw:aspect-1/2;
+    }
+  }
+  @media (max-height: 36rem) and (max-width: 64rem) {
+    .legend--icon {
+      @apply tw:aspect-square;
+    }
+  }
+  @media (max-width: 40rem) {
+    .legend {
+      @apply tw:gap-x-1 tw:gap-y-0.5;
+    }
+    .legend > li {
+      @apply tw:gap-0;
+    }
+    .legend > li + li::before {
+      @apply tw:me-1;
+    }
+    .legend--icon {
+      @apply tw:inline-4 tw:aspect-square;
+    }
+  }
+}

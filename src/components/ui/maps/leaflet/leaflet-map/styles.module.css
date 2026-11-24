@@ -1,6 +1,6 @@
 @reference "../../../../../app/styles/globals.css";
 @layer leaflet-map {
   .map {
-    @apply tw:inline-full tw:min-block-96 tw:rounded-xl;
+    @apply tw:inline-full tw:block-full tw:rounded-xl tw:overflow-hidden;
   }
 }

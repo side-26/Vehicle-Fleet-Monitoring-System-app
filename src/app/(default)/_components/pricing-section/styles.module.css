@@ -1,0 +1,106 @@
+@reference "../../../styles/globals.css";
+
+@layer pricing-section {
+  .section {
+    @apply tw:bg-background tw:text-foreground tw:py-12 tw:scroll-mt-6;
+  }
+  .heading {
+    @apply tw:text-center tw:mb-8;
+  }
+  .eyebrow {
+    @apply tw:text-primary tw:text-xs tw:uppercase tw:tracking-wider tw:font-bold tw:mb-2;
+  }
+  .title {
+    @apply tw:text-[clamp(1.75rem,3vi,2.5rem)] tw:font-bold tw:leading-tight tw:tracking-tight tw:text-balance;
+  }
+  .plans {
+    @apply tw:flex tw:flex-col tw:gap-5;
+  }
+  .plan {
+    @apply tw:relative tw:grid tw:grid-cols-1 tw:gap-5 tw:p-6 tw:rounded-2xl tw:border tw:border-border tw:bg-card tw:text-card-foreground tw:shadow-sm;
+  }
+  .plan[data-featured="true"] {
+    @apply tw:bg-primary tw:text-primary-foreground tw:border-primary;
+  }
+  .badge {
+    @apply tw:absolute tw:inset-s-5 tw:inset-bs-0 tw:-translate-y-1/2 tw:rounded-full tw:border tw:border-primary-foreground/50 tw:bg-primary tw:text-primary-foreground tw:text-xs tw:font-semibold tw:px-[0.8em] tw:py-[0.25em];
+  }
+  .planTitle {
+    @apply tw:text-lg tw:font-bold tw:leading-tight;
+  }
+  .description {
+    @apply tw:text-sm tw:leading-snug tw:mt-1;
+  }
+  .price strong {
+    @apply tw:text-2xl tw:font-bold tw:leading-tight;
+  }
+  .price span,
+  .capacity {
+    @apply tw:text-xs;
+  }
+  .capacity {
+    @apply tw:mt-1;
+  }
+  .features {
+    @apply tw:flex tw:flex-col tw:gap-2 tw:list-none tw:p-0 tw:m-0 tw:text-sm;
+  }
+  .features li {
+    @apply tw:flex tw:items-start tw:gap-2;
+  }
+  .features svg {
+    @apply tw:size-4 tw:shrink-0 tw:mt-0.5 tw:text-primary;
+  }
+  .plan[data-featured="true"] .features svg {
+    @apply tw:text-inherit;
+  }
+  .action {
+    @apply tw:inline-full;
+  }
+  @media (min-width: 48rem) {
+    .section {
+      @apply tw:py-16;
+    }
+    .plan {
+      @apply tw:grid-cols-[minmax(0,1.15fr)_minmax(0,0.95fr)_minmax(0,1.8fr)_7.5rem] tw:items-center tw:gap-4 tw:px-5 tw:py-6;
+    }
+    .summary {
+      @apply tw:min-inline-0;
+    }
+    .planTitle {
+      @apply tw:text-base;
+    }
+    .description {
+      @apply tw:text-xs;
+    }
+    .priceBlock {
+      @apply tw:border-e tw:border-current/15 tw:pe-3;
+    }
+    .features {
+      @apply tw:gap-1 tw:text-xs;
+    }
+    .action {
+      @apply tw:justify-self-stretch;
+    }
+  }
+  @media (min-width: 64rem) {
+    .plans {
+      @apply tw:grid tw:grid-cols-3;
+    }
+    .plans > * {
+      @apply tw:grid tw:min-inline-0;
+    }
+    .plan {
+      @apply tw:grid-cols-1 tw:grid-rows-[auto_auto_1fr_auto] tw:items-start tw:gap-6 tw:p-7;
+    }
+    .planTitle {
+      @apply tw:text-lg;
+    }
+    .description,
+    .features {
+      @apply tw:text-sm;
+    }
+    .priceBlock {
+      @apply tw:border-e-0 tw:pe-0;
+    }
+  }
+}

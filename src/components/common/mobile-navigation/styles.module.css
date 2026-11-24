@@ -1,0 +1,64 @@
+@reference "../../../app/styles/globals.css";
+@layer mobile-navigation {
+  .footer {
+    @apply tw:fixed tw:block;
+    inset-block-end: 0;
+    inset-inline: 0;
+    @apply tw:z-20;
+    padding: 0.5rem max(0.5rem, env(safe-area-inset-right))
+      max(0.75rem, env(safe-area-inset-bottom)) max(0.5rem, env(safe-area-inset-left));
+    @apply tw:pointer-events-none;
+  }
+
+  .navigationCard[data-slot="card"] {
+    @apply tw:inline-full tw:max-inline-3xl;
+    @apply tw:mx-auto;
+    @apply tw:p-[0.4em];
+    @apply tw:bg-card/85;
+    @apply tw:cursor-default;
+    @apply tw:pointer-events-auto;
+    @apply tw:rounded-[1.5em];
+  }
+
+  .navigationCard[data-slot="card"]:is(:hover, :active) {
+    @apply tw:scale-none;
+    @apply tw:filter-none;
+  }
+
+  .navigation {
+    @apply tw:grid;
+    @apply tw:grid-cols-5;
+    @apply tw:gap-[0.15em];
+  }
+
+  .link {
+    @apply tw:flex tw:flex-col tw:items-center tw:justify-center tw:gap-1 tw:rounded-xl tw:text-foreground;
+    @apply tw:min-block-14;
+    @apply tw:py-[0.5em] tw:px-[0.15em];
+    font-size: clamp(0.625rem, 1.6vi, 0.875rem);
+    @apply tw:font-semibold;
+    @apply tw:text-center;
+    @apply tw:no-underline;
+    @apply tw:touch-manipulation;
+  }
+
+  .link svg {
+    @apply tw:inline-[1.4rem];
+    @apply tw:block-[1.4rem];
+  }
+
+  .link:is(:hover, [aria-current]) {
+    @apply tw:bg-primary/15;
+    @apply tw:text-primary;
+  }
+
+  .link:focus-visible {
+    @apply tw:outline-2 tw:outline-solid tw:outline-ring;
+    @apply tw:outline-offset-2;
+  }
+  @media (width > 1024px) {
+    .footer {
+      @apply tw:hidden;
+    }
+  }
+}

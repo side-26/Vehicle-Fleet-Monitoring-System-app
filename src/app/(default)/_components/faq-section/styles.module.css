@@ -1,0 +1,31 @@
+@reference "../../../styles/globals.css";
+
+@layer faq-section {
+  .section {
+    @apply tw:bg-background tw:text-foreground tw:py-12 tw:scroll-mt-6;
+  }
+
+  .container {
+    @apply tw:grid tw:grid-cols-1 tw:items-start tw:gap-8;
+
+    @media (min-width: 64rem) {
+      @apply tw:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] tw:items-center tw:gap-10;
+    }
+  }
+
+  .introduction {
+    @apply tw:min-inline-0;
+  }
+
+  .eyebrow {
+    @apply tw:text-primary tw:text-xs tw:uppercase tw:tracking-wider tw:font-bold tw:mb-2;
+  }
+
+  .title {
+    @apply tw:text-[clamp(1.75rem,2.5vi,2.25rem)] tw:font-bold tw:leading-tight tw:tracking-tight tw:text-balance;
+  }
+
+  .description {
+    @apply tw:mt-4 tw:text-sm tw:leading-relaxed tw:max-inline-80;
+  }
+}

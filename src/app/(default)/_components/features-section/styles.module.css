@@ -1,0 +1,74 @@
+@reference "../../../styles/globals.css";
+
+@layer features-section {
+  .section {
+    @apply tw:bg-background tw:py-12 tw:scroll-mt-6;
+  }
+
+  .heading {
+    @apply tw:text-center tw:mb-8;
+  }
+
+  .eyebrow {
+    @apply tw:text-primary tw:text-xs tw:font-bold tw:uppercase tw:tracking-wider tw:mb-2;
+  }
+
+  .title {
+    @apply tw:text-foreground tw:text-[clamp(1.75rem,3vi,2.5rem)] tw:font-bold tw:leading-tight tw:tracking-tight tw:text-balance;
+  }
+
+  .grid {
+    @apply tw:grid tw:grid-cols-1 tw:gap-4;
+  }
+
+  .feature {
+    @apply tw:block-full;
+  }
+
+  .card[data-slot="card"] {
+    @apply tw:block-full tw:justify-center tw:cursor-default;
+  }
+
+  .card[data-slot="card"]:is(:hover, :active) {
+    @apply tw:scale-none tw:filter-none;
+  }
+
+  .cardHeader {
+    @apply tw:flex tw:items-start tw:gap-4;
+  }
+
+  .icon {
+    @apply tw:inline-flex tw:items-center tw:justify-center tw:shrink-0 tw:rounded-2xl tw:bg-primary/10 tw:text-primary tw:p-[0.8em];
+  }
+
+  .icon svg {
+    @apply tw:size-7;
+  }
+
+  .details {
+    @apply tw:min-inline-0;
+  }
+
+  .featureTitle {
+    @apply tw:text-base tw:font-bold tw:text-foreground tw:leading-snug tw:mb-1;
+  }
+
+  .description {
+    @apply tw:text-sm tw:text-muted-foreground tw:leading-relaxed;
+  }
+
+  @media (min-width: 48rem) {
+    .section {
+      @apply tw:py-16;
+    }
+    .grid {
+      @apply tw:grid-cols-2;
+    }
+  }
+
+  @media (width > 1024px) {
+    .grid {
+      @apply tw:grid-cols-3;
+    }
+  }
+}

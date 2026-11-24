@@ -1,0 +1,7 @@
+@reference "../../../app/styles/globals.css";
+
+@layer theme-dropdown {
+  .trigger {
+    @apply tw:min-inline-11 tw:min-block-11;
+  }
+}

@@ -23,7 +23,7 @@ const meta = {
   },
   render: (args) => (
     <LeafletMap center={center} zoom={10}>
-      <MapTile />
+      <MapTile lightUrl="https://tile.openstreetmap.org/{z}/{x}/{y}.png" />
       <WidgetProvider {...args}>
         <button type="button">Locate vehicle</button>
         <button type="button">Map layers</button>
