@@ -1,0 +1,57 @@
+@reference "../../../app/styles/globals.css";
+
+@layer item {
+  :where(.group) {
+    @apply tw:flex tw:flex-col tw:gap-4 tw:list-none tw:p-0 tw:m-0;
+  }
+
+  :where(.item) {
+    @apply tw:flex tw:items-start tw:gap-3 tw:min-inline-0 tw:text-inherit;
+    --item-color: currentColor;
+
+    &[data-color="primary"] {
+      --item-color: var(--primary);
+    }
+
+    &[data-color="neutral"] {
+      --item-color: var(--foreground);
+    }
+
+    &[data-color="error"] {
+      --item-color: var(--error);
+    }
+
+    &[data-color="success"] {
+      --item-color: var(--success);
+    }
+
+    &[data-variant="outline"] {
+      @apply tw:rounded-lg tw:border tw:border-(--item-color) tw:p-[0.75em];
+    }
+
+    &[data-variant="muted"] {
+      @apply tw:rounded-lg tw:bg-[color-mix(in_oklch,var(--item-color)_10%,transparent)] tw:p-[0.75em];
+    }
+  }
+
+  :where(.media) {
+    @apply tw:shrink-0 tw:text-inherit;
+  }
+
+  :where(.media) > svg {
+    @apply tw:size-7;
+    stroke-width: 1.6;
+  }
+
+  :where(.content) {
+    @apply tw:min-inline-0;
+  }
+
+  :where(.title) {
+    @apply tw:text-sm tw:font-bold tw:leading-snug;
+  }
+
+  :where(.description) {
+    @apply tw:mt-1 tw:text-xs tw:leading-relaxed;
+  }
+}

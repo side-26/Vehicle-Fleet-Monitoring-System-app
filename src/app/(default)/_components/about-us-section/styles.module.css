@@ -1,0 +1,58 @@
+@reference "../../../styles/globals.css";
+
+@layer about-us-section {
+  .section {
+    @apply tw:bg-[color-mix(in_oklch,var(--primary)_6%,var(--background))] tw:text-foreground tw:py-12 tw:scroll-mt-6;
+
+    @media (min-width: 64rem) {
+      @apply tw:py-10;
+    }
+  }
+
+  .container {
+    @apply tw:grid tw:grid-cols-1 tw:items-center tw:gap-8;
+
+    @media (min-width: 64rem) {
+      @apply tw:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] tw:gap-10;
+    }
+  }
+
+  .visual {
+    @apply tw:overflow-hidden tw:rounded-2xl;
+  }
+
+  .image {
+    @apply tw:block tw:inline-full tw:block-auto tw:object-cover;
+    aspect-ratio: 4 / 3;
+  }
+
+  .content {
+    @apply tw:min-inline-0;
+  }
+
+  .eyebrow {
+    @apply tw:text-primary tw:text-xs tw:uppercase tw:tracking-wider tw:font-bold tw:mb-2;
+  }
+
+  .title {
+    @apply tw:text-[clamp(1.75rem,2.5vi,2.25rem)] tw:font-bold tw:leading-tight tw:tracking-tight tw:text-balance tw:max-inline-lg;
+  }
+
+  .description {
+    @apply tw:mt-4 tw:text-base tw:leading-relaxed tw:max-inline-160;
+  }
+
+  .principles {
+    @apply tw:grid tw:grid-cols-1 tw:gap-5 tw:list-none tw:p-0 tw:mb-0 tw:mt-6;
+
+    @media (min-width: 48rem) {
+      @apply tw:grid-cols-3 tw:gap-5;
+    }
+  }
+
+  .principle + .principle {
+    @media (min-width: 48rem) {
+      @apply tw:border-s tw:border-primary/20 tw:ps-5;
+    }
+  }
+}

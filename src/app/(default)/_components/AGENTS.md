@@ -11,3 +11,5 @@ fleet-map-section provides the primary-color landing demo preview and lazily loa
 fleet-map owns the landing demo map, synthetic dataset, traffic locations, legend, styles and data tests.
 
 pricing-section owns the #pricing plan comparison with responsive pricing rows, a highlighted Professional plan and staggered card entry on mobile.
+
+about-us-section owns the #about-us anchor, collaborative team photo, company introduction and mission, values and vision in a desktop two-column layout.
