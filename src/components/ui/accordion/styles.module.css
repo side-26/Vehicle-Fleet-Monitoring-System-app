@@ -1,0 +1,123 @@
+@reference "../../../app/styles/globals.css";
+
+@layer accordion {
+  :where(.root) {
+    @apply tw:flex tw:flex-col tw:gap-2 tw:inline-full tw:text-inherit tw:text-sm;
+
+    &[data-size="xs"] {
+      @apply tw:text-xs;
+    }
+    &[data-size="sm"] {
+      @apply tw:text-(length:--accordion-font-sm);
+    }
+    &[data-size="lg"] {
+      @apply tw:text-base;
+    }
+    &[data-size="xl"] {
+      @apply tw:text-lg;
+    }
+
+    &[data-color="inherit"][data-variant="fill"] > .item {
+      @apply tw:bg-(--accordion-inherit-fill);
+    }
+    &[data-color="inherit"][data-variant="tonal"] > .item {
+      @apply tw:bg-(--accordion-inherit-tonal);
+    }
+    &[data-color="inherit"][data-variant="outline"] > .item {
+      @apply tw:border-current;
+    }
+
+    &[data-color="primary"][data-variant="fill"] > .item {
+      @apply tw:bg-primary tw:text-primary-foreground;
+    }
+    &[data-color="primary"][data-variant="tonal"] > .item {
+      @apply tw:bg-primary/10;
+    }
+    &[data-color="primary"][data-variant="outline"] > .item {
+      @apply tw:border-primary;
+    }
+
+    &[data-color="neutral"][data-variant="fill"] > .item {
+      @apply tw:bg-foreground tw:text-background;
+    }
+    &[data-color="neutral"][data-variant="tonal"] > .item {
+      @apply tw:bg-foreground/10;
+    }
+    &[data-color="neutral"][data-variant="outline"] > .item {
+      @apply tw:border-foreground;
+    }
+
+    &[data-color="success"][data-variant="fill"] > .item {
+      @apply tw:bg-success tw:text-success-foreground;
+    }
+    &[data-color="success"][data-variant="tonal"] > .item {
+      @apply tw:bg-success/10;
+    }
+    &[data-color="success"][data-variant="outline"] > .item {
+      @apply tw:border-success;
+    }
+
+    &[data-color="error"][data-variant="fill"] > .item {
+      @apply tw:bg-error tw:text-error-foreground;
+    }
+    &[data-color="error"][data-variant="tonal"] > .item {
+      @apply tw:bg-error/10;
+    }
+    &[data-color="error"][data-variant="outline"] > .item {
+      @apply tw:border-error;
+    }
+  }
+
+  :where(.item) {
+    @apply tw:border tw:border-transparent tw:rounded-(--accordion-radius) tw:bg-transparent tw:text-inherit;
+  }
+
+  :where(.heading) {
+    @apply tw:flex tw:m-0 tw:[font:inherit];
+  }
+
+  :where(.trigger) {
+    @apply tw:flex tw:flex-1 tw:items-center tw:justify-between tw:gap-3 tw:cursor-pointer tw:text-start tw:font-medium tw:outline-none tw:text-inherit tw:text-[length:inherit] tw:rounded-(--accordion-radius) tw:p-(--accordion-padding);
+
+    &:hover:not([data-disabled]) {
+      @apply tw:underline;
+    }
+    &:focus-visible {
+      @apply tw:outline-solid tw:outline-(length:--accordion-focus-width) tw:outline-current tw:outline-offset-(--accordion-focus-offset);
+    }
+    &[data-disabled] {
+      @apply tw:cursor-not-allowed tw:opacity-50;
+    }
+    &[data-panel-open] .icon {
+      @apply tw:rotate-180;
+    }
+  }
+
+  :where(.icon) {
+    @apply tw:shrink-0 tw:size-[1em] tw:transition-[rotate] tw:duration-(--accordion-motion-duration) tw:ease-(--accordion-motion-ease);
+    @media (prefers-reduced-motion: reduce) {
+      @apply tw:transition-none;
+    }
+  }
+
+  :where(.panel) {
+    @apply tw:overflow-hidden tw:block-(--accordion-panel-height) tw:transition-[block-size] tw:duration-(--accordion-motion-duration) tw:ease-(--accordion-motion-ease);
+    @media (prefers-reduced-motion: reduce) {
+      @apply tw:transition-none;
+    }
+    &[data-starting-style],
+    &[data-ending-style] {
+      @apply tw:block-0;
+    }
+  }
+
+  :where(.content) {
+    @apply tw:px-(--accordion-padding) tw:pb-(--accordion-padding) tw:leading-(--accordion-content-leading);
+    & a {
+      @apply tw:underline tw:underline-offset-(--accordion-link-offset);
+    }
+    & p:not(:last-child) {
+      @apply tw:mb-[1em];
+    }
+  }
+}
