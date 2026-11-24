@@ -1,4 +1,5 @@
 import { AboutUsSection } from "./_components/about-us-section";
+import { FaqSection } from "./_components/faq-section";
 import { FeaturesSection } from "./_components/features-section";
 import { FleetMapSection } from "./_components/fleet-map-section";
 import { HeroSection } from "./_components/hero-section";
@@ -14,6 +15,7 @@ export default function Home() {
       <FleetMapSection apiKey={process.env.GEOAPIFY_API_KEY} />
       <PricingSection />
       <AboutUsSection />
+      <FaqSection />
     </>
   );
 }

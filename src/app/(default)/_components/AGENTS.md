@@ -13,3 +13,5 @@ fleet-map owns the landing demo map, synthetic dataset, traffic locations, legen
 pricing-section owns the #pricing plan comparison with responsive pricing rows, a highlighted Professional plan and staggered card entry on mobile.
 
 about-us-section owns the #about-us anchor, collaborative team photo, company introduction and mission, values and vision in a desktop two-column layout.
+
+faq-section owns the #faq anchor with introductory copy and five mapped questions using the shared Accordion in a responsive two-column layout.
