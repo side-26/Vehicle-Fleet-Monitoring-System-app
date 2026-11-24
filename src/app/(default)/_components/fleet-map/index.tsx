@@ -47,7 +47,7 @@ export function FleetMap({ counts, apiKey }: Readonly<FleetMapProps>) {
           return (
             <MapPointer key={id} position={position} alt={`${kind} ${id} near ${city}, ${route}`}>
               <PointerIcon className={styles.vehicle} data-kind={kind}>
-                <Image src={`/images/map-icons/${kind}-map-icon.png`} alt="" fill />
+                <Image src={`/images/map-icons/${kind}-map-icon.png`} alt="" fill sizes="2rem" />
               </PointerIcon>
             </MapPointer>
           );

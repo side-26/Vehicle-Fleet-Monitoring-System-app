@@ -18,7 +18,12 @@ export function FleetMapLegend({ counts }: Readonly<FleetMapProps>) {
       {legend.map(({ kind, label }) => (
         <li key={kind}>
           <div className={styles["legend--icon"]}>
-            <Image src={`/images/map-icons/${kind}-map-icon.png`} alt={label} fill />
+            <Image
+              src={`/images/map-icons/${kind}-map-icon.png`}
+              alt={label}
+              fill
+              sizes="(max-width: 40rem) 1rem, 2rem"
+            />
           </div>
           <span>
             <strong>{counts[kind]}</strong> {label}
