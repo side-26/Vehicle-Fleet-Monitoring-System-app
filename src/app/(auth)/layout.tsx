@@ -1,5 +1,7 @@
-import React from "react";
+import type { ReactNode } from "react";
 
-export default function AuthLayout() {
-  return <div>AuthLayout</div>;
+import { AuthLayoutShell } from "./_components/auth-shell";
+
+export default function AuthLayout({ children }: Readonly<{ children: ReactNode }>) {
+  return <AuthLayoutShell>{children}</AuthLayoutShell>;
 }

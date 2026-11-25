@@ -1,0 +1,168 @@
+@reference "../../../styles/globals.css";
+
+@layer auth-layout-shell {
+  :where(.shell) {
+    @apply tw:min-block-dvh tw:bg-background tw:text-foreground;
+    background-image: radial-gradient(
+      ellipse at top,
+      color-mix(in oklch, var(--primary) 14%, var(--background)),
+      var(--background)
+    );
+  }
+
+  :where(.frame) {
+    @apply tw:flex tw:min-block-dvh tw:flex-col;
+  }
+
+  :where(.hero) {
+    @apply tw:relative tw:isolate tw:min-block-84 tw:overflow-hidden;
+    background: linear-gradient(
+      145deg,
+      color-mix(in oklch, var(--primary) 22%, var(--background)),
+      var(--background)
+    );
+  }
+
+  :where(.picture) {
+    @apply tw:absolute tw:inset-0 tw:-z-10 tw:block;
+  }
+
+  :where(.picture img) {
+    @apply tw:block tw:size-full tw:object-cover tw:object-[center_bottom];
+  }
+
+  :where(.brand) {
+    @apply tw:relative tw:inline-flex tw:items-center tw:gap-[0.4em] tw:m-[0.75em] tw:rounded-xl tw:bg-background/85 tw:p-[0.25em] tw:text-2xl tw:font-bold tw:tracking-tight tw:no-underline;
+    color: var(--foreground);
+  }
+
+  :where(.brand img) {
+    @apply tw:size-[1.6em];
+  }
+
+  :where(.brand:focus-visible) {
+    @apply tw:rounded-lg tw:outline-2 tw:outline-offset-4 tw:outline-primary;
+  }
+
+  :where(.introduction) {
+    @apply tw:hidden;
+  }
+
+  :where(.content) {
+    @apply tw:relative tw:-mt-8 tw:flex tw:flex-1 tw:justify-center tw:rounded-t-4xl tw:bg-background/95 tw:p-[1.5em] tw:backdrop-blur-xl;
+  }
+
+  :where(.panel) {
+    @apply tw:inline-full tw:max-inline-md;
+  }
+
+  :where(.preview h1) {
+    @apply tw:m-0 tw:text-3xl tw:font-bold tw:tracking-tight;
+  }
+
+  :where(.preview p) {
+    @apply tw:mt-[0.5em] tw:mb-[1.75em] tw:text-muted-foreground;
+  }
+
+  :where(.recovery) {
+    @apply tw:self-end tw:text-primary tw:no-underline tw:hover:underline;
+  }
+
+  @media (min-width: 48rem) {
+    :where(.shell) {
+      @apply tw:flex tw:items-center tw:justify-center tw:p-[2em];
+    }
+
+    :where(.frame) {
+      @apply tw:min-block-184 tw:inline-full tw:max-inline-6xl tw:flex-row tw:overflow-hidden tw:rounded-4xl tw:border tw:border-background/80 tw:shadow-xl;
+    }
+
+    :where(.hero) {
+      @apply tw:flex tw:basis-[54%] tw:flex-col tw:items-start;
+    }
+
+    :where(.brand) {
+      @apply tw:m-[1em];
+    }
+
+    :where(.picture) {
+      @apply tw:inset-auto tw:inset-x-0 tw:inset-be-0;
+    }
+
+    :where(.picture img) {
+      @apply tw:block-auto tw:inline-full;
+      mask-image: linear-gradient(to bottom, transparent, black 25%);
+    }
+
+    :where(.introduction) {
+      @apply tw:block tw:px-[2em] tw:pb-[18em];
+    }
+
+    :where(.introduction h2) {
+      @apply tw:m-0 tw:text-4xl tw:font-bold tw:tracking-tight tw:text-balance;
+    }
+
+    :where(.introduction p) {
+      @apply tw:mt-[1em] tw:text-lg tw:text-pretty;
+    }
+
+    :where(.content) {
+      @apply tw:m-0 tw:basis-[46%] tw:items-center tw:rounded-4xl tw:p-[1.5em];
+    }
+
+    :where(.panel) {
+      @apply tw:rounded-3xl tw:bg-card/80 tw:p-[1.5em] tw:shadow-lg;
+    }
+  }
+
+  @media (min-width: 64rem) {
+    :where(.shell) {
+      @apply tw:p-[2.5em];
+      background-image: radial-gradient(
+        ellipse at center,
+        color-mix(in oklch, var(--primary) 20%, var(--background)),
+        var(--background)
+      );
+    }
+
+    :where(.frame) {
+      @apply tw:max-inline-7xl tw:border-2;
+      min-block-size: clamp(46rem, calc(100dvh - 5rem), 56rem);
+    }
+
+    :where(.hero) {
+      @apply tw:basis-[58%];
+    }
+
+    :where(.hero)::before {
+      @apply tw:absolute tw:-z-20 tw:size-240 tw:rounded-full tw:border tw:border-background/60 tw:bg-primary/15;
+      inset-inline-start: 40%;
+      inset-block-start: -12rem;
+      content: "";
+    }
+
+    :where(.brand) {
+      @apply tw:m-[1.25em] tw:text-3xl;
+    }
+
+    :where(.introduction) {
+      @apply tw:px-[2.75em] tw:pb-[22em];
+    }
+
+    :where(.introduction h2) {
+      @apply tw:max-inline-[10em] tw:text-[clamp(2.5rem,3.5vw,3.75rem)] tw:leading-[1.08];
+    }
+
+    :where(.introduction p) {
+      @apply tw:max-inline-[24em] tw:text-xl tw:leading-relaxed;
+    }
+
+    :where(.content) {
+      @apply tw:basis-[42%] tw:bg-background/65 tw:p-[2em];
+    }
+
+    :where(.panel) {
+      @apply tw:p-[2em] tw:shadow-xl;
+    }
+  }
+}
