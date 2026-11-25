@@ -99,9 +99,18 @@ export const Login: Story = {
       expect(image.getBoundingClientRect().right).toBeLessThan(title.getBoundingClientRect().left);
       const frame = canvasElement.querySelector(`.${styles.frame}`);
       if (!(frame instanceof HTMLElement)) throw new Error("Missing auth frame");
-      expect(frame.getBoundingClientRect().width).toBeGreaterThan(900);
-      expect(frame.getBoundingClientRect().height).toBeGreaterThanOrEqual(736);
+      expect(frame.getBoundingClientRect().width).toBeGreaterThan(width * 0.7);
     }
+    const container = canvasElement.querySelector(`.${styles.container}`);
+    const frame = canvasElement.querySelector(`.${styles.frame}`);
+    if (!(container instanceof HTMLElement) || !(frame instanceof HTMLElement))
+      throw new Error("Missing shell container");
+    expect(container.getBoundingClientRect().height).toBeLessThanOrEqual(
+      window.innerHeight * 0.9 + 1,
+    );
+    expect(frame.getBoundingClientRect().height).toBeLessThanOrEqual(window.innerHeight * 0.9 + 1);
+    expect(frame.getBoundingClientRect().top).toBeGreaterThanOrEqual(0);
+    expect(frame.getBoundingClientRect().bottom).toBeLessThanOrEqual(window.innerHeight);
     expect(canvasElement.scrollWidth).toBeLessThanOrEqual(width);
     await userEvent.type(canvas.getByLabelText("Email or Username"), "driver@example.com");
     await userEvent.type(canvas.getByLabelText("Password"), "fleet-password");

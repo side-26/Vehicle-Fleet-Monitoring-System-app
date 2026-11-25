@@ -1,21 +1,20 @@
 @reference "../../../styles/globals.css";
-
+@layer components, auth-layout-shell, container, components;
 @layer auth-layout-shell {
   :where(.shell) {
-    @apply tw:min-block-dvh tw:bg-background tw:text-foreground;
-    background-image: radial-gradient(
-      ellipse at top,
-      color-mix(in oklch, var(--primary) 14%, var(--background)),
-      var(--background)
-    );
+    @apply tw:bg-[radial-gradient(ellipse_at_top,color-mix(in_oklch,var(--primary)_14%,var(--background)),var(--background))] tw:md:flex tw:max-block-dvh tw:block-dvh tw:items-center tw:justify-center tw:bg-background tw:text-foreground tw:md:py-[5dvh] tw:lg:py-[5dvh] tw:lg:bg-[radial-gradient(ellipse_at_center,color-mix(in_oklch,var(--primary)_20%,var(--background)),var(--background))];
+  }
+
+  :where(.container) {
+    @apply tw:px-[unset] tw:block-full tw:md:px-(--spacing-container-gutter-xl) tw:lg:px-(--spacing-container-gutter-xl);
   }
 
   :where(.frame) {
-    @apply tw:flex tw:min-block-dvh tw:flex-col;
+    @apply tw:mx-auto tw:flex tw:min-block-0 tw:block-full  tw:md:max-block-[90dvh] tw:flex-col tw:overflow-hidden tw:md:inline-full tw:md:max-inline-6xl tw:md:flex-row tw:md:overflow-hidden tw:md:rounded-4xl tw:md:border tw:md:border-background/80 tw:md:shadow-xl tw:lg:max-inline-7xl tw:lg:border-2;
   }
 
   :where(.hero) {
-    @apply tw:relative tw:isolate tw:min-block-84 tw:overflow-hidden;
+    @apply tw:relative tw:isolate tw:block-[clamp(10rem,30dvh,21rem)] tw:min-block-0 tw:shrink-0 tw:overflow-hidden tw:md:flex tw:md:block-auto tw:md:shrink tw:md:basis-[54%] tw:md:flex-col tw:md:items-start tw:lg:basis-[58%];
     background: linear-gradient(
       145deg,
       color-mix(in oklch, var(--primary) 22%, var(--background)),
@@ -24,15 +23,15 @@
   }
 
   :where(.picture) {
-    @apply tw:absolute tw:inset-0 tw:-z-10 tw:block;
+    @apply tw:absolute tw:inset-0 tw:-z-10 tw:block tw:md:inset-auto tw:md:inset-x-0 tw:md:inset-be-0 tw:md:block-1/2;
   }
 
   :where(.picture img) {
-    @apply tw:block tw:size-full tw:object-cover tw:object-[center_bottom];
+    @apply tw:block tw:size-full tw:object-cover tw:object-[center_bottom] tw:md:block-full tw:md:inline-full tw:md:mask-[linear-gradient(to_bottom,transparent,black_25%)];
   }
 
   :where(.brand) {
-    @apply tw:relative tw:inline-flex tw:items-center tw:gap-[0.4em] tw:m-[0.75em] tw:rounded-xl tw:bg-background/85 tw:p-[0.25em] tw:text-2xl tw:font-bold tw:tracking-tight tw:no-underline;
+    @apply tw:relative tw:inline-flex tw:items-center tw:gap-[0.4em] tw:m-[0.75em] tw:rounded-xl tw:bg-background/85 tw:p-[0.25em] tw:text-2xl tw:font-bold tw:tracking-tight tw:no-underline tw:md:m-[1em] tw:lg:m-[1em] tw:lg:text-[clamp(1.25rem,3dvh,1.875rem)];
     color: var(--foreground);
   }
 
@@ -45,15 +44,15 @@
   }
 
   :where(.introduction) {
-    @apply tw:hidden;
+    @apply tw:hidden tw:md:block tw:md:px-[2em] tw:md:pb-[1em] tw:lg:px-[2.75em] tw:lg:pb-[1em];
   }
 
   :where(.content) {
-    @apply tw:relative tw:-mt-8 tw:flex tw:flex-1 tw:justify-center tw:rounded-t-4xl tw:bg-background/95 tw:p-[1.5em] tw:backdrop-blur-xl;
+    @apply tw:relative tw:-mt-8 tw:m-[unset] tw:flex tw:flex-1 tw:overflow-y-auto tw:justify-center tw:rounded-t-3xl tw:md:rounded-[unset] tw:bg-background/95 tw:p-[1.5em] tw:md:m-0 tw:md:basis-[46%] tw:md:items-start tw:md:rounded-r-4xl tw:md:p-[1.5em] tw:lg:basis-[42%] tw:lg:bg-background/65 tw:lg:p-[2em];
   }
 
   :where(.panel) {
-    @apply tw:inline-full tw:max-inline-md;
+    @apply tw:my-auto tw:inline-full tw:max-inline-md tw:flex-none tw:md:rounded-3xl tw:md:bg-card/80 tw:md:p-[1.5em] tw:md:shadow-lg tw:lg:p-[2em] tw:lg:shadow-xl;
   }
 
   :where(.preview h1) {
@@ -68,101 +67,15 @@
     @apply tw:self-end tw:text-primary tw:no-underline tw:hover:underline;
   }
 
-  @media (min-width: 48rem) {
-    :where(.shell) {
-      @apply tw:flex tw:items-center tw:justify-center tw:p-[2em];
-    }
-
-    :where(.frame) {
-      @apply tw:min-block-184 tw:inline-full tw:max-inline-6xl tw:flex-row tw:overflow-hidden tw:rounded-4xl tw:border tw:border-background/80 tw:shadow-xl;
-    }
-
-    :where(.hero) {
-      @apply tw:flex tw:basis-[54%] tw:flex-col tw:items-start;
-    }
-
-    :where(.brand) {
-      @apply tw:m-[1em];
-    }
-
-    :where(.picture) {
-      @apply tw:inset-auto tw:inset-x-0 tw:inset-be-0;
-    }
-
-    :where(.picture img) {
-      @apply tw:block-auto tw:inline-full;
-      mask-image: linear-gradient(to bottom, transparent, black 25%);
-    }
-
-    :where(.introduction) {
-      @apply tw:block tw:px-[2em] tw:pb-[18em];
-    }
-
-    :where(.introduction h2) {
-      @apply tw:m-0 tw:text-4xl tw:font-bold tw:tracking-tight tw:text-balance;
-    }
-
-    :where(.introduction p) {
-      @apply tw:mt-[1em] tw:text-lg tw:text-pretty;
-    }
-
-    :where(.content) {
-      @apply tw:m-0 tw:basis-[46%] tw:items-center tw:rounded-4xl tw:p-[1.5em];
-    }
-
-    :where(.panel) {
-      @apply tw:rounded-3xl tw:bg-card/80 tw:p-[1.5em] tw:shadow-lg;
-    }
+  :where(.introduction h2) {
+    @apply tw:md:m-0 tw:md:text-4xl tw:md:font-bold tw:md:tracking-tight tw:md:text-balance tw:lg:max-inline-[10em] tw:lg:text-[clamp(2rem,5dvh,3.75rem)] tw:lg:leading-[1.08];
   }
 
-  @media (min-width: 64rem) {
-    :where(.shell) {
-      @apply tw:p-[2.5em];
-      background-image: radial-gradient(
-        ellipse at center,
-        color-mix(in oklch, var(--primary) 20%, var(--background)),
-        var(--background)
-      );
-    }
+  :where(.introduction p) {
+    @apply tw:md:mt-[1em] tw:md:text-lg tw:md:text-pretty tw:lg:max-inline-[24em] tw:lg:text-[clamp(1rem,2dvh,1.25rem)] tw:lg:leading-relaxed;
+  }
 
-    :where(.frame) {
-      @apply tw:max-inline-7xl tw:border-2;
-      min-block-size: clamp(46rem, calc(100dvh - 5rem), 56rem);
-    }
-
-    :where(.hero) {
-      @apply tw:basis-[58%];
-    }
-
-    :where(.hero)::before {
-      @apply tw:absolute tw:-z-20 tw:size-240 tw:rounded-full tw:border tw:border-background/60 tw:bg-primary/15;
-      inset-inline-start: 40%;
-      inset-block-start: -12rem;
-      content: "";
-    }
-
-    :where(.brand) {
-      @apply tw:m-[1.25em] tw:text-3xl;
-    }
-
-    :where(.introduction) {
-      @apply tw:px-[2.75em] tw:pb-[22em];
-    }
-
-    :where(.introduction h2) {
-      @apply tw:max-inline-[10em] tw:text-[clamp(2.5rem,3.5vw,3.75rem)] tw:leading-[1.08];
-    }
-
-    :where(.introduction p) {
-      @apply tw:max-inline-[24em] tw:text-xl tw:leading-relaxed;
-    }
-
-    :where(.content) {
-      @apply tw:basis-[42%] tw:bg-background/65 tw:p-[2em];
-    }
-
-    :where(.panel) {
-      @apply tw:p-[2em] tw:shadow-xl;
-    }
+  :where(.hero)::before {
+    @apply tw:lg:absolute tw:lg:-z-20 tw:lg:size-240 tw:lg:rounded-full tw:lg:border tw:lg:border-background/60 tw:lg:bg-primary/15 tw:lg:inset-s-2/5 tw:lg:-inset-bs-48 tw:lg:content-[''];
   }
 }

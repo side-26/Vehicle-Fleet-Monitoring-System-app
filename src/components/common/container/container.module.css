@@ -1,7 +1,9 @@
 @reference "../../../app/styles/globals.css";
 
-:where(.container) {
-  @apply tw:inline-full tw:box-border tw:mx-auto;
+@layer components {
+  :where(.container) {
+    @apply tw:inline-full tw:box-border tw:mx-auto;
 
-  @apply tw:px-[clamp(var(--spacing-container-gutter-xs),4vw,var(--spacing-container-gutter-xl))] tw:max-inline-384;
+    @apply tw:px-[clamp(var(--spacing-container-gutter-xs),4vw,var(--spacing-container-gutter-xl))] tw:max-inline-384;
+  }
 }
