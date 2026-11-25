@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 import { ArrowRight, ChartNoAxesCombined, ShieldCheck, Zap } from "lucide-react";
@@ -6,8 +5,10 @@ import { ArrowRight, ChartNoAxesCombined, ShieldCheck, Zap } from "lucide-react"
 import { FadeIn } from "@/components/animations/fade-in";
 import { StaggeredListAnimation } from "@/components/animations/stagered-list-animation";
 import Container from "@/components/common/container";
+import { ResponsiveImage } from "@/components/common/responsive-image-source";
 import { Button } from "@/components/ui/button";
 
+import { heroImageSources } from "./hero-section.types";
 import styles from "./styles.module.css";
 
 // Base UI defaults non-native renders to role=button; these calls to action navigate.
@@ -66,23 +67,18 @@ export function HeroSection() {
           </ul>
         </StaggeredListAnimation>
         <FadeIn className={styles.visual} duration={700}>
-          <picture className={styles.picture}>
-            <source
-              media="(width > 1024px)"
-              srcSet="/images/landing/hero-desktop.png"
-              type="image/png"
-            />
-            <Image
-              src="/images/landing/hero-mobile-tablet.png"
-              alt="A car, van, and truck on a lakefront highway with live fleet tracking indicators."
-              width={868}
-              height={651}
-              unoptimized
-              loading="eager"
-              fetchPriority="high"
-              className={styles.image}
-            />
-          </picture>
+          <ResponsiveImage
+            sources={heroImageSources}
+            pictureClassName={styles.picture}
+            src="/images/landing/hero-mobile-tablet.png"
+            alt="A car, van, and truck on a lakefront highway with live fleet tracking indicators."
+            width={868}
+            height={651}
+            unoptimized
+            loading="eager"
+            fetchPriority="high"
+            className={styles.image}
+          />
         </FadeIn>
       </Container>
     </section>

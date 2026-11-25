@@ -53,6 +53,14 @@ const meta = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     const desktop = window.innerWidth > 1024;
+    const logo = canvasElement.querySelector("header picture img");
+    if (!(logo instanceof HTMLImageElement)) throw new Error("Missing responsive logo");
+    await waitFor(() =>
+      expect(logo.currentSrc).toContain(
+        window.matchMedia("(width < 48rem)").matches ? "mini-favicon.svg" : "fleetos-logo.svg",
+      ),
+    );
+    await waitFor(() => expect(logo.naturalWidth).toBeGreaterThan(0));
     const mobileNavigation = canvasElement.querySelector('nav[aria-label="Landing page"]');
     const desktopNavigation = canvasElement.querySelector('nav[aria-label="Desktop landing page"]');
     if (!(mobileNavigation instanceof HTMLElement) || !(desktopNavigation instanceof HTMLElement))

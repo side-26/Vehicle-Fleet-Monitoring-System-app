@@ -6,8 +6,10 @@ import { CircleHelp, CircleUserRound } from "lucide-react";
 
 import Container from "@/components/common/container";
 import { MobileNavigation } from "@/components/common/mobile-navigation";
+import { ResponsiveImage } from "@/components/common/responsive-image-source";
 import { ThemeDropdown } from "@/components/common/theme-dropdown";
 
+import { landingLogoSources } from "./landing-shell.types";
 import styles from "./styles.module.css";
 
 export function LandingShell({ children }: { readonly children: ReactNode }) {
@@ -16,16 +18,15 @@ export function LandingShell({ children }: { readonly children: ReactNode }) {
       <header className={styles.header}>
         <Container className={styles.headerContent}>
           <Link href="/" aria-label="FleetOS home" className={styles.brand}>
-            <picture>
-              <source media="(width < 48rem)" srcSet="/icons/mini-favicon.svg" />
-              <Image
-                src="/icons/fleetos-logo.svg"
-                alt="FleetOS"
-                width={220}
-                height={54}
-                loading="eager"
-              />
-            </picture>
+            <ResponsiveImage
+              sources={landingLogoSources}
+              src="/icons/fleetos-logo.svg"
+              alt="FleetOS"
+              width={220}
+              height={54}
+              loading="eager"
+              unoptimized
+            />
           </Link>
           <nav aria-label="Desktop landing page" className={styles.desktopNavigation}>
             <Link href="/#features">Features</Link>

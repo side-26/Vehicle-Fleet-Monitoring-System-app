@@ -1,3 +1,5 @@
 # Hero section
 
 Owns the landing hero only: headline, product summary, login/features calls to action, three benefits and responsive fleet imagery. Use common Container for content while the section owns its background. The picture loads hero-mobile-tablet.png through 1024px and hero-desktop.png above 1024px; retain original imagery, intrinsic dimensions, eager loading and avoid preloading both sources. Uses existing viewport-triggered animation wrappers with reduced-motion support. Styles use named CSS Module layer and Tailwind @apply; maintain mobile/tablet stacking and desktop columns. Do not add other landing sections here.
+
+Responsive artwork composes the common ResponsiveImage from responsive-image-source. Source breakpoints and intrinsic dimensions live in this folder’s types file; preserve direct asset URLs through unoptimized and existing eager loading behavior. Do not duplicate native picture/source/img markup here.

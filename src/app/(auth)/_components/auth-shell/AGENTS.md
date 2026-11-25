@@ -1,3 +1,5 @@
 # Authentication layout shell
 
 Owns the route-local auth-page frame and FleetOS home link. Receives page content through children; pages own headings, forms, and validation. Uses a native picture element to select the user-supplied mobile, tablet, or desktop WebP art at 48rem and 64rem breakpoints. Mobile stacks the image above a rounded content panel. Tablet places introductory copy and artwork beside the panel. Desktop expands this split into a large rounded frame with larger introductory copy, a decorative teal arc, bottom-aligned fleet artwork, and an inset form card on a translucent side panel. Desktop art dimensions are 1382 by 922. Styles live in a named CSS Module layer with Tailwind @apply and logical dimensions. Tests cover source selection, desktop geometry, content, form interactions, and accessibility.
+
+Responsive artwork composes the common ResponsiveImage from responsive-image-source. Source breakpoints and intrinsic dimensions live in this folder’s types file; preserve direct asset URLs through unoptimized and existing eager loading behavior. Do not duplicate native picture/source/img markup here.
