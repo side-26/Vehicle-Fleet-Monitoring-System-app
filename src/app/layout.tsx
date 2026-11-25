@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 
 import { cn } from "@/lib/utils";
+import { ClientQueryProvider } from "@/providers/client-query";
 import { ThemeProvider } from "@/providers/theme-provider";
 import { ToastProvider } from "@/providers/toast-provider";
 
@@ -69,11 +70,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={cn("tw:h-full", "tw:antialiased", inter.variable, "tw:font-sans")}
     >
       <body className="tw:min-block-lvh tw:inline-full">
-        <ThemeProvider>
-          <ToastProvider>
-            <main>{children}</main>
-          </ToastProvider>
-        </ThemeProvider>
+        <ClientQueryProvider>
+          <ThemeProvider>
+            <ToastProvider>
+              <main>{children}</main>
+            </ToastProvider>
+          </ThemeProvider>
+        </ClientQueryProvider>
       </body>
     </html>
   );
