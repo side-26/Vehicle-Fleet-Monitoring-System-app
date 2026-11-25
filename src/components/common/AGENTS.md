@@ -7,3 +7,5 @@ The toast folder owns application notifications, their common Toaster host, and 
 theme-dropdown owns shared light/dark/system theme selection. mobile-navigation owns the mobile/tablet glass footer and active landing section links. Each keeps its implementation, styles, types/constants and tests together.
 
 viewport-suspense defers mounting lazy content until viewport entry and owns the surrounding Suspense fallback. Threshold defaults to 0.35; the shared observer hook handles once-only visibility and ref forwarding.
+
+responsive-image-source exports ResponsiveImage, a native picture wrapper using Next.js getImageProps for ordered media sources and a fallback image. Callers own styling and alt text.

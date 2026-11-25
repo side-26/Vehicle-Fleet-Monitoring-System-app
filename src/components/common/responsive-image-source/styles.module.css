@@ -1,0 +1,12 @@
+@reference "../../../app/styles/globals.css";
+
+@layer responsive-image-source {
+  /* Preview layout only; ResponsiveImage itself has no imposed styles. */
+  :where(.preview) {
+    @apply tw:block tw:max-inline-3xl;
+  }
+
+  :where(.preview img) {
+    @apply tw:block tw:block-auto tw:inline-full;
+  }
+}

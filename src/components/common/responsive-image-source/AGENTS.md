@@ -1,0 +1,5 @@
+# Responsive image source
+
+Exports ResponsiveImage and its ResponsiveImageProps and ResponsiveImageSource types. Uses next/image getImageProps to render native picture/source/img art direction without client state. Sources retain caller order, inherit sizes, quality, loader, and unoptimized options from the fallback, and may override them. Put larger media breakpoints first. Unoptimized sources use the generated src when there is no srcSet. The fallback owns alt text, supported native image events and attributes; pictureClassName targets the picture wrapper while className targets img. Blur placeholders and preload/priority props are excluded. Callers own all production styles; the CSS Module styles only Storybook previews. Browser stories use unoptimized assets because Storybook has no Next.js image optimization server.
+
+Preserves the supplied getImageProps behavior: Next.js consumes onLoad/onLoadingComplete rather than returning them as native img handlers. Use supported native handlers such as onError/onClick or a different component when load callbacks are required.
