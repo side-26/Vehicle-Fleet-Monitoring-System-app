@@ -1,0 +1,18 @@
+@reference "../../../../app/styles/globals.css";
+
+@layer input-group, password-form-field;
+
+@layer password-form-field {
+  :where(.storyForm) {
+    @apply tw:inline-full tw:max-inline-2xl;
+  }
+
+  :where(.addon) {
+    @apply tw:text-inherit;
+  }
+
+  .toggle[data-variant="ghost"] {
+    @apply tw:text-inherit tw:text-[length:inherit];
+    --button-color: currentColor;
+  }
+}
