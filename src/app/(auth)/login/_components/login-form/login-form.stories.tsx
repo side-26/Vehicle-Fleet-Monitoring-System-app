@@ -14,6 +14,11 @@ const meta = {
   component: LoginForm,
   parameters: { layout: "fullscreen", a11y: { test: "error" } },
   argTypes: {
+    onProviderSignIn: {
+      control: false,
+      description:
+        "Optional OAuth handler receiving google or microsoft. Unconnected providers show an unavailable message.",
+    },
     onSubmit: {
       control: false,
       description:
@@ -82,5 +87,33 @@ export const Submitting: Story = {
       "true",
     );
     await expect(canvas.getByLabelText(/Password/)).toBeDisabled();
+  },
+};
+
+export const ProviderSignIn: Story = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText("or continue with")).toBeVisible();
+    await userEvent.click(canvas.getByRole("button", { name: "Continue with Google" }));
+    await expect(canvas.getByRole("alert")).toHaveTextContent(
+      "Google sign-in is currently unavailable.",
+    );
+    await userEvent.click(canvas.getByRole("button", { name: "Continue with Microsoft" }));
+    await expect(canvas.getByRole("alert")).toHaveTextContent(
+      "Microsoft sign-in is currently unavailable.",
+    );
+  },
+};
+export const ProviderPending: Story = {
+  args: { onProviderSignIn: pendingSignIn },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await userEvent.click(canvas.getByRole("button", { name: "Continue with Google" }));
+    await expect(canvas.getByRole("button", { name: "Continue with Google" })).toHaveAttribute(
+      "aria-busy",
+      "true",
+    );
+    await expect(canvas.getByRole("button", { name: "Continue with Microsoft" })).toBeDisabled();
+    await expect(canvas.getByRole("button", { name: "Sign In" })).toBeDisabled();
   },
 };

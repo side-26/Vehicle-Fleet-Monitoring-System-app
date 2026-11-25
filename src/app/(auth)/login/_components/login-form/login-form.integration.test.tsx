@@ -65,4 +65,25 @@ describe("LoginForm integration", () => {
     expect(button).not.toBeDisabled();
     expect(screen.queryByText("Private server response")).toBeNull();
   });
+  it("passes the selected provider to the handler and restores controls after a provider failure", async () => {
+    let rejectSignIn: ((error: Error) => void) | undefined;
+    const pending = new Promise<void>((_resolve, reject) => {
+      rejectSignIn = reject;
+    });
+    const providerSignIn = vi.fn(() => pending);
+    render(<LoginForm onProviderSignIn={providerSignIn} />);
+    fireEvent.click(screen.getByRole("button", { name: "Continue with Google" }));
+    expect(providerSignIn).toHaveBeenCalledWith("google");
+    await waitFor(() =>
+      expect(screen.getByRole("button", { name: "Continue with Google" })).toBeDisabled(),
+    );
+    expect(screen.getByRole("button", { name: "Continue with Microsoft" })).toBeDisabled();
+    expect(screen.getByRole("button", { name: "Sign In" })).toBeDisabled();
+    rejectSignIn?.(new Error("Internal provider response"));
+    await waitFor(() =>
+      expect(screen.getByRole("alert")).toHaveTextContent("Unable to sign in with Google."),
+    );
+    expect(screen.getByRole("button", { name: "Continue with Microsoft" })).not.toBeDisabled();
+    expect(screen.queryByText("Internal provider response")).toBeNull();
+  });
 });

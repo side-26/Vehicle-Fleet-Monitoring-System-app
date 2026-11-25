@@ -1,0 +1,25 @@
+@reference "../../../../styles/globals.css";
+
+@layer login-providers {
+  :where(.section) {
+    @apply tw:gap-[1em] tw:md:gap-[1.25em];
+  }
+  :where(.divider) {
+    @apply tw:mt-[0.25em] tw:flex tw:items-center tw:gap-[1em] tw:text-xs tw:text-muted-foreground;
+  }
+  :where(.divider [data-slot="separator"]) {
+    @apply tw:min-inline-0 tw:flex-1;
+  }
+  :where(.divider span) {
+    @apply tw:shrink-0;
+  }
+  :where(.providers) {
+    @apply tw:grid tw:grid-cols-2 tw:gap-[0.75em];
+  }
+  .providerButton[data-variant="outlined"] {
+    @apply tw:min-inline-0 tw:gap-[0.6em] tw:rounded-xl tw:border-input tw:bg-background/70 tw:px-[0.75em] tw:py-[0.75em] tw:text-foreground tw:shadow-sm;
+  }
+  :where(.providerButton svg) {
+    @apply tw:size-[1.5em] tw:shrink-0;
+  }
+}

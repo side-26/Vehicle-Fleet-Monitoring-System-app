@@ -35,4 +35,17 @@ describe("LoginForm", () => {
       expect(screen.getByRole("alert")).toHaveTextContent("Sign-in is currently unavailable."),
     );
   });
+  it.each(["Google", "Microsoft"])(
+    "provides a usable %s sign-in action without submitting credentials",
+    async (provider) => {
+      render(<LoginForm />);
+      fireEvent.click(screen.getByRole("button", { name: `Continue with ${provider}` }));
+      await waitFor(() =>
+        expect(screen.getByRole("alert")).toHaveTextContent(
+          `${provider} sign-in is currently unavailable.`,
+        ),
+      );
+      expect(screen.queryByText("Enter your password.")).toBeNull();
+    },
+  );
 });

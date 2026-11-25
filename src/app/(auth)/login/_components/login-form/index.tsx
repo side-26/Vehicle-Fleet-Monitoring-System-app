@@ -6,6 +6,7 @@ import { useCallback, useState } from "react";
 import { MailIcon } from "lucide-react";
 import { useFormState } from "react-hook-form";
 
+import { LoginProviders } from "@/app/(auth)/login/_components/login-providers";
 import { Button } from "@/components/ui/button";
 import { FieldGroup } from "@/components/ui/field";
 import { Form } from "@/components/ui/form";
@@ -16,10 +17,21 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { loginValidation } from "@/modules/auth/auth.validation";
 
 import { loginFormOptions } from "./login-form.types";
-import type { LoginFieldsProps, LoginFormProps, LoginFormValues } from "./login-form.types";
+import type {
+  LoginFieldsProps,
+  LoginFormProps,
+  LoginFormValues,
+  LoginProvider,
+} from "./login-form.types";
 import styles from "./styles.module.css";
 
-function LoginFields({ isAuthenticating, submitError }: LoginFieldsProps) {
+function LoginFields({
+  isAuthenticating,
+  submitError,
+  pendingProvider,
+  onGoogleSignIn,
+  onMicrosoftSignIn,
+}: LoginFieldsProps) {
   const isMobile = useIsMobile();
   const { errors, isSubmitting } = useFormState<LoginFormValues>();
 
@@ -46,7 +58,7 @@ function LoginFields({ isAuthenticating, submitError }: LoginFieldsProps) {
         label="Password"
         placeholder="Enter your password"
         autoComplete="current-password"
-        size="md"
+        size={isMobile ? "md" : "lg"}
         required
         haveMessage={Boolean(errors.password)}
         disabled={isAuthenticating}
@@ -62,19 +74,27 @@ function LoginFields({ isAuthenticating, submitError }: LoginFieldsProps) {
       <Button
         type="submit"
         aria-label="Sign In"
-        size="md"
+        size={isMobile ? "md" : "lg"}
+        disabled={isAuthenticating}
         className={styles.submit}
         loading={isSubmitting}
         loadingText="Signing in…"
       >
         Sign In
       </Button>
+      <LoginProviders
+        disabled={isAuthenticating}
+        pendingProvider={pendingProvider}
+        onGoogleSignIn={onGoogleSignIn}
+        onMicrosoftSignIn={onMicrosoftSignIn}
+      />
     </FieldGroup>
   );
 }
 
-export function LoginForm({ onSubmit }: LoginFormProps) {
+export function LoginForm({ onSubmit, onProviderSignIn }: LoginFormProps) {
   const [isAuthenticating, setIsAuthenticating] = useState(false);
+  const [pendingProvider, setPendingProvider] = useState<LoginProvider>();
   const [submitError, setSubmitError] = useState("");
   const submit = useCallback(
     async (values: LoginFormValues) => {
@@ -95,6 +115,34 @@ export function LoginForm({ onSubmit }: LoginFormProps) {
     [onSubmit],
   );
 
+  const providerSignIn = useCallback(
+    async (provider: LoginProvider) => {
+      setSubmitError("");
+      const label = provider === "google" ? "Google" : "Microsoft";
+      if (!onProviderSignIn) {
+        setSubmitError(`${label} sign-in is currently unavailable. Please try again later.`);
+        return;
+      }
+      setIsAuthenticating(true);
+      setPendingProvider(provider);
+      try {
+        await onProviderSignIn(provider);
+      } catch {
+        setSubmitError(`Unable to sign in with ${label}. Please try again.`);
+      } finally {
+        setPendingProvider(undefined);
+        setIsAuthenticating(false);
+      }
+    },
+    [onProviderSignIn],
+  );
+  const googleSignIn = useCallback(() => {
+    void providerSignIn("google");
+  }, [providerSignIn]);
+  const microsoftSignIn = useCallback(() => {
+    void providerSignIn("microsoft");
+  }, [providerSignIn]);
+
   return (
     <section className={styles.login} aria-labelledby="login-title">
       <header className={styles.header}>
@@ -107,7 +155,13 @@ export function LoginForm({ onSubmit }: LoginFormProps) {
         onSubmit={submit}
         aria-label="Sign in"
       >
-        <LoginFields isAuthenticating={isAuthenticating} submitError={submitError} />
+        <LoginFields
+          isAuthenticating={isAuthenticating}
+          submitError={submitError}
+          pendingProvider={pendingProvider}
+          onGoogleSignIn={googleSignIn}
+          onMicrosoftSignIn={microsoftSignIn}
+        />
       </Form>
     </section>
   );

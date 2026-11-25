@@ -14,7 +14,7 @@
   }
 
   :where(.hero) {
-    @apply tw:relative tw:isolate tw:block-[clamp(14rem,40dvh,24rem)] tw:min-block-0 tw:shrink-0 tw:overflow-hidden tw:md:flex tw:md:block-auto tw:md:shrink tw:md:basis-[54%] tw:md:flex-col tw:md:items-start tw:lg:basis-[58%];
+    @apply tw:relative tw:isolate tw:block-[clamp(12rem,38dvh,23rem)] tw:min-block-0 tw:shrink-0 tw:overflow-hidden tw:md:flex tw:md:block-auto tw:md:shrink tw:md:basis-[54%] tw:md:flex-col tw:md:items-start tw:lg:basis-[58%];
     background: linear-gradient(
       145deg,
       color-mix(in oklch, var(--primary) 22%, var(--background)),
@@ -48,7 +48,7 @@
   }
 
   :where(.content) {
-    @apply tw:relative tw:-mt-8 tw:m-[unset] tw:flex tw:flex-row tw:flex-1 tw:overflow-y-auto tw:justify-center tw:rounded-t-3xl tw:md:rounded-[unset] tw:bg-background/95 tw:p-[1.5em] tw:md:m-0 tw:md:basis-[46%] tw:md:items-start tw:md:rounded-r-4xl tw:md:p-[1.5em] tw:lg:basis-[42%] tw:lg:bg-background/65 tw:lg:p-[2em];
+    @apply tw:relative tw:overflow-hidden tw:-mt-8 tw:m-[unset] tw:flex tw:flex-row tw:flex-1 tw:overflow-y-auto tw:justify-center tw:rounded-t-2xl tw:md:rounded-[unset] tw:bg-background/95 tw:p-[1.5em] tw:md:m-0 tw:md:basis-[46%] tw:md:items-start tw:md:rounded-r-2xl tw:md:p-[1.5em] tw:lg:basis-[42%] tw:lg:bg-background/65 tw:lg:p-[2em];
   }
 
   :where(.content, .content:hover, .content:active) {
@@ -56,7 +56,7 @@
   }
 
   :where(.panel) {
-    @apply tw:my-0 tw:md:my-auto tw:inline-full tw:max-inline-md tw:flex-none tw:md:rounded-3xl tw:md:bg-card/80 tw:md:p-[1.5em] tw:md:shadow-lg tw:lg:p-[2em] tw:lg:shadow-xl;
+    @apply tw:my-0 tw:md:my-auto tw:max-block-full tw:inline-full tw:overflow-y-auto tw:max-inline-md tw:flex-none tw:md:rounded-3xl tw:md:bg-card/80 tw:md:p-[1.5em] tw:md:shadow-lg tw:lg:p-[2em] tw:lg:shadow-xl;
   }
 
   :where(.preview h1) {
