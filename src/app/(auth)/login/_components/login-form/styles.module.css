@@ -1,0 +1,39 @@
+@reference "../../../../styles/globals.css";
+
+@layer login-form {
+  :where(.login) {
+    @apply tw:inline-full tw:py-[0.25em] tw:md:py-[0.5em];
+  }
+
+  :where(.header) {
+    @apply tw:mb-[2em];
+  }
+
+  :where(.header h1) {
+    @apply tw:m-0 tw:text-3xl tw:font-bold tw:tracking-tight tw:text-balance tw:lg:text-4xl;
+  }
+
+  :where(.header p) {
+    @apply tw:mt-[0.5em] tw:mb-0 tw:text-base tw:text-muted-foreground tw:text-pretty tw:lg:text-lg;
+  }
+
+  :where(.fields) {
+    @apply tw:gap-[1.5em];
+  }
+
+  :where(.addon) {
+    @apply tw:text-inherit;
+  }
+
+  :where(.recovery) {
+    @apply tw:self-end tw:text-sm tw:font-medium tw:text-primary tw:no-underline tw:underline-offset-4 tw:hover:underline tw:focus-visible:rounded-sm tw:focus-visible:outline-2 tw:focus-visible:outline-offset-4 tw:focus-visible:outline-primary;
+  }
+
+  :where(.submit) {
+    @apply tw:mt-[0.5em] tw:inline-full;
+  }
+
+  :where(.error) {
+    @apply tw:m-0 tw:text-sm tw:text-error;
+  }
+}

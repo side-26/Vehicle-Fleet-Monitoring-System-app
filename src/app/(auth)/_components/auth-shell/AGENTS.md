@@ -7,3 +7,5 @@ Responsive artwork composes the common ResponsiveImage from responsive-image-sou
 The shared Container wraps the frame and owns inline gutters. Container and frame are capped at 90dvh; the frame fills that available block size without a fixed minimum height. The content panel scrolls when needed, keeping forms usable on short viewports. Hero height and desktop typography adapt to viewport block size.
 
 Keep responsive declarations in each related selector using Tailwind md (48rem) and lg (64rem) variants through @apply, including the picture mask, desktop gradient, and decorative pseudo-element.
+
+For login composition, keep the mobile form aligned near the panel top and give the hero up to 40dvh. The content Card must not scale or brighten on hover/active; its role is layout, not an interactive action. Its explicit row direction allows the panel auto margins to center only at md and above.

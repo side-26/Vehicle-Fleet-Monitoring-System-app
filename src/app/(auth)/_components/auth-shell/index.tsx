@@ -3,7 +3,6 @@ import Link from "next/link";
 
 import Container from "@/components/common/container";
 import { ResponsiveImage } from "@/components/common/responsive-image-source";
-import { Card } from "@/components/ui/card";
 
 import { authImageSources } from "./auth-layout-shell.types";
 import type { AuthLayoutShellProps } from "./auth-layout-shell.types";
@@ -34,9 +33,9 @@ export function AuthLayoutShell({ children }: AuthLayoutShellProps) {
               <p>Manage vehicles, drivers, and operations from one powerful platform.</p>
             </div>
           </div>
-          <Card className={styles.content}>
+          <section className={styles.content}>
             <div className={styles.panel}>{children}</div>
-          </Card>
+          </section>
         </div>
       </Container>
     </div>
