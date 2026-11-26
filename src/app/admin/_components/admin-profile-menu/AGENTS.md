@@ -1,3 +1,3 @@
-# AdminProfileMenu
+# Admin profile menu
 
-Owns the admin header profile dropdown, avatar, identity, website link and responsive identity styles. Composes existing UI primitives and keeps its configuration and styles local.
+Owns the admin header profile dropdown, avatar, identity and responsive identity styles. Options are Profile, Theme and Sign out. Theme composes the shared dropdown submenu/radio primitives and uses next-themes for Light, Dark and System. Optional onProfile and onSignOut callbacks bind app flows; their items remain disabled until handlers exist. Do not emulate sign-out by navigating to login without invalidating a session.

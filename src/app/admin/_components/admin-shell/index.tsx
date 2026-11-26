@@ -20,7 +20,7 @@ import {
 import styles from "./styles.module.css";
 
 const sidebarStyle = {
-  "--sidebar-width": "20rem",
+  "--sidebar-width": "15rem",
   "--sidebar-width-mobile": "20rem",
   "--sidebar-width-icon": "5rem",
   minWidth: "2.5rem",

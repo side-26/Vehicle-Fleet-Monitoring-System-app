@@ -25,6 +25,7 @@ export function AdminNavigation() {
             <SidebarMenuButton
               className={styles.menuButton}
               render={render}
+
               disabled={!render}
               isActive={pathname === href}
               aria-current={pathname === href ? "page" : undefined}
