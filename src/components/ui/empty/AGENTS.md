@@ -1,0 +1,3 @@
+# Empty state
+
+Compound empty-state composition: Empty, EmptyHeader, EmptyMedia, EmptyTitle, EmptyDescription and EmptyContent. Native props and refs pass through every part. EmptyTitle is an h2 and EmptyDescription is a paragraph. EmptyMedia is decorative and always hidden from assistive technology, so meaningful content and actions belong in the other parts. Media variants default/icon are defined in empty.types.ts. Preserve existing data-slot contracts, including empty-icon for media. Styles use semantic tokens, logical sizes and Tailwind @apply in the empty layer. Stories cover both media variants, custom artwork, omitted media, enabled/disabled actions and supporting links with failing accessibility audits. No class-variance-authority dependency is required.

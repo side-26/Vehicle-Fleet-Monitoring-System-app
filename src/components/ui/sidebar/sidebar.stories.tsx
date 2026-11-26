@@ -1,5 +1,9 @@
+import Link from "next/link";
+
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { expect, userEvent, within } from "storybook/test";
+import { expect, userEvent, waitFor, within } from "storybook/test";
+
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 import {
   Sidebar,
@@ -126,4 +130,30 @@ export const NeutralSolid: Story = { args: { color: "neutral", glassy: false } }
 export const PrimarySolid: Story = {
   args: { color: "primary", glassy: false },
   play: checkPrimaryHover,
+};
+
+const vehicleLink = <Link href="/" />;
+
+export const CollapsedTooltips: Story = {
+  render: () => (
+    <TooltipProvider>
+      <SidebarProvider defaultOpen={false}>
+        <Sidebar collapsible="icon">
+          <SidebarContent>
+            <SidebarMenu>
+              <SidebarMenuItem>
+                <SidebarMenuButton render={vehicleLink} tooltip="Vehicles" aria-label="Vehicles">
+                  V
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            </SidebarMenu>
+          </SidebarContent>
+        </Sidebar>
+      </SidebarProvider>
+    </TooltipProvider>
+  ),
+  play: async ({ canvasElement }) => {
+    await userEvent.hover(within(canvasElement).getByRole("link", { name: "Vehicles" }));
+    await waitFor(() => expect(within(document.body).getByText("Vehicles")).toBeVisible());
+  },
 };

@@ -1,0 +1,41 @@
+@reference "../../../app/styles/globals.css";
+
+@layer empty {
+  :where(.empty) {
+    @apply tw:flex tw:inline-full tw:min-inline-0 tw:flex-1 tw:flex-col tw:items-center tw:justify-center tw:gap-4 tw:rounded-xl tw:border-dashed tw:text-center tw:text-balance;
+    @apply tw:p-[1.5em];
+  }
+  :where(.header) {
+    @apply tw:flex tw:max-inline-sm tw:flex-col tw:items-center tw:gap-2;
+  }
+  :where(.media) {
+    @apply tw:mb-2 tw:flex tw:shrink-0 tw:items-center tw:justify-center tw:bg-transparent;
+  }
+  :where(.media) svg {
+    @apply tw:pointer-events-none tw:shrink-0;
+  }
+  :where(.media[data-variant="icon"]) {
+    @apply tw:size-8 tw:rounded-lg tw:bg-muted tw:text-foreground;
+  }
+  :where(.media[data-variant="icon"]) svg {
+    @apply tw:size-4;
+  }
+  :where(.title) {
+    @apply tw:m-0 tw:text-sm tw:font-medium tw:tracking-tight;
+  }
+  :where(.description) {
+    @apply tw:m-0 tw:text-sm/relaxed tw:text-muted-foreground;
+  }
+  :where(.description) > a {
+    @apply tw:underline tw:underline-offset-4;
+  }
+  :where(.description) > a:hover {
+    @apply tw:text-primary;
+  }
+  :where(.content) {
+    @apply tw:flex tw:inline-full tw:max-inline-sm tw:min-inline-0 tw:flex-col tw:items-center tw:gap-2.5 tw:text-sm tw:text-balance;
+  }
+  .artwork {
+    @apply tw:size-12 tw:text-primary;
+  }
+}
