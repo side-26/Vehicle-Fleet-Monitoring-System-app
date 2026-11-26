@@ -1,0 +1,20 @@
+@reference "../../../styles/globals.css";
+
+@layer admin-profile-menu {
+  .profile {
+    @apply tw:flex tw:items-center tw:gap-3 tw:text-start;
+    border-inline-start: 1px solid var(--border);
+    @apply tw:ps-[1.2em];
+  }
+  .profileText strong {
+    @apply tw:block tw:text-sm tw:font-semibold;
+  }
+  .profileText small {
+    @apply tw:block tw:text-xs tw:text-muted-foreground tw:mt-1;
+  }
+  @media (max-width: 47.99rem) {
+    .profileText {
+      @apply tw:hidden;
+    }
+  }
+}

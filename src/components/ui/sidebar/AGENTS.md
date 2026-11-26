@@ -5,3 +5,5 @@ Compound application navigation adapted from the existing shadcn sidebar. Owns c
 Sidebar color accepts primary and neutral (default). glassy defaults to true and reuses glass-interactive without scaling the navigation surface. Apply the same surface metadata to desktop, static and mobile panels. Primary remaps descendant sidebar tokens for readable active and inactive navigation.
 
 Round only the exposed inline edge of every sidebar surface with rounded-xl; keep its attachment edge square. Side metadata must be present on desktop inner, static, and mobile surfaces.
+
+Icon collapse widths for the desktop panel and spacer use explicit selectors rooted at `.outer[data-collapsible="icon"]`; keep these in sync for sidebar, floating and inset variants.

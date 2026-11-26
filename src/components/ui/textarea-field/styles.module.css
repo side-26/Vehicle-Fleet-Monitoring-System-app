@@ -17,7 +17,7 @@
   }
   :where(.root) {
     --field-color: var(--foreground);
-    color: var(--field-color);
+    @apply tw:text-(--field-color);
   }
   :where(.root[data-color="primary"]) {
     --field-color: var(--primary);
@@ -47,12 +47,11 @@
     @apply tw:text-[1em];
   }
   :where(.group:has([data-slot="input-group-control"]:focus-visible)) {
-    @apply tw:border-transparent;
-    @apply tw:outline-(--field-color);
+    @apply tw:border-transparent tw:outline-(--field-color);
   }
   :where(.root[data-variant="fill"] .group) {
     background: var(--field-color);
-    color: var(--background);
+    @apply tw:text-background;
   }
   :where(.root[data-variant="tonal"] .group) {
     background: color-mix(in oklch, var(--field-color) 12%, transparent);

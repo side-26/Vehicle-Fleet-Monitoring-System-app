@@ -1,0 +1,27 @@
+@reference "../../../styles/globals.css";
+
+@layer admin-navigation {
+  .menu {
+    @apply tw:gap-1;
+  }
+  .menuButton {
+    @apply tw:min-block-[3.4rem] tw:py-[0.85em] tw:px-[1.2em] tw:gap-5 tw:rounded-[0.8rem] tw:text-[1.0625rem] tw:text-sidebar-foreground;
+  }
+  .menuButton svg {
+    @apply tw:size-[1.4rem];
+  }
+  .menuButton[data-active],
+  .menuButton:hover {
+    @apply tw:bg-[#ffffff24];
+    @apply tw:text-white;
+  }
+  .menuButton[data-active] {
+    @apply tw:font-semibold;
+  }
+  :global([data-collapsible="icon"]) .menuButton {
+    @apply tw:justify-center tw:px-[0.5em];
+  }
+  :global([data-collapsible="icon"]) .menuButton span {
+    @apply tw:hidden;
+  }
+}

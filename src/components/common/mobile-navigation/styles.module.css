@@ -1,9 +1,8 @@
 @reference "../../../app/styles/globals.css";
 @layer mobile-navigation {
   .footer {
-    @apply tw:fixed tw:block;
-    inset-block-end: 0;
-    inset-inline: 0;
+    @apply tw:fixed tw:block tw:inset-be-0;
+    @apply tw:inset-s-0 tw:inset-e-0;
     @apply tw:z-20;
     padding: 0.5rem max(0.5rem, env(safe-area-inset-right))
       max(0.75rem, env(safe-area-inset-bottom)) max(0.5rem, env(safe-area-inset-left));
@@ -11,50 +10,31 @@
   }
 
   .navigationCard[data-slot="card"] {
-    @apply tw:inline-full tw:max-inline-3xl;
-    @apply tw:mx-auto;
-    @apply tw:p-[0.4em];
-    @apply tw:bg-card/85;
-    @apply tw:cursor-default;
-    @apply tw:pointer-events-auto;
-    @apply tw:rounded-[1.5em];
+    @apply tw:inline-full tw:max-inline-3xl tw:mx-auto tw:p-[0.4em] tw:bg-card/85 tw:cursor-default tw:pointer-events-auto tw:rounded-[1.5em];
   }
 
   .navigationCard[data-slot="card"]:is(:hover, :active) {
-    @apply tw:scale-none;
-    @apply tw:filter-none;
+    @apply tw:scale-none tw:filter-none;
   }
 
   .navigation {
-    @apply tw:grid;
-    @apply tw:grid-cols-5;
-    @apply tw:gap-[0.15em];
+    @apply tw:grid tw:grid-cols-5 tw:gap-[0.15em];
   }
 
   .link {
-    @apply tw:flex tw:flex-col tw:items-center tw:justify-center tw:gap-1 tw:rounded-xl tw:text-foreground;
-    @apply tw:min-block-14;
-    @apply tw:py-[0.5em] tw:px-[0.15em];
-    font-size: clamp(0.625rem, 1.6vi, 0.875rem);
-    @apply tw:font-semibold;
-    @apply tw:text-center;
-    @apply tw:no-underline;
-    @apply tw:touch-manipulation;
+    @apply tw:flex tw:flex-col tw:items-center tw:justify-center tw:gap-1 tw:rounded-xl tw:text-foreground tw:min-block-14 tw:py-[0.5em] tw:px-[0.15em] tw:text-[clamp(0.625rem,1.6vi,0.875rem)] tw:font-semibold tw:text-center tw:no-underline tw:touch-manipulation;
   }
 
   .link svg {
-    @apply tw:inline-[1.4rem];
-    @apply tw:block-[1.4rem];
+    @apply tw:inline-[1.4rem] tw:block-[1.4rem];
   }
 
   .link:is(:hover, [aria-current]) {
-    @apply tw:bg-primary/15;
-    @apply tw:text-primary;
+    @apply tw:bg-primary/15 tw:text-primary;
   }
 
   .link:focus-visible {
-    @apply tw:outline-2 tw:outline-solid tw:outline-ring;
-    @apply tw:outline-offset-2;
+    @apply tw:outline-2 tw:outline-solid tw:outline-ring tw:outline-offset-2;
   }
   @media (width > 1024px) {
     .footer {

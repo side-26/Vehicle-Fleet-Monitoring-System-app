@@ -1,0 +1,40 @@
+@reference "../../../app/styles/globals.css";
+
+@layer dot-badge {
+  :where(.dot) {
+    @apply tw:inline-block tw:shrink-0 tw:rounded-full tw:align-middle tw:text-primary tw:size-[0.65rem] tw:border-[0.125rem] tw:border-solid tw:border-card;
+  }
+  :where(.dot[data-size="lg"]) {
+    @apply tw:size-4;
+  }
+  :where(.dot[data-color="secondary"]) {
+    @apply tw:text-secondary;
+  }
+  :where(.dot[data-color="success"]) {
+    @apply tw:text-success;
+  }
+  :where(.dot[data-color="error"]) {
+    @apply tw:text-error;
+  }
+  :where(.dot[data-color="neutral"]) {
+    @apply tw:text-muted-foreground;
+  }
+  :where(.dot[data-position]) {
+    @apply tw:absolute;
+  }
+  :where(.dot[data-position^="top-"]) {
+    @apply tw:inset-bs-1;
+  }
+  :where(.dot[data-position^="bottom-"]) {
+    @apply tw:inset-be-1;
+  }
+  :where(.dot[data-position$="-start"]) {
+    @apply tw:inset-s-[0.3rem];
+  }
+  :where(.dot[data-position$="-end"]) {
+    @apply tw:inset-e-[0.3rem];
+  }
+  .preview {
+    @apply tw:relative tw:flex tw:items-center tw:gap-3 tw:bg-card tw:text-card-foreground tw:rounded-lg tw:p-[1em];
+  }
+}

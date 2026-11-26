@@ -5,9 +5,7 @@
     @apply tw:isolate tw:z-50;
   }
   .content {
-    @apply tw:z-50 tw:flex tw:flex-col tw:gap-2 tw:rounded-lg tw:bg-popover tw:p-3 tw:text-sm tw:text-popover-foreground tw:shadow-md tw:ring-1 tw:ring-foreground/10 tw:outline-none;
-    inline-size: 18rem;
-    max-inline-size: calc(100vw - 2rem);
+    @apply tw:z-50 tw:flex tw:flex-col tw:gap-2 tw:rounded-lg tw:bg-popover tw:p-3 tw:text-sm tw:text-popover-foreground tw:shadow-md tw:ring-1 tw:ring-foreground/10 tw:outline-none tw:inline-72 tw:max-inline-[calc(100vw-2rem)];
     transform-origin: var(--transform-origin);
     transition:
       opacity 150ms ease,
@@ -15,8 +13,7 @@
   }
   .content[data-starting-style],
   .content[data-ending-style] {
-    opacity: 0;
-    scale: 0.95;
+    @apply tw:opacity-0 tw:scale-95;
   }
   .header {
     @apply tw:flex tw:flex-col tw:gap-1;

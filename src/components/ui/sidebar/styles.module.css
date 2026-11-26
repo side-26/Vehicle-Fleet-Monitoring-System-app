@@ -118,8 +118,7 @@
     @apply tw:flex tw:block-7 tw:min-inline-0 tw:-translate-x-px tw:items-center tw:gap-2 tw:overflow-hidden tw:rounded-md tw:px-[0.5em] tw:text-sidebar-foreground tw:ring-sidebar-ring tw:outline-hidden tw:group-data-[collapsible=icon]:hidden tw:hover:bg-sidebar-accent tw:hover:text-sidebar-accent-foreground tw:focus-visible:ring-2 tw:active:bg-sidebar-accent tw:active:text-sidebar-accent-foreground tw:disabled:pointer-events-none tw:disabled:opacity-50 tw:aria-disabled:pointer-events-none tw:aria-disabled:opacity-50 tw:data-[size=md]:text-sm tw:data-[size=sm]:text-xs tw:data-active:bg-sidebar-accent tw:data-active:text-sidebar-accent-foreground tw:[&>span:last-child]:truncate tw:[&>svg]:size-4 tw:[&>svg]:shrink-0 tw:[&>svg]:text-sidebar-accent-foreground;
   }
   .menuButton {
-    @apply tw:flex tw:items-center tw:gap-2 tw:rounded-md tw:text-sm tw:bg-transparent tw:text-sidebar-foreground tw:hover:bg-sidebar-accent tw:hover:text-sidebar-accent-foreground tw:focus-visible:ring-2 tw:ring-sidebar-ring tw:disabled:opacity-50;
-    @apply tw:inline-full tw:p-[0.5em] tw:text-start;
+    @apply tw:flex tw:items-center tw:gap-2 tw:rounded-md tw:text-sm tw:bg-transparent tw:text-sidebar-foreground tw:hover:bg-sidebar-accent tw:hover:text-sidebar-accent-foreground tw:focus-visible:ring-2 tw:ring-sidebar-ring tw:disabled:opacity-50 tw:inline-full tw:p-[0.5em] tw:text-start;
   }
   .menuButton[data-active] {
     @apply tw:bg-sidebar-accent tw:text-sidebar-accent-foreground tw:font-medium;
@@ -143,8 +142,7 @@
     @apply tw:fixed tw:inset-0 tw:bg-black/50;
   }
   .mobile {
-    @apply tw:fixed tw:inset-y-0 tw:bg-sidebar tw:text-sidebar-foreground tw:flex tw:flex-col;
-    @apply tw:inline-[min(18rem,90vi)] tw:inset-s-0 tw:p-[0.5em];
+    @apply tw:fixed tw:inset-y-0 tw:bg-sidebar tw:text-sidebar-foreground tw:flex tw:flex-col tw:inline-[min(18rem,90vi)] tw:inset-s-0 tw:p-[0.5em];
   }
   .mobile[data-side="right"] {
     @apply tw:inset-s-auto tw:inset-e-0;
@@ -202,5 +200,18 @@
   }
   .surface:where([data-side="right"]) {
     @apply tw:rounded-s-xl tw:rounded-e-none;
+  }
+}
+
+@layer sidebar {
+  .outer[data-collapsible="icon"] .iconGap,
+  .outer[data-collapsible="icon"] .borderedPanel {
+    @apply tw:inline-(--sidebar-width-icon);
+  }
+  .outer[data-collapsible="icon"] .paddedIconGap {
+    @apply tw:inline-[calc(var(--sidebar-width-icon)+1rem)];
+  }
+  .outer[data-collapsible="icon"] .paddedPanel {
+    @apply tw:inline-[calc(var(--sidebar-width-icon)+1rem+0.125rem)];
   }
 }

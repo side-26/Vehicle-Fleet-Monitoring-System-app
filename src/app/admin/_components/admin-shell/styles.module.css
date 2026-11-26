@@ -1,0 +1,99 @@
+@reference "../../../styles/globals.css";
+@layer components, sidebar, admin-shell;
+
+@layer admin-shell {
+  .shell {
+    @apply tw:min-block-dvh tw:text-foreground;
+    background: radial-gradient(
+      ellipse at 45% 0%,
+      color-mix(in oklch, var(--info) 5%, var(--background)),
+      var(--background) 70%
+    );
+  }
+  .sidebar {
+    @apply tw:border-0;
+  }
+  .sidebar[data-mobile="true"],
+  .sidebar > [data-slot="sidebar-inner"] {
+    @apply tw:relative tw:overflow-hidden tw:rounded-none tw:text-[#d4e9eb];
+    background:
+      radial-gradient(ellipse at 0% 95%, #00858b55, transparent 50%),
+      linear-gradient(155deg, #004b4e, #003d42 65%, #00565c);
+    --sidebar-foreground: #d4e9eb;
+    --sidebar-accent: #ffffff24;
+    --sidebar-accent-foreground: #fff;
+    --sidebar-ring: #76e2df;
+  }
+  .sidebarHeader {
+    @apply tw:pt-[1.75em] tw:px-[1.9em] tw:pb-[1.65em] tw:z-1;
+  }
+  .brand {
+    @apply tw:flex tw:items-center tw:gap-3 tw:text-3xl tw:font-bold tw:tracking-tight tw:no-underline tw:text-white tw:whitespace-nowrap;
+  }
+  .brand img {
+    @apply tw:rounded-full tw:shrink-0 tw:size-[2.8rem];
+  }
+  .sidebarContent {
+    @apply tw:relative tw:z-1 tw:py-[0.5em] tw:px-[1.05em];
+  }
+  .waves {
+    @apply tw:absolute tw:-inset-be-40 tw:-inset-s-32 tw:inline-140 tw:block-80;
+    @apply tw:border tw:border-solid tw:border-[#18b5bd66];
+    @apply tw:rounded-[45%];
+    transform: rotate(-30deg);
+    background: linear-gradient(180deg, #0cb3b32b, transparent);
+    @apply tw:pointer-events-none;
+  }
+  .waves::after {
+    content: "";
+    @apply tw:absolute;
+    inset: 4rem -1rem;
+    @apply tw:border tw:border-solid tw:border-[#18b5bd55];
+    @apply tw:rounded-[45%];
+  }
+  :global([data-collapsible="icon"]) .sidebarHeader {
+    @apply tw:px-[1em];
+  }
+  :global([data-collapsible="icon"]) .brand span {
+    @apply tw:hidden;
+  }
+  :global([data-collapsible="icon"]) .sidebarContent {
+    @apply tw:px-[0.65em];
+  }
+  .workspace {
+    @apply tw:min-inline-0 tw:flex-1 tw:rounded-none tw:border-0 tw:p-0 tw:gap-0 tw:cursor-auto tw:shadow-none tw:backdrop-filter-none tw:transition-none;
+  }
+  .workspace:hover,
+  .workspace:active {
+    @apply tw:scale-none tw:filter-none;
+  }
+  .topbar {
+    @apply tw:flex tw:items-center tw:gap-6 tw:border-b tw:border-border/40 tw:bg-card/70 tw:min-block-20 tw:py-[1em] tw:px-[2em];
+  }
+  .search {
+    @apply tw:inline-[min(28rem,45%)];
+  }
+  .actions {
+    @apply tw:flex tw:items-center tw:gap-4 tw:ms-auto;
+  }
+  .content {
+    @apply tw:p-[2em] tw:flex-1;
+  }
+  .skipLink {
+    @apply tw:fixed tw:bg-card tw:p-3 tw:rounded-lg tw:-inset-bs-20 tw:inset-s-4 tw:z-50;
+  }
+  .skipLink:focus {
+    @apply tw:inset-bs-4;
+  }
+  @media (max-width: 47.99rem) {
+    .topbar {
+      @apply tw:flex-wrap tw:p-[1em] tw:gap-3;
+    }
+    .search {
+      @apply tw:order-3 tw:inline-full;
+    }
+    .content {
+      @apply tw:p-[1em];
+    }
+  }
+}

@@ -2,9 +2,7 @@
 
 @layer landing-shell {
   .shell {
-    @apply tw:min-block-dvh;
-    @apply tw:flex;
-    @apply tw:flex-col;
+    @apply tw:min-block-dvh tw:flex tw:flex-col;
   }
 
   .header {
@@ -39,18 +37,16 @@
   }
 
   .brand {
-    @apply tw:inline-flex tw:rounded-lg;
-    @apply tw:py-[0.35em] tw:px-[0.5em];
+    @apply tw:inline-flex tw:rounded-lg tw:py-[0.35em] tw:px-[0.5em];
   }
 
   .brand img {
-    @apply tw:inline-12;
-    @apply tw:block-auto;
+    @apply tw:inline-12 tw:block-auto;
   }
 
   @media (min-width: 48rem) {
     .brand img {
-      inline-size: clamp(8rem, 22vi, 12rem);
+      @apply tw:inline-[clamp(8rem,22vi,12rem)];
     }
   }
 
@@ -60,8 +56,7 @@
   }
 
   .brand:focus-visible {
-    @apply tw:outline-2 tw:outline-solid tw:outline-ring;
-    @apply tw:outline-offset-2;
+    @apply tw:outline-2 tw:outline-solid tw:outline-ring tw:outline-offset-2;
   }
 
   @media (width > 1024px) {
@@ -111,8 +106,7 @@
 
     .footerBrand p,
     .footerGroup p {
-      @apply tw:text-sm tw:leading-relaxed tw:mt-3;
-      max-inline-size: 20rem;
+      @apply tw:text-sm tw:leading-relaxed tw:mt-3 tw:max-inline-80;
     }
 
     .footerGroup {

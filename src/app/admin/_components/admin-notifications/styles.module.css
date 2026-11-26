@@ -1,0 +1,7 @@
+@reference "../../../styles/globals.css";
+
+@layer admin-notifications {
+  .notification {
+    @apply tw:relative tw:rounded-full;
+  }
+}

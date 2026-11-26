@@ -5,10 +5,9 @@
     @apply tw:fixed tw:inset-0 tw:z-50 tw:bg-black/40 tw:backdrop-blur-xs;
   }
   .content {
-    @apply tw:fixed tw:top-1/2 tw:z-50 tw:grid tw:gap-4 tw:rounded-xl tw:bg-popover tw:p-4 tw:text-popover-foreground tw:shadow-lg tw:ring-1 tw:ring-foreground/10 tw:outline-none;
-    inset-inline-start: 50%;
+    @apply tw:fixed tw:top-1/2 tw:z-50 tw:grid tw:gap-4 tw:rounded-xl tw:bg-popover tw:p-4 tw:text-popover-foreground tw:shadow-lg tw:ring-1 tw:ring-foreground/10 tw:outline-none tw:inset-s-1/2;
     translate: -50% -50%;
-    inline-size: min(calc(100% - 2rem), var(--dialog-max-inline-size));
+    @apply tw:inline-[min(calc(100%-2rem),var(--dialog-max-inline-size))];
     --dialog-max-inline-size: 28rem;
   }
   .content[data-size="sm"] {
@@ -27,8 +26,7 @@
     @apply tw:glass-interactive tw:bg-[color-mix(in_oklch,var(--popover)_85%,transparent)];
   }
   .closeButton {
-    @apply tw:absolute tw:top-2;
-    inset-inline-end: 0.5rem;
+    @apply tw:absolute tw:top-2 tw:inset-e-2;
   }
   .header {
     @apply tw:flex tw:flex-col tw:gap-2;

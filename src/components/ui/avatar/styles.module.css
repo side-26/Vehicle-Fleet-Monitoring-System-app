@@ -2,8 +2,7 @@
 
 @layer avatar {
   .avatar {
-    @apply tw:relative tw:flex tw:size-10 tw:shrink-0 tw:rounded-full tw:select-none;
-    @apply tw:border tw:border-border;
+    @apply tw:relative tw:flex tw:size-10 tw:shrink-0 tw:rounded-full tw:select-none tw:border tw:border-border;
   }
 
   .image {
@@ -11,16 +10,11 @@
   }
 
   .fallback {
-    @apply tw:glass-interactive tw:flex tw:size-full tw:items-center tw:justify-center;
-    @apply tw:rounded-full tw:bg-muted tw:text-sm tw:font-medium tw:text-foreground;
+    @apply tw:glass-interactive tw:flex tw:size-full tw:items-center tw:justify-center tw:rounded-full tw:bg-muted tw:text-sm tw:font-medium tw:text-foreground;
   }
 
   .badge {
-    @apply tw:absolute tw:bottom-0 tw:z-10;
-    @apply tw:inline-flex tw:size-3 tw:items-center tw:justify-center tw:rounded-full;
-    @apply tw:bg-primary tw:text-primary-foreground tw:ring-2 tw:ring-background;
-
-    inset-inline-end: 0;
+    @apply tw:absolute tw:bottom-0 tw:z-10 tw:inline-flex tw:size-3 tw:items-center tw:justify-center tw:rounded-full tw:bg-primary tw:text-primary-foreground tw:ring-2 tw:ring-background tw:inset-e-0;
   }
 
   .group {
@@ -32,8 +26,6 @@
   }
 
   .groupCount {
-    @apply tw:glass-interactive tw:relative tw:flex tw:size-10 tw:shrink-0;
-    @apply tw:items-center tw:justify-center tw:rounded-full tw:bg-muted;
-    @apply tw:text-sm tw:font-medium tw:text-foreground tw:ring-2 tw:ring-background;
+    @apply tw:glass-interactive tw:relative tw:flex tw:size-10 tw:shrink-0 tw:items-center tw:justify-center tw:rounded-full tw:bg-muted tw:text-sm tw:font-medium tw:text-foreground tw:ring-2 tw:ring-background;
   }
 }

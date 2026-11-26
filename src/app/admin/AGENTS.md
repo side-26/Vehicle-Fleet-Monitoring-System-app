@@ -1,5 +1,3 @@
 # Admin routes
 
-This folder contains administrative route segments and the layout shared by admin pages.
-
-The layout renders child routes.
+Admin route children render inside the shared admin shell. The layout composes existing UI primitives for navigation, header and content framing; it does not own dashboard widgets or data.

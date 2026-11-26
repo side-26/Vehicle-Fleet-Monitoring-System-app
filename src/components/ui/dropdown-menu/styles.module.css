@@ -25,7 +25,7 @@
   }
   .item[data-inset],
   .label[data-inset] {
-    padding-inline-start: 1.75em;
+    @apply tw:ps-[1.75em];
   }
   .subTrigger {
     @apply tw:justify-between;
@@ -34,18 +34,16 @@
     @apply tw:size-4;
   }
   .checkable {
-    padding-inline-start: 2em;
+    @apply tw:ps-[2em];
   }
   .indicator {
-    @apply tw:absolute tw:inline-flex tw:items-center;
-    inset-inline-start: 0.5em;
+    @apply tw:absolute tw:inline-flex tw:items-center tw:inset-s-[0.5em];
   }
   .indicator svg {
     @apply tw:size-4;
   }
   .separator {
-    @apply tw:my-1 tw:bg-border;
-    block-size: 1px;
+    @apply tw:my-1 tw:bg-border tw:block-px;
   }
   .shortcut {
     @apply tw:ms-auto tw:text-xs tw:tracking-widest tw:text-muted-foreground;

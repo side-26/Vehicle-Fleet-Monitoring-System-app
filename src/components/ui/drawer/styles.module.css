@@ -8,7 +8,7 @@
   }
   .overlay[data-starting-style],
   .overlay[data-ending-style] {
-    opacity: 0;
+    @apply tw:opacity-0;
   }
   .overlay[data-snap-points] {
     --drawer-overlay-min-opacity: 0.5;
@@ -31,33 +31,25 @@
     transition: transform 350ms cubic-bezier(0.22, 1, 0.36, 1);
   }
   .popup[data-swipe-axis="y"] {
-    inset-inline: 0;
-    block-size: var(--drawer-height, auto);
-    max-block-size: calc(100dvh - 2rem);
+    @apply tw:inset-s-0 tw:inset-e-0;
+    @apply tw:block-(--drawer-height,auto);
+    @apply tw:max-block-[calc(100dvh-2rem)];
   }
   .popup[data-swipe-axis="x"] {
-    inset-block: 0;
-    inline-size: var(--drawer-width);
+    @apply tw:inset-bs-0 tw:inset-be-0;
+    @apply tw:inline-(--drawer-width);
   }
   .popup[data-swipe-direction="down"] {
-    inset-block-end: 0;
-    border-end-start-radius: 0;
-    border-end-end-radius: 0;
+    @apply tw:inset-be-0 tw:rounded-es-none tw:rounded-ee-none;
   }
   .popup[data-swipe-direction="up"] {
-    inset-block-start: 0;
-    border-start-start-radius: 0;
-    border-start-end-radius: 0;
+    @apply tw:inset-bs-0 tw:rounded-ss-none tw:rounded-se-none;
   }
   .popup[data-swipe-direction="left"] {
-    inset-inline-start: 0;
-    border-start-start-radius: 0;
-    border-end-start-radius: 0;
+    @apply tw:inset-s-0 tw:rounded-ss-none tw:rounded-es-none;
   }
   .popup[data-swipe-direction="right"] {
-    inset-inline-end: 0;
-    border-start-end-radius: 0;
-    border-end-end-radius: 0;
+    @apply tw:inset-e-0 tw:rounded-se-none tw:rounded-ee-none;
   }
   .popup[data-swipe-direction="down"][data-starting-style],
   .popup[data-swipe-direction="down"][data-ending-style] {
@@ -76,11 +68,11 @@
     transform: translateX(100%);
   }
   .popup[data-swiping] {
-    transition: none;
+    @apply tw:transition-none;
   }
   .popup[data-snap-points] {
-    block-size: 100dvh;
-    max-block-size: 100dvh;
+    @apply tw:block-dvh;
+    @apply tw:max-block-dvh;
   }
   .content {
     @apply tw:flex tw:min-h-0 tw:flex-1 tw:flex-col tw:overflow-auto tw:overscroll-contain;
@@ -91,22 +83,19 @@
   .swipeHandle::after {
     @apply tw:block tw:rounded-full tw:bg-muted-foreground/50;
     content: "";
-    inline-size: 5em;
-    block-size: 0.25em;
+    @apply tw:inline-[5em] tw:block-[0.25em];
   }
   .popup[data-swipe-axis="x"] .swipeHandle {
-    @apply tw:absolute tw:inset-y-0;
-    inline-size: 1em;
+    @apply tw:absolute tw:inset-y-0 tw:inline-[1em];
   }
   .popup[data-swipe-axis="x"] .swipeHandle::after {
-    inline-size: 0.25em;
-    block-size: 5em;
+    @apply tw:inline-[0.25em] tw:block-[5em];
   }
   .popup[data-swipe-direction="right"] .swipeHandle {
-    inset-inline-start: 0;
+    @apply tw:inset-s-0;
   }
   .popup[data-swipe-direction="left"] .swipeHandle {
-    inset-inline-end: 0;
+    @apply tw:inset-e-0;
   }
   .header {
     @apply tw:flex tw:flex-col tw:gap-1 tw:p-4 tw:pb-0;

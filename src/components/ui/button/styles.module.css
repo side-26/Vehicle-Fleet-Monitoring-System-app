@@ -2,13 +2,7 @@
 
 @layer components {
   .button {
-    @apply tw:glass-interactive tw:capitalize;
-
-    @apply tw:inline-flex tw:items-center tw:justify-center;
-    @apply tw:select-none tw:whitespace-nowrap tw:font-medium;
-    @apply tw:px-[1em] tw:py-[0.5em] tw:gap-[0.5em];
-    @apply tw:rounded-lg;
-    @apply tw:border tw:border-solid tw:border-transparent;
+    @apply tw:glass-interactive tw:capitalize tw:inline-flex tw:items-center tw:justify-center tw:select-none tw:whitespace-nowrap tw:font-medium tw:px-[1em] tw:py-[0.5em] tw:gap-[0.5em] tw:rounded-lg tw:border tw:border-solid tw:border-transparent;
 
     --button-color: var(--primary);
     --button-foreground: var(--primary-foreground);
@@ -62,15 +56,13 @@
     &[data-variant="filled"] {
       background-color: color-mix(in oklch, var(--button-color) 85%, transparent);
 
-      color: var(--button-foreground);
+      @apply tw:text-(--button-foreground);
     }
 
     /* Outlined */
 
     &[data-variant="outlined"] {
-      background-color: transparent;
-      border-color: var(--button-color);
-      color: var(--button-color);
+      @apply tw:bg-transparent tw:border-(--button-color) tw:text-(--button-color);
     }
 
     /* Tonal */
@@ -80,16 +72,13 @@
 
       border-color: color-mix(in oklch, var(--button-color) 25%, transparent);
 
-      color: var(--button-color);
+      @apply tw:text-(--button-color);
     }
 
     /* Ghost */
 
     &[data-variant="ghost"] {
-      background-color: transparent;
-      color: var(--button-color);
-      box-shadow: none;
-      backdrop-filter: none;
+      @apply tw:bg-transparent tw:text-(--button-color) tw:shadow-none tw:backdrop-filter-none;
 
       @media (hover: hover) and (pointer: fine) {
         &:hover:not(:disabled, [data-disabled]) {
@@ -111,36 +100,28 @@
     /* Link */
 
     &[data-variant="link"] {
-      @apply tw:p-0 tw:border-0 tw:rounded-none;
-      @apply tw:underline-offset-4;
-
-      background-color: transparent;
-      color: var(--button-color);
-      box-shadow: none;
-      backdrop-filter: none;
+      @apply tw:p-0 tw:border-0 tw:rounded-none tw:underline-offset-4 tw:bg-transparent tw:text-(--button-color) tw:shadow-none tw:backdrop-filter-none;
 
       &:hover,
       &:active {
-        scale: 1;
-        filter: none;
+        @apply tw:scale-100 tw:filter-none;
       }
 
       @media (hover: hover) and (pointer: fine) {
         &:hover:not(:disabled, [data-disabled]) {
-          text-decoration: underline;
+          @apply tw:underline;
         }
       }
 
       &:active:not(:disabled, [data-disabled]) {
-        opacity: 0.7;
+        @apply tw:opacity-70;
       }
     }
 
     /* Icons */
 
     & > svg {
-      @apply tw:size-[1.125em] tw:shrink-0;
-      pointer-events: none;
+      @apply tw:size-[1.125em] tw:shrink-0 tw:pointer-events-none;
     }
   }
 }

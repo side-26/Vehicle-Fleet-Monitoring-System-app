@@ -31,13 +31,11 @@
     @apply tw:text-error;
   }
   :where(.checkbox) {
-    color: var(--field-color);
-    @apply tw:relative tw:flex tw:size-[1em] tw:mt-[0.25em] tw:shrink-0 tw:items-center tw:justify-center tw:rounded-[0.25em] tw:border tw:border-current tw:bg-transparent tw:text-[1em] tw:outline-none tw:transition-colors;
+    @apply tw:text-(--field-color) tw:relative tw:flex tw:size-[1em] tw:mt-[0.25em] tw:shrink-0 tw:items-center tw:justify-center tw:rounded-[0.25em] tw:border tw:border-current tw:bg-transparent tw:text-[1em] tw:outline-none tw:transition-colors;
   }
   :where(.checkbox[data-checked], .checkbox[data-indeterminate]) {
     background: var(--field-color);
-    border-color: var(--field-color);
-    color: var(--background);
+    @apply tw:border-(--field-color) tw:text-background;
   }
   :where(.checkbox:focus-visible) {
     @apply tw:outline-2 tw:outline-offset-2;

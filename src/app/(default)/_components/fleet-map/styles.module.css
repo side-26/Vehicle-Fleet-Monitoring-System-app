@@ -18,7 +18,7 @@
   }
   .legend > li + li::before {
     content: "";
-    block-size: 1em;
+    @apply tw:block-[1em];
     border-inline-start: thin solid currentColor;
     @apply tw:opacity-40 tw:me-4;
   }

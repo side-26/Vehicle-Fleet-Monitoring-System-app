@@ -40,7 +40,7 @@
 
   :where(.media) > svg {
     @apply tw:size-7;
-    stroke-width: 1.6;
+    @apply tw:stroke-[1.6];
   }
 
   :where(.content) {

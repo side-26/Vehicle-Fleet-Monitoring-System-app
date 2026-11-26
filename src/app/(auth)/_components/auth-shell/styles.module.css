@@ -31,8 +31,7 @@
   }
 
   :where(.brand) {
-    @apply tw:relative tw:inline-flex tw:items-center tw:gap-[0.4em] tw:m-[0.75em] tw:rounded-xl tw:bg-background/85 tw:p-[0.25em] tw:text-2xl tw:font-bold tw:tracking-tight tw:no-underline tw:md:m-[1em] tw:lg:m-[1em] tw:lg:text-[clamp(1.25rem,3dvh,1.875rem)];
-    color: var(--foreground);
+    @apply tw:relative tw:inline-flex tw:items-center tw:gap-[0.4em] tw:m-[0.75em] tw:rounded-xl tw:bg-background/85 tw:p-[0.25em] tw:text-2xl tw:font-bold tw:tracking-tight tw:no-underline tw:md:m-[1em] tw:lg:m-[1em] tw:lg:text-[clamp(1.25rem,3dvh,1.875rem)] tw:text-foreground;
   }
 
   :where(.brand img) {

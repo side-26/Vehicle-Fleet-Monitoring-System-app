@@ -1,5 +1,7 @@
+@reference "../../../app/styles/globals.css";
+
 @layer search-field {
   :where(.input)::-webkit-search-cancel-button {
-    appearance: none;
+    @apply tw:appearance-none;
   }
 }
