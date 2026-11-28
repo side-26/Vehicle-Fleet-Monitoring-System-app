@@ -26,7 +26,7 @@ const sidebarStyle = {
   minWidth: "2.5rem",
 } satisfies CSSProperties & Record<string, string>;
 
-export function AdminShell({ children }: { readonly children: ReactNode }) {
+export function DesktopAdminLayoutShell({ children }: { readonly children: ReactNode }) {
   return (
     <SidebarProvider className={styles.shell} style={sidebarStyle}>
       <AdminFrame>{children}</AdminFrame>

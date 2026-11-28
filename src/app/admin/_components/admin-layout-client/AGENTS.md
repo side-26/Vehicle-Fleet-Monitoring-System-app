@@ -1,0 +1,3 @@
+# Admin layout client
+
+Selects one dynamically imported shell using the existing useIsMobile(1025) hook: mobile/tablet through 1024px, desktop above it. A client-only next/dynamic boundary prevents the hook's server default from mounting desktop on a phone. ResponsiveAdminLayout uses next/dynamic with LoadingLayout for each shell loading fallback; it needs no separate mounted-state check. Each shell and its CSS load on demand; viewport changes replace the active shell. Children render once inside that shell. TooltipProvider remains in the parent route layout. Shell designs and behaviors stay in their existing folders.

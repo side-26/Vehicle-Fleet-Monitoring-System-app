@@ -1,0 +1,13 @@
+@reference "../../../../../styles/globals.css";
+
+@layer admin-profile-menu-content {
+  .identity {
+    @apply tw:flex tw:flex-col tw:gap-1;
+  }
+  .identity strong {
+    @apply tw:text-sm tw:font-semibold;
+  }
+  .identity span {
+    @apply tw:text-xs tw:text-muted-foreground;
+  }
+}

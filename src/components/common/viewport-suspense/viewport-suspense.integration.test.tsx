@@ -1,4 +1,5 @@
-import { createRef, lazy, useCallback, useState, type ComponentType } from "react";
+import dynamic from "next/dynamic";
+import { createRef, useCallback, useState, type ComponentType } from "react";
 
 import { act, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
@@ -20,7 +21,7 @@ function Counter() {
 
 afterEach(() => vi.unstubAllGlobals());
 
-it("defers the lazy import until 35% entry, suspends, then retains loaded state", async () => {
+it("defers the dynamic import until 35% entry, suspends, then retains loaded state", async () => {
   const callbacks: IntersectionObserverCallback[] = [];
   const options: (IntersectionObserverInit | undefined)[] = [];
   const disconnect = vi.fn();
@@ -44,9 +45,9 @@ it("defers the lazy import until 35% entry, suspends, then retains loaded state"
       }
     },
   );
-  const lazyModule = Promise.withResolvers<{ default: typeof Counter }>();
-  const loader = vi.fn(() => lazyModule.promise);
-  const Main = lazy(loader);
+  const dynamicModule = Promise.withResolvers<{ default: typeof Counter }>();
+  const loader = vi.fn(() => dynamicModule.promise);
+  const Main = dynamic(loader, { loading: () => fallback });
   const main = createMain(Main);
   const ref = createRef<HTMLDivElement>();
   const { unmount } = render(
@@ -83,8 +84,8 @@ it("defers the lazy import until 35% entry, suspends, then retains loaded state"
   expect(loader).toHaveBeenCalledTimes(1);
   expect(screen.getByText("Loading section")).toBeInTheDocument();
   await act(async () => {
-    lazyModule.resolve({ default: Counter });
-    await lazyModule.promise;
+    dynamicModule.resolve({ default: Counter });
+    await dynamicModule.promise;
   });
   const user = userEvent.setup();
   await user.click(await screen.findByRole("button", { name: "Count 0" }));
@@ -98,7 +99,7 @@ it("defers the lazy import until 35% entry, suspends, then retains loaded state"
 
 it("loads content if IntersectionObserver is unavailable", async () => {
   vi.stubGlobal("IntersectionObserver", undefined);
-  const Main = lazy(async () => ({ default: Counter }));
+  const Main = dynamic(async () => Counter, { loading: () => fallback });
   const main = createMain(Main);
   render(<ViewportSuspense fallback={fallback} dynamicMain={main} />);
   expect(await screen.findByRole("button", { name: "Count 0" })).toBeInTheDocument();

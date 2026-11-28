@@ -1,0 +1,31 @@
+@reference "../../../styles/globals.css";
+@layer components, mobile-admin-bottom-navigation;
+
+@layer mobile-admin-bottom-navigation {
+  .navigationCard {
+    @apply tw:gap-0 tw:border-0 tw:rounded-none tw:p-0 tw:shadow-none tw:cursor-auto tw:transition-none tw:backdrop-filter-none;
+  }
+  .navigationCard:hover,
+  .navigationCard:active {
+    @apply tw:scale-none tw:filter-none;
+  }
+  .footer {
+    @apply tw:fixed tw:inset-be-0 tw:inset-s-0 tw:inset-e-0 tw:z-10 tw:bg-card/95 tw:border-t tw:border-border;
+    padding-block-end: env(safe-area-inset-bottom, 0rem);
+  }
+  .navigationContent {
+    @apply tw:p-2 tw:mx-auto tw:max-inline-4xl;
+  }
+  .navigation {
+    @apply tw:grid tw:grid-cols-5 tw:gap-1;
+  }
+  .navigationItem {
+    @apply tw:flex tw:flex-col tw:items-center tw:justify-center tw:gap-1 tw:min-block-14 tw:min-inline-0 tw:px-[0.2em] tw:py-[0.5em] tw:text-[0.625rem] tw:rounded-xl;
+  }
+  .navigationItem[aria-current="page"] {
+    @apply tw:bg-primary/10 tw:text-primary;
+  }
+  .navigationItem svg {
+    @apply tw:size-5;
+  }
+}

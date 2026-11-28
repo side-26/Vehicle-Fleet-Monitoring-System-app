@@ -1,6 +1,7 @@
 "use client";
 
-import { lazy, useMemo } from "react";
+import dynamic from "next/dynamic";
+import { useMemo } from "react";
 
 import {
   demoFleetCounts,
@@ -13,14 +14,15 @@ import { ViewportSuspense } from "@/components/common/viewport-suspense";
 
 import styles from "./styles.module.css";
 
-const LazyFleetMap = lazy(() =>
-  import("@/app/(default)/_components/fleet-map").then((module) => ({ default: module.FleetMap })),
-);
 const fallback = <output className={styles.fallback}>Loading fleet map…</output>;
+const DynamicFleetMap = dynamic(
+  () => import("@/app/(default)/_components/fleet-map").then((module) => module.FleetMap),
+  { loading: () => fallback },
+);
 
 export function FleetMapSection({ apiKey }: { readonly apiKey?: string }) {
   const preview = useMemo(
-    () => <LazyFleetMap counts={demoFleetCounts} apiKey={apiKey} />,
+    () => <DynamicFleetMap counts={demoFleetCounts} apiKey={apiKey} />,
     [apiKey],
   );
   return (

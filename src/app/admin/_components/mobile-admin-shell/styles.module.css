@@ -1,0 +1,21 @@
+@reference "../../../styles/globals.css";
+@layer components, mobile-admin-shell;
+
+@layer mobile-admin-shell {
+  .shell {
+    @apply tw:min-block-dvh tw:bg-background tw:text-foreground;
+    --mobile-nav-space: calc(6rem + env(safe-area-inset-bottom, 0rem));
+  }
+  .content {
+    @apply tw:p-4 tw:pb-(--mobile-nav-space);
+  }
+  .skipLink {
+    @apply tw:fixed tw:-inset-bs-20 tw:inset-s-4 tw:z-20 tw:rounded-lg tw:p-3 tw:bg-card;
+  }
+  .skipLink:focus {
+    @apply tw:inset-bs-4;
+  }
+  .storyContent {
+    @apply tw:min-block-[120dvh];
+  }
+}

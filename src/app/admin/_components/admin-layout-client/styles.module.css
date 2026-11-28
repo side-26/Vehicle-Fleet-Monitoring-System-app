@@ -1,0 +1,6 @@
+@reference "../../../styles/globals.css";
+@layer admin-layout-client {
+  .loading {
+    @apply tw:grid tw:min-block-dvh tw:place-items-center tw:bg-background;
+  }
+}
