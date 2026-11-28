@@ -66,6 +66,7 @@
     ]
   },
   "ignorePatterns": [
+    "src/shared/**",
     ".next/",
     "out/",
     "dist/",
